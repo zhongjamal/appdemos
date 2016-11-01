@@ -1,0 +1,192 @@
+﻿@charset "utf-8";
+/*	
+ * @名称: base.css
+ * @功能: 初始化各html标签，使其在所有浏览器下保持一致
+ * @作者：钟含武
+ * @时间：20150616
+ */
+
+/* 防止用户自定义背景颜色对网页的影响 */
+html{color:#333;font-size: 100%;-webkit-text-size-adjust: 100%;-ms-text-size-adjust:100%;}
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+	margin:0;padding:0;
+}
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG)*/
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display:block;}
+/* HTML5 媒体文件跟 img 保持一致*/
+audio,canvas,video {display: inline-block;*display: inline;*zoom:1;}
+/* 要注意表单元素并不继承父级 font 的问题*/
+body,button,input,select,textarea{color:#333;font:14px/1.5 arial,"Microsoft Yahei","Hiragino Sans GB",sans-serif;_font-family:"SimSun";}
+input,select,textarea{font-size:100%;background:#fff; vertical-align:middle;}
+
+/* 去掉各Table  cell 的边距并让其边重合，防止表格内文字不能换行*/
+table{border-collapse:collapse;border-spacing:0;table-layout:fixed;word-wrap:break-word;word-break:break-all;width:100%;vertical-align:top;}
+th,td{vertical-align: top;}
+
+/* IE bug fixed: th 不继承 text-align*/
+th{text-align:inherit;}
+/* 去除默认边框*/
+fieldset,img{border:none;}
+/* ie6 7 8(q) 显示为行内表现*/
+/* 去掉 firefox 下此元素的边框*/
+abbr,acronym{border:none;font-variant:normal;}
+/* 一致的 del 样式*/
+del {text-decoration:line-through;}
+address,caption,cite,code,dfn,em,var {font-style:normal;font-weight:500;}
+/* 去掉列表前的标识, li 会继承*/
+ol,ul {list-style:none;}
+/* 对齐表头*/
+caption,th {text-align:left;font-weight:700;}
+/* 让标题都自定义, 适应多个系统应用*/     
+h1,h2,h3,h4,h5,h6 {font-size:100%;font-weight:700;}
+q:before,q:after {content:'';}
+/* 统一上标和下标*/
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline;}
+sup {top: -0.5em;}
+sub {bottom: -0.25em;}
+
+/* 默认不显示下划线，保持页面简洁*/
+ins,a {	text-decoration:none;}
+a{color:#666;}
+a:focus {outline: thin dotted #666;outline: 5px auto -webkit-focus-ring-color;outline-offset: -2px;}
+a:hover,a:active {outline: 0;text-decoration:underline;}
+a:hover{color:#e4393c;text-decoration:underline;}
+select{border:1px solid #ccc;}
+code{white-space:pre;}
+/*单字母勾子元素 */
+q,i,b{text-decoration:none;font-style:normal;font-weight:normal;}
+
+/*去除移动端点击事件出现的背景框 (tap-highlight-color)*/
+*{-webkit-tap-highlight-color:rgba(0,0,0,0)}
+
+/*矢量字体*/
+@font-face {
+  font-family: 'iconfont';
+  src: url('//at.alicdn.com/t/font_1435557361_0817714.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/font_1435557361_0817714.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/font_1435557361_0817714.woff') format('woff'), /* chrome、firefox */
+  url('//at.alicdn.com/t/font_1435557361_0817714.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/font_1435557361_0817714.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.iconfont{font-family:"iconfont";
+font-size:16px;font-style:normal;-webkit-font-smoothing: antialiased;
+-webkit-text-stroke-width: 0.2px;}
+
+/*继承父级元素*/
+*,:after,:before{
+	box-sizing:border-box;
+-moz-box-sizing:border-box;
+-webkit-box-sizing:border-box;
+}
+/* 清除浮动造成的影响 */
+.fn-clear:after {
+	visibility:hidden;
+	display:block;
+	font-size:0;
+	content:" ";
+	clear:both;
+	height:0;
+}
+.fn-clear {
+	zoom:1; /* for IE6 IE7 */
+}
+
+/* 隐藏, 通常用来与 JS 配合 */
+body .fn-hide {
+	display:none;
+}
+
+/* 设置内联, 减少浮动带来的bug（其实只在有margin时ie6才会有bug） */
+.fn-left {
+	float:left;
+}
+.fn-right {
+	float:right;
+}
+.fn-left,.fn-right {
+	_display:inline;
+}
+
+/* block 格式化上下文 */
+.fn-block{
+  overflow:hidden;
+  zoom:1;
+}
+
+/*顶部静止*/
+.fn-fixedtop{
+    position: fixed;
+   _position: absolute;
+    top:0;
+   _top:expression(eval(documentElement.scrollTop));
+}
+
+/*底部静止  性能比顶部静止更差*/
+.fn-fixedbottom{
+    position: fixed;
+   _position:absolute;
+    bottom:0;
+   _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)) - 0)
+ }
+
+html,body{width:100%;height:100%;}
+
+/*登录*/
+.main-section{display: block;width: 100%;height: 100%;position: relative;overflow: hidden;background-color:#1d7ad9;}
+.main-section .xos-logo{position: absolute;left:0;top:0;z-index:100;width:100%;height:68px;padding-top:10px;background-color:#1d7ad9;text-align: center;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+.main-section .section-bg{
+  position: absolute;
+  top:0; 
+  left:0;
+  display: block;
+  width: 100%; 
+  height: 100%;
+  background:#1d7ad9 url("../img/polygons.png") repeat 0 0;
+}
+.main-section .section-animation{
+  position: absolute;
+  top:0; 
+  left:0;
+  display: block;
+  width: 100%; 
+  height: 100%;
+}
+.main-section .badge-cont{    
+    width:460px;
+    position: absolute;
+    left: 50%;
+    top:0;
+    margin: -80px 0 0 -230px;
+}
+.main-section .badge-cont .badge-lanyard,.main-section .badge-cont .badge-pocket{width:100%;position: relative;z-index:5;}
+.main-section .badge-cont .badge-pocket{margin-top:-44px;z-index:0;}
+.main-section .badge-theme{border:1px solid #549ce5;background-color:#fff;width:420px;height:320px;margin:-350px 20px 0 20px;border-radius:4px;position: relative;z-index:20;}
+.main-section .badge-form{padding:28px 46px 0 46px;}
+.main-section .badge-form-item{margin-bottom:12px;position: relative;}
+.main-section .badge-form-item input {
+    border: 1px solid #eaeaea;
+    border-radius: 2px;
+    padding: 8px 12px;
+    font-size: 15px;
+    width: 320px;
+    outline: none;
+}
+.main-section .badge-form-item .badge-form-btn{
+    border: none;
+    display: inline-block;
+    line-height:28px;
+    width: 320px;
+    font-size: 16px;
+    background-color: #f60;
+    color: #fff;
+    cursor: pointer;
+    border-radius:4px;
+}
+.main-section .badge-form-item .badge-form-btn:hover{
+  opacity:0.9;
+}
+.main-section .input-verificode-img{position: absolute;right:10px;top:2px;display: inline-block;}
+.main-section .badge-form-remember label{cursor: pointer;}
+.main-section .error-tips{color:#f05050;padding:10px 0;}

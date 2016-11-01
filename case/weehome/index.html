@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>墅级公寓，城市核心，豪华定制微家公寓—城市青年互联社区，深圳首家高端品牌合租公寓，深圳合租房</title>
+	<meta name="keywords" content="深圳公寓,服务公寓,深圳白领,深圳白领公寓,青年公寓,深圳青年,便宜,方便,价格" />
+	<meta name="description" content="在微家,你租住的不仅仅是房子,更是一种生活方式和社交平台,入住微家意味着:现代、简洁、温暖、科技,在这里结识志趣相投的朋友,分享快乐、分享成长。"/>
+	<!--[if lt IE 8]>
+    <script type="text/javascript" src="/skin/js/jquery-1.11.3.min.js"></script>
+	<![endif]-->
+
+    <script type="text/javascript" src="/skin/js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="/skin/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/skin/js/bootstrap-dialog.js" ></script>
+	<script type="text/javascript" src="/skin/js/bootstrap-datepicker.js" ></script>
+	<script type="text/javascript" src="/skin/js/jquery.lazyload.min.js" ></script>
+	<script type="text/javascript" src="/skin/js/jquery-scrolltofixed.js" ></script>
+	<script type="text/javascript" src="/skin/js/jquery.bxslider.min.js" ></script>
+	<script src="/skin/js/simple-lightbox.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/skin/js/public.js" ></script>
+	<link rel="stylesheet" href="/skin/css/bootstrap.css" />
+	<link rel="stylesheet" href="/skin/css/bootstrap-dialog.css" />
+	<link rel="stylesheet" href="/skin/css/view_2015.css" />
+	<link rel="stylesheet" href="/skin/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/skin/css/jquery.bxslider.css" />
+	<link rel="stylesheet" href="/skin/css/datepicker3.css" />
+	<link rel="stylesheet" href="/skin/css/simplelightbox.min.css" />
+	<script type="text/javascript">
+		var $nav,nMarginTop;
+		var mapIsCreated = false;
+		$(function(){
+
+			$('.quick-tools-item li').mouseenter(function(){
+				$(this).addClass('hover').children('div').fadeIn();
+			}).mouseleave(function(){
+				$(this).removeClass('hover').children('div').fadeOut();
+			})
+
+			$('li.submenu').mouseenter(function(){
+				$(this).addClass('hover').children('div').fadeIn();
+			}).mouseleave(function(){
+				$(this).removeClass('hover').children('div').fadeOut();
+			})
+
+			//图片加载
+			$("img.lazy").lazyload({
+				'effect' : 'fadeIn'
+			});
+
+			//固定滚动
+			$('.apar-nav').scrollToFixed();
+			$('.scroll-fixed').scrollToFixed({marginTop:100, limit: $('footer').offset().top-340});
+
+			//滚动菜单切换
+        	nav = $('.apar-nav');
+			nMarginTop = $('.apar-nav').offset().top;
+        	$(window).bind("scroll", scrollMenu);
+
+			//处理tab选卡
+			$('#tab1 a').click(function(){
+				var index = $(this).index();
+				$(this).addClass('cur').siblings().removeClass('cur');
+				$('.tab-main .tab-item').hide().eq(index).show();
+				if(index == 1 && mapIsCreated == false){
+					CreateMap();
+				}
+			})
+
+			//处理主题导航菜单
+			$('#tab2 a').click(function(){
+				$(this).addClass('cur').siblings().removeClass('cur');
+				var index = $(this).index();
+				var top = $('.banner').eq(index).offset().top - 100;
+				$('html,body').animate({scrollTop:top},800)
+
+			})
+
+			//处理lightbox
+			$('a.vpic').simpleLightbox();
+		})
+
+		function scrollMenu() {
+			//横向菜单定位
+			var st = $(document).scrollTop();
+			st > nMarginTop ? nav.addClass("fix") : nav.removeClass("fix");
+
+			//IE6下的定位
+			if (!window.XMLHttpRequest) {
+				$pushBook.css("top", st + "px");
+			}
+
+			//横向菜单滚动切换
+			var Scroll_tab = nav.offset().top//滚动切换
+			$('.banner').each(function(i,n){
+				var tab_infor = $(n).offset().top - 100;
+				if( tab_infor >0 && Scroll_tab >= tab_infor ){
+					$('.apar-nav a').eq(i).addClass('cur').siblings().removeClass('cur');
+				}
+			});
+		};
+
+		function CreateMap(){
+			var map = new BMap.Map("aparMap");
+			var point = new BMap.Point(113.962562,22.548579);
+			map.centerAndZoom(point, 15);
+			map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
+			map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+
+			var marker = new BMap.Marker(point);  // 创建标注
+			map.addOverlay(marker);               // 将标注添加到地图中
+			marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+
+			var top_left_navigation = new BMap.NavigationControl({offset: new BMap.Size(10, 50)});  //左上角，添加默认缩放平移控件
+			var stCtrl = new BMap.PanoramaControl(); //构造全景控件
+			stCtrl.setOffset({anchor:BMAP_ANCHOR_TOP_RIGHT});
+			map.addControl(stCtrl);//添加全景控件
+			map.addControl(top_left_navigation);
+		}
+
+	</script>
+</head>
+</head>
+<body>
+			<div class="top">
+			<div class="container">
+				<div class="welcome">您好，欢迎光临微家公寓!</div>
+				<div class="login-link"></div>
+				<div class="quick-tools">
+					<script src="/tenant.php" type="text/javascript" charset="utf-8"></script>
+				</div>
+			</div>
+		</div>
+		<div class="container top-bg">
+			<div class="logo"><a href="http://www.weehome.cn/"><img src="/skin/images/logo.jpg"/></a></div>
+		</div>
+		<menu>
+			<div class="container">
+				<ul class="menu-item">
+					<li><a href="/">首页</a></li>
+					<li><a href="/r/">我要租房</a></li>
+					<li><a href="/about/5">租前须知</a></li>
+					<li class="submenu"><a href="#">在线服务</a>
+						<div class="service-list">
+							<a href="javascript:;" onclick="Alipay()"><i class="fa fa-fw fa-cny"></i> 在线缴费</a>
+							<a href="javascript:;" onclick="Order()"><i class="fa fa-fw fa-calendar"></i> 预约看房</a>
+							<a href="javascript:;" onclick="Repair()"><i class="fa fa-fw fa-wrench"></i> 维修预约</a>
+							<a href="javascript:;" onclick="Tsjy()"><i class="fa fa-fw fa-comment"></i> 在线投诉</a>
+						</div>
+					</li>
+					<li><a href="/join/">业主加盟</a></li>
+					<li><a href="/about/1/">关于微家</a></li>
+				</ul>
+			</div>
+		</menu>
+		<script type="text/javascript">
+			function Logout(){
+				$.get('public.php?action=logout',function(data){
+					if(data.state){
+						window.location.reload();
+					}
+				}, 'json')
+			}
+		</script>
+	<div class="apar-main">
+		<div class="container">
+			<div class="pic-map">
+				<div class="tab" id="tab1"><a href="javascript:;" class="cur">公寓图集</a><a href="javascript:;">公寓地图</a></div>
+				<div class="tab-main">
+					<div class="tab-item">
+						<div class="big-pic">
+							<ul class="picSlider">
+								<li><img src="http://www.weehome.cn/image.php?p=20150912/1442026863114.jpg&w=600&h=400"></li>
+								<li><img src="http://www.weehome.cn/image.php?p=20150912/1442026863317.jpg&w=600&h=400"></li>
+								<li><img src="http://www.weehome.cn/image.php?p=20150912/1442027565889.jpg&w=600&h=400"></li>
+								<li><img src="http://www.weehome.cn/image.php?p=20150912/1442027566686.jpg&w=600&h=400"></li>
+								<li><img src="http://www.weehome.cn/image.php?p=20150912/1442028339714.jpg&w=600&h=400"></li>
+								<li><img src="http://www.weehome.cn/image.php?p=20150912/1442028340628.jpg&w=600&h=400"></li>
+								<li><img src="http://www.weehome.cn/image.php?p=20150912/1442028340504.jpg&w=600&h=400"></li>
+								<li><img src="http://www.weehome.cn/image.php?p=20150912/1442028341848.jpg&w=600&h=400"></li>
+								<li><img src="http://www.weehome.cn/image.php?p=20150912/144202849942.jpg&w=600&h=400"></li>							</ul>
+							<script type="text/javascript">
+								$('.picSlider').bxSlider({
+									 pager		: false,
+									 controls	: false,
+									 auto		: true,
+									 pause		: 5000,
+									 speed		: 800,
+									 responsive	: false
+								});
+							</script>
+						</div>
+					</div>
+					<div class="tab-item">
+						<div id="aparMap"></div>
+					</div>
+				</div>
+			</div>
+			<div class="property">
+				<h3>墅级公寓，城市核心，豪华定制</h3>
+				<span class="address"><i class="fa fa-map-marker"></i> 南山区科技园大冲城市花园10栋20B</span>
+				<div class="price">
+					￥2400-4000 元/月				</div>
+				<div class="prop-info">
+					<div class="prop-item">
+						<span class="prop-name">小　区：</span>
+						<span class="prop-text">大冲城市花园</span>
+					</div>
+					<div class="prop-item">
+						<span class="prop-name">交　通：</span>
+						<span class="prop-text">雄霸科技园核心，比邻深圳主干道-深南大道，地铁1号线高新园A出口（五分钟到小区）,多路公交车通达（大冲站）</span>
+					</div>
+					<div class="prop-item">
+						<span class="prop-name">类　型：</span>
+						<span class="prop-text">
+						合租 - 微家2.0						</span>
+					</div>
+					<div class="prop-item"><span class="prop-name">房　屋：</span><span class="prop-text">275M<sup>2</sup> - 8室3厅 - 20楼</div>
+					<div class="prop-item tags"  style="margin-left:-5px;">
+						<span class="label label-warning">WIFI</span><span class="label label-warning">全套配置</span><span class="label label-warning">电梯房</span><span class="label label-warning">地铁口</span>					</div>
+					<div class="prop-item" style="padding: 5px 0; border-bottom: none; margin-left: -5px;">
+						<a href="javascript:;" class="btn tel" ><i class="fa fa-phone"></i> 400-6188-341/15019455380</a>
+						<a href="javascript:;" onclick="Order()" class="btn btn2" ><i class="fa fa-pencil"></i> 预约看房</a>
+						<a href="http://wpa.qq.com/msgrd?v=3&uin=&site=qq&menu=yes" class="btn btn2"  alt="点击咨询" title="点击咨询"><i class="fa fa-qq"></i> 在线咨询</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="apar-nav">
+		<div class="container" id="tab2">
+			<a href="javascript:;" class="cur">公寓详情</a><a href="javascript:;">房间图片</a><a href="javascript:;">周边配套</a>
+		</div>
+	</div>
+
+	<div class="container" style="margin-bottom: 100px;">
+		<div class="apar-info">
+			<div class="banner"><span>室友信息</span></div>
+			<div class="apar-room-info">
+				<table border="0" cellspacing="0" cellpadding="0" class="renter">
+					<thead>
+						<tr>
+							<th>房间</th>
+							<th>面积</th>
+							<th style="text-align: center;">室友</th>
+							<th>星座</th>
+							<th>独立阳台</th>
+							<th>独卫</th>
+							<th>可住2人</th>
+							<th>价格</th>
+							<th>最早入住日期</th>
+						</tr>
+					</thead>
+					<tbody>
+												<tr  class="rented">
+							<td>A房间</td>
+							<td>8M<sup>2</sup></td>
+							<td>
+								<img src="/skin/images/man.jpg" class="sex" /><span class="profession"></span>							</td>
+							<td>狮子座</td>
+							<td></td>
+							<td></td>
+							<td>
+															</td>
+							<td><span class="s-price">￥2400</span></td>
+							<td>已入住</td>
+						</tr>
+												<tr  class="rented">
+							<td>B房间</td>
+							<td>10M<sup>2</sup></td>
+							<td>
+								<img src="/skin/images/man.jpg" class="sex" /><span class="profession">策划</span>							</td>
+							<td>天秤座</td>
+							<td></td>
+							<td></td>
+							<td>
+															</td>
+							<td><span class="s-price">￥3000</span></td>
+							<td>已入住</td>
+						</tr>
+												<tr >
+							<td>C房间</td>
+							<td>8M<sup>2</sup></td>
+							<td>
+								<img src="/skin/images/no-user.jpg" class="sex" />							</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>
+															</td>
+							<td><span class="s-price">￥2800</span></td>
+							<td>立即入住</td>
+						</tr>
+												<tr  class="rented">
+							<td>D房间</td>
+							<td>16M<sup>2</sup></td>
+							<td>
+								<img src="/skin/images/man.jpg" class="sex" /><span class="profession">管理</span>							</td>
+							<td>处女座</td>
+							<td></td>
+							<td><i class="fa fa-circle-thin text-yellow"></i></td>
+							<td>
+								<i class="fa fa-circle-thin text-yellow"></i>							</td>
+							<td><span class="s-price">￥4000</span></td>
+							<td>已入住</td>
+						</tr>
+												<tr  class="rented">
+							<td>F房间</td>
+							<td>9M<sup>2</sup></td>
+							<td>
+								<img src="/skin/images/man.jpg" class="sex" /><span class="profession">IT</span>							</td>
+							<td>双子座</td>
+							<td></td>
+							<td></td>
+							<td>
+															</td>
+							<td><span class="s-price">￥2800</span></td>
+							<td>已入住</td>
+						</tr>
+												<tr  class="rented">
+							<td>G房间</td>
+							<td>8M<sup>2</sup></td>
+							<td>
+								<img src="/skin/images/female.jpg" class="sex" /><span class="profession">IT</span>							</td>
+							<td>处女座</td>
+							<td></td>
+							<td></td>
+							<td>
+															</td>
+							<td><span class="s-price">￥2600</span></td>
+							<td>已入住</td>
+						</tr>
+												<tr  class="rented">
+							<td>H房间</td>
+							<td>16M<sup>2</sup></td>
+							<td>
+								<img src="/skin/images/man.jpg" class="sex" /><span class="profession"></span>							</td>
+							<td></td>
+							<td></td>
+							<td><i class="fa fa-circle-thin text-yellow"></i></td>
+							<td>
+								<i class="fa fa-circle-thin text-yellow"></i>							</td>
+							<td><span class="s-price">￥3800</span></td>
+							<td>已入住</td>
+						</tr>
+												<tr  class="rented">
+							<td>E房间</td>
+							<td>25M<sup>2</sup></td>
+							<td>
+								<img src="/skin/images/man.jpg" class="sex" /><span class="profession"></span>							</td>
+							<td>狮子座</td>
+							<td></td>
+							<td><i class="fa fa-circle-thin text-yellow"></i></td>
+							<td>
+								<i class="fa fa-circle-thin text-yellow"></i>							</td>
+							<td><span class="s-price">￥3900</span></td>
+							<td>已入住</td>
+						</tr>
+						
+					</tbody>
+				</table>
+				<div class="pub">
+					<dl>
+						<dt>每个房间有：</dt>
+						<dd>
+							<span><i class="fa fa-dot-circle-o"></i> 床</span><span><i class="fa fa-dot-circle-o"></i> 衣柜</span><span><i class="fa fa-dot-circle-o"></i> 书桌</span><span><i class="fa fa-dot-circle-o"></i> 书椅</span><span><i class="fa fa-dot-circle-o"></i> 书架</span><span><i class="fa fa-dot-circle-o"></i> 台灯</span><span><i class="fa fa-dot-circle-o"></i> 风扇</span><span><i class="fa fa-dot-circle-o"></i> 储物柜</span><span><i class="fa fa-dot-circle-o"></i> 窗帘</span><span><i class="fa fa-dot-circle-o"></i> 空调</span>						</dd>
+					</dl>
+					<dl>
+						<dt>公用物品有：</dt>
+						<dd>
+							<span><i class="fa fa-dot-circle-o"></i> 无线WIFI</span><span><i class="fa fa-dot-circle-o"></i> 公共储物区</span><span><i class="fa fa-dot-circle-o"></i> 沙发</span><span><i class="fa fa-dot-circle-o"></i> 电视</span><span><i class="fa fa-dot-circle-o"></i> 餐桌</span><span><i class="fa fa-dot-circle-o"></i> 餐椅</span><span><i class="fa fa-dot-circle-o"></i> 冰箱</span><span><i class="fa fa-dot-circle-o"></i> 洗衣机</span><span><i class="fa fa-dot-circle-o"></i> 洗碗机</span><span><i class="fa fa-dot-circle-o"></i> 热水器</span><span><i class="fa fa-dot-circle-o"></i> 公用厨房</span>						</dd>
+					</dl>
+				</div>
+			</div>
+			<div class="banner"><span>房间图片</span></div>
+			<ul class="room-pic">
+			<li><a href="http://www.weehome.cn/uploadfiles/images/20150912/1442029166345.jpg" class="vpic"><img src="http://www.weehome.cn//image.php?p=20150912/1442029166345.jpg&amp;w=360&amp;h=230" title="A房间"><span class="room-num">A房间</span><div class="room-tags"><span class="label label-warning">公共阳台</span></div></a>
+			</li>
+			<li><a href="http://www.weehome.cn/uploadfiles/images/20150912/1442029286798.jpg" class="vpic"><img src="http://www.weehome.cn//image.php?p=20150912/1442029286798.jpg&amp;w=360&amp;h=230" title="B房间"><span class="room-num">B房间</span><div class="room-tags"><span class="label label-warning">公共阳台</span></div></a></li>
+			<li><a href="http://www.weehome.cn/uploadfiles/images/20150912/1442029553316.jpg" class="vpic"><img src="http://www.weehome.cn//image.php?p=20150912/1442029553316.jpg&amp;w=360&amp;h=230" title="C房间"><span class="room-num">C房间</span><div class="room-tags"><span class="label label-warning">公共阳台</span></div></a></li>
+			<li><a href="http://www.weehome.cn/uploadfiles/images/20150912/144202963575.jpg" class="vpic"><img src="http://www.weehome.cn//image.php?p=20150912/144202963575.jpg&amp;w=360&amp;h=230" title="D房间"><span class="room-num">D房间</span><div class="room-tags"><span class="label label-warning">公共阳台</span><span class="label label-warning">独立卫生间</span></div></a></li><li><a href="http://www.weehome.cn/uploadfiles/images/20150912/1442029729542.jpg" class="vpic"><img src="http://www.weehome.cn//image.php?p=20150912/1442029729542.jpg&amp;w=360&amp;h=230" title="F房间"><span class="room-num">F房间</span><div class="room-tags"><span class="label label-warning">公共阳台</span></div></a></li><li><a href="http://www.weehome.cn/uploadfiles/images/20150912/1442029763198.jpg" class="vpic"><img src="http://www.weehome.cn//image.php?p=20150912/1442029763198.jpg&amp;w=360&amp;h=230" title="G房间"><span class="room-num">G房间</span><div class="room-tags"><span class="label label-warning">公共阳台</span></div></a></li><li><a href="http://www.weehome.cn/uploadfiles/images/20150912/1442029832107.jpg" class="vpic"><img src="http://www.weehome.cn//image.php?p=20150912/1442029832107.jpg&amp;w=360&amp;h=230" title="H房间"><span class="room-num">H房间</span><div class="room-tags"><span class="label label-warning">公共阳台</span><span class="label label-warning">独立卫生间</span></div></a></li><li><a href="http://www.weehome.cn/uploadfiles/images/20151217/1450333582278.jpg" class="vpic"><img src="http://www.weehome.cn//image.php?p=20151217/1450333582278.jpg&amp;w=360&amp;h=230" title="E房间"><span class="room-num">E房间</span><div class="room-tags"><span class="label label-warning">公共阳台</span><span class="label label-warning">独立卫生间</span></div></a></li></ul>
+			<div class="banner" style="padding-top: 0;"><span>周边配套</span></div>
+			<p>交通：比邻深圳城市主干道深南大道，地铁1号线高新园A出口，几十路公交车通达。</p><p>办公：位于全国知名的硅谷-深圳科技园，中兴通讯、联想、TCL、大疆科技等环绕。</p><p>银行：中农工建、招商银行等数十几个银行</p><p>餐饮：中西餐，湘菜、川菜、粤菜、北方菜等各菜系，各种小吃、快餐</p><p>商业：十五分钟即可到达海岸城、假日广场的大型shopping mall</p><p>小区配套：健身房、游泳池、网球场、篮球场、会所</p>		</div>
+		<div class="apar-r">
+			<div class="scroll-fixed">
+				<h4>墅级公寓，城市核心，豪华定制</h4>
+				<p class="price">￥2400-4000 元/月</p>
+				<p class="tag">
+					<span class="label label-warning">WIFI</span><span class="label label-warning">全套配置</span><span class="label label-warning">电梯房</span><span class="label label-warning">地铁口</span>				</p>
+				<table border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<th>小　区：</th>
+						<td>大冲城市花园</td>
+					</tr>
+					<tr>
+						<th>交　通：</th>
+						<td><span class="prop-text">雄霸科技园核心，比邻深圳主干道-深南大道，地铁1号线高新园A出口（五分钟到小区）,多路公交车通达（大冲站）</span></td>
+					</tr>
+					<tr>
+						<th>类　型：</th>
+						<td>
+							整租 - 微家2.0						</td>
+					</tr>
+					<tr>
+						<th>房　屋：</th>
+						<td><span class="prop-text">275M<sup>2</sup> - 8室3厅 - 20楼</span></td>
+					</tr>
+					<tr>
+						<th>电　话：</th>
+						<td><span class="tel">400-6188-341/15019455380</span></td>
+					</tr>
+					<tr>
+						<td colspan="2" style="padding-top: 25px;">
+							<a href="javascript:;" onclick="Order()" class="btn btn-s"><i class="fa fa-pencil"></i> 预约看房</a>
+							<a href="http://wpa.qq.com/msgrd?v=3&uin=858338339&site=qq&menu=yes" class="btn btn2 btn-s"  alt="点击咨询" title="点击咨询"><i class="fa fa-qq"></i> 在线咨询</a>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+
+
+		<footer>
+		<div class="container">
+			<div class="foot-logo"><img src="/skin/images/foot-logo.jpg" /></div>
+			<div class="foot-copyright">
+				地址：深圳南山区蛇口海景广场19E<br />
+				邮箱：service@weehome.cn<br />
+				Copyright © 2012-2015 weehome.cn, All Right Reserved 粤ICP备14077573号
+			</div>
+			<div class="foot-hotline"><img src="/skin/images/hotline.jpg" /></div>
+		</div>
+	</footer>
+	<div class="rtools">
+		<ul class="rtools-list">
+			<li class="s-wechat">
+				<div class="ttip t-wechat">
+					<img src="/skin/images/qrcode-s.jpg" />
+					<p>企业微信：<strong>微家公寓</strong> 或 扫描左侧二维码</p>
+				</div>
+			</li>
+			<li class="s-service">
+				<div class="ttip t-service">
+					<ul class="service-list">
+						<li><a href="javascript:;" onclick="Alipay()"><i class="fa fa-fw fa-cny"></i> 在线缴费</a></li>
+						<li><a href="javascript:;" onclick="Order()"><i class="fa fa-fw fa-calendar"></i> 预约看房</a></li>
+						<li><a href="javascript:;" onclick="Repair()"><i class="fa fa-fw fa-wrench"></i> 预约维修</a></li>
+						<li><a href="javascript:;" onclick="Tsjy()"><i class="fa fa-fw fa-comments"></i> 投诉建议</a></li>
+					</ul>
+				</div>
+			</li>
+			<li class="s-phone">
+				<div class="ttip t-phone">
+					<i class="fa fa-fw fa-phone"></i> 400 6188 341
+				</div>
+			</li>
+			<li class="s-top" onclick="$('html, body').animate({scrollTop:0}, 'slow');"></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=6f6b29968037615f6904fee475a58c24"></script>
+
+</body>
+</html>

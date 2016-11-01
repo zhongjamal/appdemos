@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html style="font-size: 100px;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=0.5,maximum-scale=0.5,minimum-scale=0.5,user-scalable=no">
+  <script>
+    // 高清适配方案
+    (function(win) {
+      win = win || window;
+      var doc = win.document;
+      var ua = navigator.userAgent;
+      var matches = ua.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i);
+      var UCversion = ua.match(/U3\/((\d+|\.){5,})/i);
+      var isUCHd = UCversion && parseInt(UCversion[1].split('.').join(''),10) >= 80;
+      var isIos = navigator.appVersion.match(/(iphone|ipad|ipod)/gi);
+      var dpr = win.devicePixelRatio || 1;
+      var docEl = doc.documentElement;
+      /*  */
+      var content = '';
+      /*  */
+      var rate = 1;
+      var scale = 1 / dpr;
+      if (matches && matches[1] > 534 || isUCHd) {
+        if (!isUCHd) {
+          /*  */
+          content += 'target-densitydpi=device-dpi,';
+        }
+
+        // 米4这样奇葩的高端机, 乱标dpr; 导致1rem并非等于100px, 需要对viewPort强行缩放;
+        docEl.style.fontSize = '100px';
+        var div = doc.createElement('div');
+        div.setAttribute('style', 'width: 1rem;display:none');
+        docEl.appendChild(div);
+        var trueWidth = win.getComputedStyle(div).width;
+        docEl.removeChild(div);
+        // 这里我直接写100px, 因为页面上html的默认fontSize就是100px;
+        if (trueWidth !== '100px') {
+          var trueWidthVal = parseInt(trueWidth);
+          rate = 100 / trueWidthVal;
+          scale = scale * rate;
+        }
+      } else {
+        /*  */
+        scale = 1;
+      }
+
+
+      doc.querySelector('meta[name="viewport"]').setAttribute('content', content + 'width=device-width,user-scalable=no,initial-scale=' + scale + ',maximum-scale=' + scale + ',minimum-scale=' + scale);
+      /*  */
+      docEl.style.fontSize = 0.09328 * docEl.clientHeight * rate + 'px';
+      win.addEventListener('resize', function() {
+        docEl.style.fontSize = 0.09328 * docEl.clientHeight * rate + 'px';
+      });
+    })(window);
+
+    // 默认连接配置
+    <!-- FD:898:bklandpage/download/content.vm:2490:download/linker.schema:线上下载页面配置:START -->
+
+        var iosLink = 'https://itunes.apple.com/cn/app/id1012867463';
+        var androidLink = 'http://my-app.alicdn.com/L1/1103/Release/ANDROID/174050716/release/mybank_mybank_release_1.7.4.050716.apk';
+        var pcLink = 'https://www.mybank.cn/index.htm';
+        var appVersion = '1.7.4';
+
+    <!-- FD:898:bklandpage/download/content.vm:2490:download/linker.schema:线上下载页面配置:END -->
+
+    // QRCODE 设置
+    var indexScheme = 'mybank://launcher/main.index';
+
+
+    /**
+     * @class RedirectToNative
+     * @constructor
+     */
+    var RedirectToNative = {
+      /**
+       * iosNativeUrl: string 必选 ios app上自定义的url scheme
+       * andriodNativeUrl: string 必选 android app自定义的url scheme
+       * iosInstallUrl: string 必选 ios app store里的安装地址
+       * androidInstallUrl: string 必选 android app的apk地址
+       * package: string 可选 默认com.mybank.android.phone android的包名
+       * iosOpenTime: int 可选默认800ms， 启动ios客户端所需时间，一般ios平台整体性能不错，打开速度较快
+       * androidOpenTime: int 可选默认2000ms，启动android客户端所需时间，android系统性能参差不齐所需启动时间也不齐，和android客户端本身启动时间也有关
+         */
+      init: function(config) {
+          var self = this;
+              self.platform = self._UA();
+
+          var ua = navigator.userAgent.toLowerCase(),
+              locked = false,
+              domLoaded = document.readyState==='complete';
+
+          self.delayToRun = null;
+
+          var noIntentTest = /aliapp|360 aphone|weibo|windvane|ucbrowser|baidubrowser|H60|HUAWEI/.test(ua);
+          var hasIntentTest = /chrome|samsung/.test(ua);
+          var isAndroid = /android|adr/.test(ua) && !(/windows phone/.test(ua));
+          var canIntent = !noIntentTest && hasIntentTest && isAndroid;
+          var openInIfr = /weibo|m353/.test(ua);
+          var inWeibo = ua.indexOf('weibo')>-1;
+
+          if (ua.indexOf('m353')>-1 && !noIntentTest) {
+              canIntent = false;
+          }
+
+          self.locked = locked;
+
+          // pc下 什么都不处理  pc访问下可能href可以链接去其他地址
+          if(!self.platform) return;
+          if (self.platform.ios) {
+            self.installUrl = config.iosInstallUrl;
+            self.nativeUrl = config.iosNativeUrl;
+            self.openTime = config.iosOpenTime || 800;
+          } else if(self.platform.android) {
+            self.installUrl = config.androidInstallUrl;
+            self.nativeUrl = config.andriodNativeUrl;
+            self.openTime = config.androidOpenTime || 3000;
+            self.package = config.package || 'com.mybank.android.phone';
+          }else{
+            return;
+          }
+
+
+          if (!domLoaded) {
+              document.addEventListener('DOMContentLoaded', function () {
+                  domLoaded = true;
+                  if (typeof self.delayToRun === 'function') {
+                      self.delayToRun();
+                  }
+              }, false);
+          }
+
+          if (!domLoaded && (ua.indexOf('360 aphone')>-1 || canIntent)) {
+              var arg = arguments;
+              self.delayToRun = function () {
+                  RedirectToNative.open(canIntent,ua);
+                  self.delayToRun = null;
+              };
+              return;
+          }
+
+          //只有android下的chrome要用intent协议唤起native
+          self.open(canIntent,ua);
+      },
+
+      //只有android下的chrome要用intent协议唤起native
+      open: function(canIntent,ua){
+          var self = this;
+
+          if (!canIntent) {
+              self._gotoNative(ua);
+              self.locked = true;
+          } else {
+              self._hackChrome();
+              self.locked = true;
+          }
+      },
+      /**
+       * _hackChrome 只有android下的chrome要用intent协议唤起native
+       * https://developers.google.com/chrome/mobile/docs/intents
+       * @return {[type]}
+       */
+      _hackChrome: function() {
+        var self = this;
+        var startTime = Date.now();
+        var paramUrlarr = self.nativeUrl.split('://'),
+            scheme = paramUrlarr[0],
+            schemeUrl = paramUrlarr[1],
+            doc = document,
+            body = doc.body;
+
+        var intentUrl = 'intent://' + schemeUrl + '#Intent;scheme=' + scheme + ';package=' + self.package + ';end';
+
+        window.location.href = 'intent://' + schemeUrl + '#Intent;scheme=' + scheme + ';package=' + self.package + ';end';
+
+        var openIntentLink = document.getElementById('openIntentLink');
+
+        if (!openIntentLink) {
+            openIntentLink = document.createElement('a');
+            openIntentLink.id = 'openIntentLink';
+            openIntentLink.style.display = 'none';
+
+            if(!body) {
+                setTimeout(function(){
+                  document.body.appendChild(openIntentLink);
+                  openIntentLink.href = intentUrl;
+
+                  // 执行click
+                  openIntentLink.dispatchEvent(self.customClickEvent());
+                },0)
+            }else{
+              document.body.appendChild(openIntentLink);
+              openIntentLink.href = intentUrl;
+
+              // 执行click
+              openIntentLink.dispatchEvent(self.customClickEvent());
+            }
+        }
+
+        // 唤起加锁，避免短时间内被重复唤起
+        setTimeout(function () {
+            self.locked = false;
+        }, 2500)
+      },
+      /**
+       * [_gotoNative 跳转至native，native超时打不开就去下载]
+       * @return
+       */
+      _gotoNative: function(ua) {
+          var self = this;
+          var startTime = Date.now(),
+              doc = document,
+              body = doc.body,
+              iframe = doc.createElement('iframe');
+              iframe.id = 'J_redirectNativeFrame';
+              iframe.style.display = 'none';
+              iframe.src = self.nativeUrl;
+
+          if ( ua.indexOf('qq/') > -1 || ( ua.indexOf('safari') > -1 && ua.indexOf('os 9_') > -1 ) ) {
+
+            var openIntentLink = document.getElementById('openIntentLink');
+
+            if (!openIntentLink) {
+              openIntentLink = document.createElement('a');
+              openIntentLink.id = 'openIntentLink';
+              openIntentLink.style.display = 'none';
+
+              //运行在head中
+              if(!body) {
+                  setTimeout(function(){
+                      doc.body.appendChild(openIntentLink);
+                      openIntentLink.href = self.nativeUrl;
+                      // 执行click
+                      openIntentLink.dispatchEvent(self.customClickEvent());
+                  }, 0);
+              } else {
+                  body.appendChild(openAppLink);
+                  openIntentLink.href = self.nativeUrl;
+                  // 执行click
+                  openIntentLink.dispatchEvent(self.customClickEvent());
+              }
+            }
+          } else {
+            if(!body) {
+                setTimeout(function(){
+                  document.body.appendChild(iframe);
+                }, 0);
+            } else {
+                document.body.appendChild(iframe);
+            }
+          }
+
+          // 唤起加锁，避免短时间内被重复唤起
+          setTimeout(function () {
+              self.locked = false;
+          }, 2500)
+      },
+      /**
+       * [_gotoInstall 去下载]
+       * @param  {[type]} startTime [开始时间]
+       * @return
+       */
+      _gotoDownload: function(startTime) {
+          // var self = this;
+          // var endTime = Date.now();
+          // if (endTime - startTime < self.openTime + 500) {
+          //     window.location = self.installUrl;
+          // }
+      },
+      /**
+       * [_UA 检测平台]
+       * @return string [ios|android| ]
+       */
+      _UA: function() {
+          var u = navigator.userAgent;
+
+          return { //移动终端浏览器版本信息
+              trident: u.indexOf('Trident') > -1, //IE内核
+              presto: u.indexOf('Presto') > -1, //opera内核
+              webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+              gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+              mobile: !!u.match(/AppleWebKit.*Mobile.*/) || !!u.match(/AppleWebKit/), //是否为移动终端
+              ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+              android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+              iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者QQHD浏览器
+              iPad: u.indexOf('iPad') > -1 //是否iPad
+          };
+      },
+      customClickEvent: function() {
+          var clickEvt;
+          if (window.CustomEvent) {
+              clickEvt = new window.CustomEvent('click', {
+                  canBubble: true,
+                  cancelable: true
+              });
+          } else {
+              clickEvt = document.createEvent('Event');
+              clickEvt.initEvent('click', true, true);
+          }
+
+          return clickEvt;
+      }
+    }
+
+    var configObj = {
+      iosInstallUrl: iosLink,
+      androidInstallUrl: androidLink,
+      iosNativeUrl: indexScheme,
+      andriodNativeUrl: indexScheme,
+      package: 'com.mybank.android.phone'
+    };
+
+    RedirectToNative.init(configObj);
+  </script>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="email=no">
+  <title>网商银行 无微不至</title>
+  <style>
+    html{
+      height: 100%;
+    }
+    body{
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+    }
+    .pages{
+      width: 100%;
+      height: 100%;
+    }
+    .page{
+      width: 100%;
+      /*height: 9.97rem;*/
+      height: 100%;
+      position: absolute;
+      /*background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#1ce3d7), to(#37d2e2));*/
+      /*background-color: #1ec4c4;*/
+      /*top: 0;
+      left: 0;*/
+      background-color: #FFF;
+      overflow: hidden;
+      text-align: center;
+    }
+    .index{
+      background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#37d2e2), to(#1ce3d7));
+      background-color: #1ec4c4;
+    }
+    .logo{
+      margin-top: 1.05rem;
+      height: 3.2rem;
+      width: 3rem;
+      background-image: url(https://os.alipayobjects.com/rmsportal/uDzhtUdUENmJMwW.png);
+      background-size: 3rem 3.2rem;
+      margin: 1.05rem auto 0 auto;
+    }
+    .bottoms{
+      /*width: 4.2rem;*/
+      min-height: 2.7rem;
+      margin: 0.93rem auto 0 auto;
+    }
+    .bottom{
+      width: 4.2rem;
+      min-height: 1rem;
+      background-color: #FFF;
+      border-radius: .5rem;
+      box-shadow: 0 .07rem 0 #cbf1f0;
+      margin: 0 auto .15rem auto;
+      display: inline-block;
+      text-decoration: none;
+      position: relative;
+      color: #1dc4c5;
+      font-size: .42rem;
+      line-height: 1rem;
+      z-index: 10;
+      -webkit-user-select:none;
+      /*-webkit-touch-callout:none;*/
+    }
+    .bottom:active{
+      color: #00baba;
+      background-color: #FBFBFA;
+      box-shadow: 0 .07rem 0 #F5F5F5;
+    }
+    .vision{
+      font-size: .22rem;
+      line-height: .22rem;
+      margin-top: .23rem;
+      color: #FFF;
+      z-index: 10;
+      position: relative;
+    }
+    .notice{
+      font-size: .28rem;
+      color: #FFF;
+      line-height: .36rem;
+      margin-top: .5rem;
+      z-index: 10;
+      position: relative;
+
+    }
+    .bg-img{
+      background-image: url(https://os.alipayobjects.com/rmsportal/ERWjTQAwtjcoRVA.png);
+      background-size: 7.5rem 4.77rem;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4.77rem;
+    }
+    .next{
+      background-image: url(https://os.alipayobjects.com/rmsportal/xGDLZVglSBoKnEC.png);
+      background-size: .41rem .22rem;
+      width: .41rem;
+      height: .22rem;
+      position: absolute;
+      bottom: .5rem;
+      left: 48%;
+    }
+    .slogan{
+      margin-top: 1.5rem;
+      color: #333333;
+    }
+    .slogan-title{
+      color: #333333;
+      font-size: .48rem;
+      line-height: 1.5rem;
+    }
+    .slogan-text{
+      color: #999999;
+      font-size: .3rem;
+      line-height: .48rem;
+    }
+
+    .slogan-img{
+      height: 3.84rem;
+      width: 5.57rem;
+      margin:1rem auto;
+    }
+    .gray{
+      background-image: url(https://os.alipayobjects.com/rmsportal/mEMaNekgkBBuXSR.png);
+    }
+    .foot-bg{
+      background-image: url(https://os.alipayobjects.com/rmsportal/YTwonivmDpdOpaV.png);
+      background-size: 7.5rem 3.56rem;
+      height: 3.56rem;
+      width:7.5rem;
+    }
+    .foot .slogan{
+      margin-top: .6rem;
+    }
+    .foot .slogan-img{
+      margin: .2rem auto;
+    }
+    .foot .bottoms{
+      margin: 0 auto;
+    }
+    .foot .slogan-title{
+      line-height: 1rem;
+    }
+    .foot .bottoms{
+      width: 100%;
+      padding-top: .2rem;
+    }
+
+    .foot .bottom{
+      width: 3.6rem;
+      min-height: .84rem;
+      background-color: #FFF;
+      border-radius: .42rem;
+      margin: 0 auto 0.2rem auto;
+      position: relative;
+      color: #FFF;
+      font-size: .36rem;
+      line-height: .84rem;
+      z-index: 10;
+      -webkit-user-select:none; /* Chrome,Safari,and Opera */
+      /*-webkit-touch-callout:none;*/
+      background-color: #00c2c2;
+      box-shadow: 0 .07rem 0 #04AAAA;
+    }
+
+    .foot .bottom:active{
+      color: #f1f1f1;
+      background-color: #00BEBE;
+      box-shadow: 0 .07rem 0 #03A7A7;
+    }
+
+    .foot .vision{
+      width: 100%;
+      position: absolute;
+      bottom: .2rem;
+      color: #383838;
+      font-size: .2rem;
+      font-weight: 200;
+      line-height: .3rem;
+    }
+    .fn-hide{
+      display: none;
+    }
+  </style>
+  <link rel="stylesheet" href="css/MNOHDFuyBzmnUcB.css">
+</head>
+<body>
+  <div id="pages" class="pages"></div>
+</body>
+<script type="text/javascript" src="js/nmPZrKBrKjWrSze.js"></script>
+</html><!-- FD:898:bklandpage/download/content.vm:END -->

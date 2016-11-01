@@ -1,0 +1,199 @@
+﻿@charset "utf-8";
+/*
+ * @名称: base.css
+ * @功能: 初始化各html标签，使其在所有浏览器下保持一致
+ * @作者：钟含武
+ * @时间：20160422
+ */
+
+/* 防止用户自定义背景颜色对网页的影响 */
+html{color:#333;font-size: 100%;}
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+	margin:0;padding:0;
+}
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG)*/
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display:block;}
+/* HTML5 媒体文件跟 img 保持一致*/
+audio,canvas,video {display: inline-block;*display: inline;*zoom:1;}
+/* 要注意表单元素并不继承父级 font 的问题*/
+body,button,input,select,textarea{color:#333;font:14px/1.5 "Microsoft Yahei","Hiragino Sans GB",sans-serif;_font-family:"SimSun";}
+input,select,textarea{font-size:100%;background:#fff; vertical-align:middle;text-rendering: auto;outline:none}
+
+/* 去掉各Table  cell 的边距并让其边重合，防止表格内文字不能换行*/
+table{border-collapse:collapse;border-spacing:0;table-layout:fixed;word-wrap:break-word;word-break:break-all;width:100%;vertical-align:top;}
+th,td{vertical-align: top;}
+
+/* IE bug fixed: th 不继承 text-align*/
+th{text-align:inherit;}
+/* 去除默认边框*/
+fieldset,img{border:none;}
+/* ie6 7 8(q) 显示为行内表现*/
+/* 去掉 firefox 下此元素的边框*/
+abbr,acronym{border:none;font-variant:normal;}
+/* 一致的 del 样式*/
+del {text-decoration:line-through;}
+address,caption,cite,code,dfn,em,var {font-style:normal;font-weight:500;}
+/* 去掉列表前的标识, li 会继承*/
+ol,ul {list-style:none;}
+/* 对齐表头*/
+caption,th {text-align:left;font-weight:700;}
+/* 让标题都自定义, 适应多个系统应用*/
+h1,h2,h3,h4,h5,h6 {font-size:100%;font-weight:700;}
+q:before,q:after {content:'';}
+/* 统一上标和下标*/
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline;}
+sup {top: -0.5em;}
+sub {bottom: -0.25em;}
+
+/* 默认不显示下划线，保持页面简洁*/
+ins,a {	text-decoration:none;}
+a{color:#333;}
+a:focus {outline: thin dotted #666;outline: 5px auto -webkit-focus-ring-color;outline-offset: -2px;}
+a:hover,a:active {outline: 0;text-decoration:underline;}
+a:hover{color:#0db09b;text-decoration:underline;}
+select{border:1px solid #ccc;}
+code{white-space:pre;}
+/*单字母勾子元素 */
+q,i,b{text-decoration:none;font-style:normal;font-weight:normal;}
+
+*{box-sizing:border-box;}
+html{
+/*针对此实例的代码*/
+  display: table;
+  min-width:100%;
+  height: 100%;/*为什么不给html一个min-height:100%，而是height，因为通过min-height给的高度，子元素无法对其做高度百分比计算*/
+}
+body{
+  /*针对此实例的代码*/
+  display: table-cell;
+  /*针对此实例的代码 End*/
+}
+body,html{background-color:#fff;}
+
+
+
+/*矢量字体*/
+@font-face {
+  font-family: 'iconfont';
+  src: url('//at.alicdn.com/t/font_1464169588_6910627.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/font_1464169588_6910627.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/font_1464169588_6910627.woff') format('woff'), /* chrome、firefox */
+  url('//at.alicdn.com/t/font_1464169588_6910627.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/font_1464169588_6910627.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.iconfont{font-family:"iconfont";
+font-size:16px;font-style:normal;-webkit-font-smoothing: antialiased;
+-webkit-text-stroke-width: 0.2px;}
+
+
+
+/* 清除浮动造成的影响 */
+.fn-clear:after {
+	visibility:hidden;
+	display:block;
+	font-size:0;
+	content:" ";
+	clear:both;
+	height:0;
+}
+.fn-clear {
+	zoom:1; /* for IE6 IE7 */
+}
+
+/* 隐藏, 通常用来与 JS 配合 */
+body .fn-hide {
+	display:none;
+}
+
+/* 设置内联, 减少浮动带来的bug（其实只在有margin时ie6才会有bug） */
+.fn-left {
+	float:left;
+}
+.fn-right {
+	float:right;
+}
+.fn-left,.fn-right {
+	_display:inline;
+}
+
+/* block 格式化上下文 */
+.fn-block{
+  overflow:hidden;
+  zoom:1;
+}
+
+/*顶部静止*/
+.fn-fixedtop{
+    position: fixed;
+   _position: absolute;
+    top:0;
+   _top:expression(eval(documentElement.scrollTop));
+}
+
+/*底部静止  性能比顶部静止更差*/
+.fn-fixedbottom{
+    position: fixed;
+   _position:absolute;
+    bottom:0;
+    width:100%;
+    z-index:1420;
+   _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)) - 0)
+ }
+
+/*无定位*/
+.no-fixed{position:static !important;}
+
+/* debug */
+.fn-debug{
+	border:1px solid #f00;
+}
+
+.pk-hd{
+  width:100%;
+  height:78px;
+  line-height:78px;
+  position:fixed;
+  top:0;
+  left:0;
+  /*box-shadow:0 2px 4px rgba(0,0,0,0.1);*/
+  border-bottom:1px solid #eaeaea;
+  background-color:rgba(255,255,255,0.9);
+  z-index:1000;
+  position: relative;
+  text-align: center;
+}
+.pk-hd a{
+  display: inline-block;
+  background-color:#1d7ad9;
+  line-height:36px;
+  text-align: center;
+  padding:0 20px;
+  color:#fff;
+  margin:0 20px;
+  border-radius:4px;
+  text-decoration: none;
+  position: absolute;
+  left:20px;
+  top:20px;
+}
+.pk-hd strong{
+  font-size:20px;
+}
+.pk-cont{
+  margin-top:84px;
+  position: relative;
+}
+.pk-cont-img{
+  width:1180px;
+  position:absolute;
+  left:50%;
+  margin-left:-590px;
+  top:0;
+}
+
+@media screen and (max-width:320px){
+ .recommend-clients-cont,.index-warp{height: auto;}
+ .index-menu-list{margin-bottom:100px !important;}
+}

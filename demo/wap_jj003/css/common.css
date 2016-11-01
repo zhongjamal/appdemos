@@ -1,0 +1,207 @@
+@charset "utf-8";
+/*	
+ * @名称: base.css
+ * @功能: 初始化各html标签，使其在所有浏览器下保持一致
+ * @作者：钟含武
+ * @时间：20150311
+ */
+
+/* 防止用户自定义背景颜色对网页的影响 */
+html{color:#333;background:#fff;font-size: 100%;-webkit-text-size-adjust: 100%;-ms-text-size-adjust:100%;}
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+	margin:0;padding:0;
+}
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG)*/
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display:block;}
+/* HTML5 媒体文件跟 img 保持一致*/
+audio,canvas,video {display: inline-block;*display: inline;*zoom:1;}
+/* 要注意表单元素并不继承父级 font 的问题*/
+body,button,input,select,textarea{color:#333;font:14px/1.5 arial,"Microsoft Yahei","Hiragino Sans GB",sans-serif;_font-family:"SimSun";}
+input,select,textarea{font-size:100%;background:#fff; vertical-align:middle;}
+
+/* 去掉各Table  cell 的边距并让其边重合，防止表格内文字不能换行*/
+table{border-collapse:collapse;border-spacing:0;table-layout:fixed;word-wrap:break-word;word-break:break-all;width:100%;vertical-align:top;}
+th,td{vertical-align: top;}
+
+/* IE bug fixed: th 不继承 text-align*/
+th{text-align:inherit;}
+/* 去除默认边框*/
+fieldset,img{border:none;}
+/* ie6 7 8(q) 显示为行内表现*/
+/* 去掉 firefox 下此元素的边框*/
+abbr,acronym{border:none;font-variant:normal;}
+/* 一致的 del 样式*/
+del {text-decoration:line-through;}
+address,caption,cite,code,dfn,em,var {font-style:normal;font-weight:500;}
+/* 去掉列表前的标识, li 会继承*/
+ol,ul {list-style:none;}
+/* 对齐表头*/
+caption,th {text-align:left;font-weight:700;}
+/* 让标题都自定义, 适应多个系统应用*/     
+h1,h2,h3,h4,h5,h6 {font-size:100%;font-weight:700;}
+q:before,q:after {content:'';}
+/* 统一上标和下标*/
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline;}
+sup {top: -0.5em;}
+sub {bottom: -0.25em;}
+
+/* 默认不显示下划线，保持页面简洁*/
+ins,a {	text-decoration:none;}
+a{color:#666;}
+a:focus {outline: thin dotted #666;outline: 5px auto -webkit-focus-ring-color;outline-offset: -2px;}
+a:hover,a:active {outline: 0;text-decoration:underline;}
+a:hover{color:#e4393c;text-decoration:underline;}
+select{border:1px solid #ccc;}
+code{white-space:pre;}
+/*单字母勾子元素 */
+q,i,b{text-decoration:none;font-style:normal;font-weight:normal;}
+
+/* 清除浮动造成的影响 */
+.fn-clear:after {
+	visibility:hidden;
+	display:block;
+	font-size:0;
+	content:" ";
+	clear:both;
+	height:0;
+}
+.fn-clear {
+	zoom:1; /* for IE6 IE7 */
+}
+
+/* 隐藏, 通常用来与 JS 配合 */
+body .fn-hide {
+	display:none;
+}
+
+/* 设置内联, 减少浮动带来的bug（其实只在有margin时ie6才会有bug） */
+.fn-left {
+	float:left;
+}
+.fn-right {
+	float:right;
+}
+.fn-left,.fn-right {
+	_display:inline;
+}
+
+/* block 格式化上下文 */
+.fn-block{
+  overflow:hidden;
+  zoom:1;
+}
+
+/*顶部静止*/
+.fn-fixedtop{
+    position: fixed;
+   _position: absolute;
+    top:0;
+   _top:expression(eval(documentElement.scrollTop));
+}
+
+/*底部静止  性能比顶部静止更差*/
+.fn-fixedbottom{
+    position: fixed;
+   _position:absolute;
+    bottom:0;
+   _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)) - 0)};
+
+/* debug */
+.fn-debug{
+	border:1px solid #f00;
+}
+.i-header{background-color:#ff5c28;line-height:0;min-height:280px;}
+.i-header img{width:100%;}
+.i-btn{padding:30px 0;text-align:center;}
+.i-btn a{display: inline-block;background-color:#37d145;color:#fff;text-align:center;font-size:18px;border-radius:24px;line-height:46px;width:80%;}
+
+.i-pro{background-color:#f5f5f5;}
+.i-pro .pro-list{padding-top:30px;overflow: hidden;*zoom:1;}
+.i-pro .pro-list li{padding:20px 10px 20px 100px;position: relative;margin-bottom:20px;}
+.i-pro .pro-list li img{position: absolute;left:15px;top:12px;width:72px;}
+.i-pro .pro-list li h3{font-size:18px;}
+.i-pro .pro-list li p{color:#999;}
+
+.i-footer{padding:10px 0;text-align: center;color:#999;}
+/* 动画 */
+*{
+	transition: all 1s ease 0s;
+}
+.i-show .show-cont .show-info{
+		    animation: 2s ease-in-out 0s alternate none 1 fadein1;
+       -moz-animation: 2s ease-in-out 0s alternate none 1 fadein1;
+    -webkit-animation: 2s ease-in-out 0s alternate none 1 fadein1;
+         -o-animation: 2s ease-in-out 0s alternate none 1 fadein1;
+}
+@keyframes fadein1{
+0%{
+    opacity: 0;
+}
+100%{
+    opacity: 1;
+}
+}
+@-moz-keyframes fadein1{
+0%{
+    opacity: 0;
+}
+100%{
+    opacity: 1;
+}
+}
+@-webkit-keyframes fadein1{
+0%{
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
+@-o-keyframes fadein1{
+0%{
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
+.i-show .show-cont .show-code{
+	        animation: 2s ease-in-out 0s alternate none 1 fadein2;
+       -moz-animation: 2s ease-in-out 0s alternate none 1 fadein2;
+    -webkit-animation: 2s ease-in-out 0s alternate none 1 fadein2;
+         -o-animation: 2s ease-in-out 0s alternate none 1 fadein2;
+}
+@keyframes fadein2{
+0%{
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
+@-moz-keyframes fadein2{
+0%{
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
+@-webkit-keyframes fadein2{
+0%{
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
+@-o-keyframes fadein2{
+0%{
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}

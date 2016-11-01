@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>全民经纪人-小窝金服</title>
+    <meta name="keywords" content="深圳装修贷款,工行家装贷,装修,装修贷款怎么申请"/>
+    <meta name="description" content="小窝金服是中国工商银行指定的工行家装贷服务平台，以“为客户提供低成本的装修贷款服务”为经营理念，为广大家装用户提供低利率、高额度、长期限、纯信用的装修贷款产品。小窝金服还与装修公司、家具卖场、电商平台等合作，提供一站式装修贷款服务，让你的装修没有资金烦恼，省心入住自己的小窝。"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/pullToRefresh.css" />
+    <style type="text/css">
+    .pullUp{display: none;}
+    </style>
+</head>
+<body>
+<div id="wrapper" style="width:100%;height:100%;">
+    
+   <ul class="dig" style="position:relative;">
+   <div class="m-head" style="position:absolute;">
+      <a href="index.html" class="m-back"><i class="iconfont">&#xe600;</i></a>
+      <h2 class="head-tit">注册</h2>
+   </div>
+   <div class="register-wrap" style="padding-top:48px;">
+        <div class="alert alert-warning">为保障账户资金安全，请确保以下信息准确无误</div>
+        <div class="m-t-md">
+          <form class="register-form">
+            <fieldset class="form-group">
+                <div class="form-position p-l-md">
+                    <input type="text" class="form-control" placeholder="真实姓名">
+                    <i class="iconfont input-icon">&#xe608;</i>
+                </div>
+            </fieldset>
+            <fieldset class="form-group">
+                <div class="form-position p-l-md">
+                    <input type="text" class="form-control" placeholder="身份证号">
+                    <i class="iconfont input-icon">&#xe607;</i>
+                </div>
+            </fieldset>
+            <fieldset class="form-group">
+                <div class="form-position p-l-md">
+                    <label class="form-select-label">
+                        <select class="form-control">
+                            <option>注册身份</option>
+                            <option>装修行业</option>
+                            <option>老顾客</option>
+                            <option>中介机构</option>
+                            <option>其他</option>
+                        </select>
+                    </label>
+                    <i class="iconfont input-icon">&#xe609;</i>
+                </div>
+            </fieldset>
+            <fieldset class="form-group">
+                <div class="form-position p-l-md form-position-city">
+                    <label class="form-select-label">
+                        <select class="form-control">
+                            <option>广东省</option>
+                            <option>广西省</option>
+                            <option>湖南省</option>
+                            <option>江西省</option>
+                        </select>
+                    </label>
+                    <label class="form-select-label">
+                        <select class="form-control">
+                            <option>深圳市</option>
+                            <option>广州市</option>
+                            <option>东莞市</option>
+                        </select>
+                    </label>
+                    <i class="iconfont input-icon">&#xe60e;</i>
+                </div>
+            </fieldset>
+            <fieldset class="form-group">
+                <div class="form-position p-l-md">
+                    <input type="text" class="form-control" placeholder="8~16位登录密码">
+                    <i class="iconfont input-icon">&#xe606;</i>
+                </div>
+            </fieldset>
+            <fieldset class="form-group">
+                <div class="form-position p-l-md">
+                    <input type="tel" class="form-control" maxlength="11" placeholder="手机号">
+                    <i class="iconfont input-icon">&#xe603;</i>
+                </div>
+            </fieldset>
+            <fieldset class="form-group">
+                <div class="form-position p-l-md">
+                    <input type="text" class="form-control" maxlength="4" placeholder="短信验证码">
+                    <span class="v-code v-code-disable">获取验证码</span>
+                    <i class="iconfont input-icon">&#xe604;</i>
+                    <!-- 不可点击状态 加类名  v-code-disable -->
+                </div>
+            </fieldset>
+            <fieldset class="form-group">
+                <p class="p-l p-t text-warning">该手机号将作为您的登录帐号</p>
+            </fieldset>
+            <fieldset class="form-group">
+                <div class="container">
+                    <a href="user.html" class="btn btn-warning btn-block m-t-10">申请成为经纪人</a>
+                    <p class="text-muted m-t-5 p-b-lg">点击注册即同意《小窝金服注册协议》</p>
+                </div>
+            </fieldset>
+          </form>
+      </div>
+   </div>
+   </ul>
+</div>
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/iscroll.js"></script>
+<script src="js/pullToRefresh.mini.js"></script>
+<script type="text/javascript">
+$(function(){
+    $('input, textarea, button, a, select').off('touchstart mousedown').on('touchstart mousedown', function(e) {
+        e.stopPropagation();
+    });
+})
+
+refresher.init({
+    id:"wrapper",//<------------------------------------------------------------------------------------┐
+    pullDownAction:Refresh,
+    pullUpAction:Load                                                                        
+    });                                                                                                                                                        
+function Refresh() {                                                                
+    setTimeout(function () {    // <-- Simulate network congestion, remove setTimeout from production!
+        var el, li, i;                                                                      
+        el =document.querySelector("#wrapper .dig");                  
+        //这里写你的刷新代码             
+        document.getElementById("wrapper").querySelector(".pullDownIcon").style.display="none";     
+        document.getElementById("wrapper").querySelector(".pullDownLabel").innerHTML="<i class='iconfont'>&#xe618;</i>刷新成功";                                                                                  
+        setTimeout(function () {
+            wrapper.refresh();
+            document.getElementById("wrapper").querySelector(".pullDownLabel").innerHTML="<i class='iconfont'>&#xe618;</i>刷新成功";                                
+            },1000);//下拉刷新显示成功效果
+        /****remember to refresh after  action completed！ ---yourId.refresh(); ----| ****/
+    }, 1000);
+}
+function Load() {
+    setTimeout(function () {// <-- Simulate network congestion, remove setTimeout from production!
+        var el, li, i;
+        el =document.querySelector("#wrapper .dig");
+        for (i=0; i<2; i++) {
+            li = document.createElement('div');
+            $(li).addClass("fn-hide");
+            var loadli = $("");
+            li.innerHTML = loadli.html();
+            el.appendChild(li, el.childNodes[0]);
+        }
+        wrapper.refresh();/****remember to refresh after action completed！！！   ---id.refresh(); --- ****/
+    },2000);    
+}
+
+</script>
+</body>
+</html>

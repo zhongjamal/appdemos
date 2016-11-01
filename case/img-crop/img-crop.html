@@ -1,0 +1,402 @@
+
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>图片裁切</title>
+    <link rel="stylesheet" type="text/css" href="swiper.min.css">
+    <style type="text/css">
+    *{padding:0;margin:0;}
+#j_adviser_slide{
+width: 100%;
+overflow: hidden;
+background: #fdfdfc;
+font-size:14px;
+}
+#j_adviser_slide .swiper-slide,#j_adviser_pup_slide .swiper-slide{
+padding: 12px 10px;
+width:auto;
+line-height:24px;
+}
+#j_adviser_slide .c-hd-circle,#j_adviser_pup_slide .c-hd-circle{
+display:inline-block;
+position: relative;
+width:74px;
+height:74px;
+border-radius:50%;
+overflow: hidden;
+background-color:#ddd;
+}
+#j_adviser_slide .c-hd-circle img,#j_adviser_pup_slide .c-hd-circle img{
+ width:74px;
+}
+#j_adviser_slide .c-counselor-name,#j_adviser_pup_slide .c-counselor-name{
+    text-align: center;
+    line-height:12px;
+}
+#j_adviser_slide .c-item-select .c-hd-circle:after,#j_adviser_pup_slide .c-item-select .c-hd-circle:after{
+  content: '';
+  display:block;
+  background-color:#c00;
+  width:24px;
+  height:24px;
+  position: absolute;
+  z-index:1000;
+  left:50%;
+  top:50%;
+  margin-left:-12px;
+  margin-top:-12px;
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAk1BMVEUAAAAQzW0Qzm8Qzm4QzW0QzW0Qzm4Qz28Qzm4QzW4QzW0QzW4QzW4Qzm4Qzm4QzW4RzW0QzW4Qzm4RzW0QzW4Qzm8QzW4QzW0QzW4Qzm4Qzm4QzW4Qzm4QzW0QzW4QzW0Qzm4QzW4QzW4Qzm0Qzm8QzW4Qzm0QzW0Qzm4Qzm4QzW4Qzm4Qzm4QzW4Qzm4Qzm4RzW4o6cvJAAAAMHRSTlMApjqt8ew1AqroxbD8dwbL+OIX9ZwhvXJfRUAbC9Ohg0om3XxQLyrPk1jYbBFmirTU5OVSAAAEA0lEQVRo3r3Z6XbiMAwFYIVsJEBCUtawM1DK1t73f7pZmHM0nRDHcWS+323Vax/JBpOBfDc/nAcP08Ohs1uSdflh48SZh2+8y9doWtirvth+nnxU6UeTacdC8eVsHaHW6XNOkpJinUHTZfAuFvYeoxFnSwJu1z0am8ypLS7bzFe70ocVjDnmez120MbwB5m5+2gpLai53EV7/eahtxlE9BbUyABS9gHpS9aQ05+RrlsPonQ3enGBsA/SkZ8g7lMn7wrshZlzrvvSykkMSwak1IU1yq7awKKAKp1hU5ZThbEHqyb0XJLCsh+v3WDW79ATxz6sW4XGCy3fzVO8Qn9XGtERXqJH//nAi8zpm10fwrKeVjOPIMw7koOnim+Bh5DlB0QVlWObO+w9JoVTt8v5m3ze6so9az38xpNxrezl8AJJUUDMQdmG/tpayKvKvE+4l8T3l43KI2JLf9wyG3lZ+c+PeKXF8zKnnDhb8gVArH+ZoqMeP5barOtW34HGQwjxdfLySTGzmLeL5/ylYDP5gVZdbqjYWh85yovuLbOft2xNFLwwL4tD2lrK60Ilu9Ed7Q0187Lhjj5t5A17qFHQ6LX7y/3Ug0J6zkzmlYtaMzqh2iqnYyRxLpT9UM2P/ZiIAl9gTpYNFIVXN/rtPWp4/kKvcKbMS5xZIi8bkVe9vw+c2XxOlq2rrgGXMbGOJ9RHbEOxIq86c6Sek2rT54njBX3X8YXycjtN8IRLjDObz8myKznQqxz4AnnZoeoTqpvQf46R+TlYtqUpoJWZK5vPSdY/0hkV3LC02pHq/txItKACaJrZN83LTiHt3tAgs99qTrIvojDV+TaMu6rNnGSfNb/VLWUu0sJ8ndms7hmxx5Ul3zGG498ZoNKlOg6au9Avywwqbk1mFwZGOv+yK5aXnan0OVU9PVudC+xtrPf44srm5TadgDXaZxdmrvRwRR1XMi+8BT0sPNTphgL9Wx6IaxhkdgReBzpA48xdmLok3BUx6rlCdTFt+ozaFVln+DdiyQpM48RwYW5D/5qhSWYH5ryc/hWe9Boh4Tkp9JRbQIsbcl4j+6Xh+FvnXNf8XDJ588rEX+unsImvPGUprBsQa7jYggvN7rDLG1OFNaw6U5XkBIs2VG3nwZoeqRR9WJImpHQYworVgmrMYEOkqGtzgvkBaZiJ7/MlIC0H4cppTprmHgRNbqRtHEPMR0gNJA5kDK/U0FWkoU9HaiyIBZZ5SQbCwRtaSedk6NiDOW+zJHPbGIZG79RKMjuhuX63Q+3dJ03LjgqSMe9G0LbfvJOcfKoX23fOJO14/1LnHu5HhzFZsZxv3HSIJ6J4fQ0Ssil8n89+jNw03nu/rOLY+ZgeOgtq6id2+DyS8CRzHAAAAABJRU5ErkJggg==) no-repeat;
+  background-size: 100%;
+}
+
+#j_adviser_pup_slide .c-hd-circle{
+    background-color:transparent;
+}
+#j_adviser_pup_slide .c-counselor-name{
+    color:#fff;
+}
+
+/*搜索*/
+.y-search-bar {
+  position: relative;
+  padding: 8px 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  box-sizing: border-box;
+  background-color: #EFEFF4;
+}
+.y-search-bar:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px solid #D7D6DC;
+  color: #D7D6DC;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+          transform: scaleY(0.5);
+}
+.y-search-bar:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  border-bottom: 1px solid #D7D6DC;
+  color: #D7D6DC;
+  -webkit-transform-origin: 0 100%;
+          transform-origin: 0 100%;
+  -webkit-transform: scaleY(0.5);
+          transform: scaleY(0.5);
+}
+.y-search-bar.y-search-bar-focusing .y-search-bar-label {
+  display: none;
+}
+.y-search-bar-form {
+  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+          flex: auto;
+  background-color: #EFEFF4;
+}
+.y-search-bar-form:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200%;
+  height: 200%;
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  border-radius: 10px;
+  border: 1px solid #E6E6EA;
+  box-sizing: border-box;
+  background: #FFFFFF;
+}
+.y-search-bar-box {
+  position: relative;
+  padding-left: 30px;
+  padding-right: 30px;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1;
+}
+.y-search-bar-box .y-search-bar-input {
+  padding: 4px 0;
+  width: 100%;
+  height: 1.42857143em;
+  border: 0;
+  font-size: 14px;
+  line-height: 1.42857143em;
+  box-sizing: content-box;
+  background: transparent;
+}
+.y-search-bar-box .y-search-bar-input:focus {
+  outline: none;
+}
+.y-search-bar-box .y-icon-search {
+  position: absolute;
+  left: 10px;
+  top: -2px;
+  line-height: 28px;
+}
+.y-search-bar-box .y-icon-search:before{
+    content:'';
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    vertical-align: middle;
+    text-decoration: inherit;
+    width: 1em;
+    height:1em;
+    margin-right: .2em;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1em;
+    margin-left: .2em;
+    color: #B2B2B2;
+    font-size: 14px;
+    background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RTk3RjRDNEU4NTU3MTFFNkI1NkZDQzM1NjBCNjI5M0IiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RTk3RjRDNEY4NTU3MTFFNkI1NkZDQzM1NjBCNjI5M0IiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpFOTdGNEM0Qzg1NTcxMUU2QjU2RkNDMzU2MEI2MjkzQiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpFOTdGNEM0RDg1NTcxMUU2QjU2RkNDMzU2MEI2MjkzQiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PhnZoNcAAAdBSURBVHja7FxpcBRF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) no-repeat;
+  background-size: 100%;
+}
+.y-search-bar-box .y-icon-clear {
+  position: absolute;
+  top: -2px;
+  right: 0;
+  padding: 0 10px;
+  line-height: 28px;
+}
+.y-search-bar-label {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  left: 1px;
+  z-index: 2;
+  border-radius: 3px;
+  text-align: center;
+  color: #9B9B9B;
+  background: #FFFFFF;
+}
+.y-search-bar-label span {
+  display: inline-block;
+  font-size: 14px;
+  vertical-align: middle;
+}
+.y-search-bar-label .y-icon-search {
+  margin-right: 5px;
+}
+.y-search-bar-search-btn {
+  display: block;
+  margin-left: 10px;
+  line-height: 28px;
+  white-space: nowrap;
+  text-decoration: none;
+  background-color:#333;
+  color:#fff;
+  font-size:13px;
+  padding:0 12px;
+  border-radius:4px;
+}
+.y-search-bar-input:not(:valid) ~ .y-icon-clear {
+  display: none;
+}
+.y-search-bar-box input[type="search"]::-webkit-search-decoration,
+.y-search-bar-box input[type="search"]::-webkit-search-cancel-button,
+.y-search-bar-box input[type="search"]::-webkit-search-results-button,
+.y-search-bar-box input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+.y-search-no{text-align: center;color:#999;padding:15px 0;font-size:14px;}
+</style>
+</head>
+<body>
+     <div style="line-height:42px;padding:0 15px;" id="demo_pup">
+         选择时尚顾问
+     </div>
+
+     <!-- 搜索 -->
+     <div class="y-search-bar y-search-bar-focusing" id="search_bar">
+            <form class="y-search-bar-form">
+                <div class="y-search-bar-box">
+                    <i class="y-icon-search"></i>
+                    <input type="search" class="y-search-bar-input" id="search_input" placeholder="请输入顾问的姓名和手机号" required="">
+                    <a href="javascript:" class="y-icon-clear" id="search_clear"></a>
+                </div>
+            </form>
+            <a href="javascript:" class="y-search-bar-search-btn">搜索</a>
+    </div>
+
+    <!-- 搜索结果 -->
+    <div class="y-search-show">
+        <p class="y-search-no">抱歉，没有找到符合条件的顾问</p>
+        <div id="j_adviser_slide" class="swiper-container-horizontal swiper-container-free-mode">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide c-item-select">
+                    <span class="c-hd-circle">
+                        <img src="http://www.keepstyle.cn/data/upload/shop/adv/05280323208453888.jpg">
+                    </span>
+                    <p class="c-counselor-name">刘若欣</p>  
+                </div>
+                <div class="swiper-slide">
+                    <span class="c-hd-circle">
+                        <img src="http://www.keepstyle.cn/data/upload/shop/adv/05279715153988511.jpg">
+                    </span>
+                    <p class="c-counselor-name">Alice</p> 
+                </div>
+                <div class="swiper-slide">
+                    <span class="c-hd-circle">
+                        <img src="http://www.keepstyle.cn/data/upload/shop/adv/05280323208453888.jpg">
+                    </span>
+                    <p class="c-counselor-name">Mandey</p> 
+                </div>
+                <div class="swiper-slide">
+                    <span class="c-hd-circle">
+                        <img src="http://www.keepstyle.cn/data/upload/shop/adv/05279717306825702.jpg">
+                    </span>
+                    <p class="c-counselor-name">Alida</p> 
+                </div>
+                <div class="swiper-slide">
+                    <span class="c-hd-circle">
+                        <img src="http://www.keepstyle.cn/data/upload/shop/adv/05280323208453888.jpg">
+                    </span>
+                    <p class="c-counselor-name">Evrely</p> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 选择时尚顾问 -->
+    <style type="text/css">
+        .y-adviser-pup{
+      display: none;
+    }
+        .y-adviser-pup-mask{ 
+        position: fixed;
+        z-index: 1000;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.8);
+        }
+        .y-adviser-pup-cont{
+        position: fixed;
+        z-index: 5000;
+        width:100%;
+        top: 40%;
+        text-align: center;
+        }
+        .y-adviser-pup-close{
+            position:fixed;
+            z-index:1002;
+            bottom:38px;
+            left:50%;
+            margin-left:-18px;
+            display: inline-block;
+            width:36px;
+            height: 36px;
+            background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAArlBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8tivQqAAAAOXRSTlMA6prbc/WI17+MW1EF+9+xqYAWtpFVTDwz5dHNrKF7ZmAqHg8JumxIyZY4IfjGGhMD8cOkLixDJUEnmTAWAAADQklEQVRYw52W6XqqMBCGA4ioCAjuiltV3OtWa+f+b+xkonIgnSD0/dOnGb8xs2VkSoLvaXkUNpvhtRp1PlgxTqvqYQ8JnIFuL3LLv6ouEGj6dy75tvFSuOtQ32w214sBTyr2W/nuCgJrU5ud4tO7XR08XWyz9SUHOGf957ep9wysdcpIfFPE6h9pc30iYrF6Kn1XE99wzKhOyQROjba20TbovsmRuOSYMtXQop/YO8bAKSu+v8RyYJN32OLplOWih6WapM+OJpGbbA/phjhQ91fzg9WuJ/sHAEasABEXhCzmEwAMVgiPS/7PFtZ2xgqxOAP045xg/7GCtBOVqACckxkJFLf5uCf/GwJoTDCTKtAzwScbyIF2cnLiwusAZvICVbpVpwCwTh4MAIZiSM9SBm4O5WECnI48PBhsBwBu6UbDttwQ+lq6EPxj/iMCi6W5oQedSZ2GGUjRADjwPxZA9de7fE57GMf3l2JwjuyTMrE7Pk4NWS+XFU9FCj6Jmic8lFH/QxTWBRhjdC7ZNS7OS6zvKgZixFoAS0ZxNABNoi32pB5NFdZQDvIcPYzw+80vxRbBAi7VgzQfgsB8tAnZnAZOkp859TCIc0zUUUMHZaZCB8AwMx14UtdKrYZYc3UILgux5WjwobpgFMY8I4kbVRnZEqUPNwadBl6hC3oxyD0q9PNnIH3yR1KIzWoDOAGxytdcNpzHqdAoDxZWcMetK4X+9U5d0cOMyQQOgC0mwidb6FBPldO8UVuWX2wEMJT1llx+nWjo11PUFn6SHFEvlaZFjJT2eIoWjhRDgIPcJEombeQVHjyTrMkfDYmiy2FVXg3Qk97bFVaXYJzeP3cui+IN0WcJujYjWXWkRt8vmOAb0HdBtpBIHXZNwIrh8rrGv99nmVOveg5hmv53XES/kjetQU2Emp0jb5Mdzk5ufdAXm1IejCi/ntr/vW5e/Qz1V/Zn7D3Xe3+W11vw7kfpIsvYsUCOX2aqDdsqW9cTmw7tasQyiwLiZu0KIM0dy2QEiOlFX/Vk5qcjDRB3yt5RG8CD/kX3S5NJyW8tjdfRuJ6rUB6QHCaL3L0eeVpavL/4PVaIeXfSCg8Do2+tPT1aKZ+Lf6IkqqgIEQmAAAAAAElFTkSuQmCC) no-repeat;
+  background-size: 100%;
+        }
+    </style>
+    <div class="y-adviser-pup">
+        <div class="y-adviser-pup-mask"></div>
+        <div class="y-adviser-pup-cont">
+            <div id="j_adviser_pup_slide" class="swiper-container-horizontal swiper-container-free-mode">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide c-item-select">
+                        <span class="c-hd-circle">
+                            <img src="http://www.keepstyle.cn/data/upload/shop/adv/05280323208453888.jpg">
+                        </span>
+                        <p class="c-counselor-name">刘若欣</p>  
+                    </div>
+                    <div class="swiper-slide">
+                        <span class="c-hd-circle">
+                            <img src="http://www.keepstyle.cn/data/upload/shop/adv/05279715153988511.jpg">
+                        </span>
+                        <p class="c-counselor-name">Alice</p> 
+                    </div>
+                    <div class="swiper-slide">
+                        <span class="c-hd-circle">
+                            <img src="http://www.keepstyle.cn/data/upload/shop/adv/05280323208453888.jpg">
+                        </span>
+                        <p class="c-counselor-name">Mandey</p> 
+                    </div>
+                    <div class="swiper-slide">
+                        <span class="c-hd-circle">
+                            <img src="http://www.keepstyle.cn/data/upload/shop/adv/05279717306825702.jpg">
+                        </span>
+                        <p class="c-counselor-name">Alida</p> 
+                    </div>
+                    <div class="swiper-slide">
+                        <span class="c-hd-circle">
+                            <img src="http://www.keepstyle.cn/data/upload/shop/adv/05280323208453888.jpg">
+                        </span>
+                        <p class="c-counselor-name">Evrely</p> 
+                    </div>
+                </div>
+            </div>
+             
+        </div>
+        <span class="y-adviser-pup-close"><i class="iconfont">&#xe600;</i></span>
+    </div>
+
+
+    
+
+   <script src="jquery-2.1.4.min.js"></script>
+   <script src="swiper.min.js"></script>
+   <!-- 触摸滚动 -->
+   <script type="text/javascript">
+        window.onload = function() {
+          var mySwiper1 = new Swiper('#j_adviser_slide',{
+              freeMode : true,
+              slidesPerView : 'auto',
+              observer:true,//修改swiper自己或子元素时，自动初始化swiper
+              observeParents:true,//修改swiper的父元素时，自动初始化swiper
+          });
+          var mySwiper2 = new Swiper('#j_adviser_pup_slide',{
+              freeMode : true,
+              slidesPerView : 'auto',
+              observer:true,//修改swiper自己或子元素时，自动初始化swiper
+              observeParents:true,//修改swiper的父元素时，自动初始化swiper
+          });
+        }
+    </script>
+
+    <!-- 顾问选中 -->
+    <script type="text/javascript">
+        $(function(){
+            $(document).on('click', '#j_adviser_slide .swiper-slide,#j_adviser_pup_slide .swiper-slide', function () {
+                $(this).addClass('c-item-select').siblings().removeClass('c-item-select');
+            });
+        });
+    </script>
+
+    <!-- 弹框 -->
+    <script type="text/javascript">
+        $(function(){
+            $(document).on('click', '#demo_pup', function () {
+                $(".y-adviser-pup").show();
+            }).on('click','.y-adviser-pup-close',function(){
+                $(".y-adviser-pup").hide();
+            });
+        });
+    </script>
+    
+
+</body>
+</html>

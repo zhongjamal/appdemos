@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="../dist/css/swiper.min.css">
+    <link rel="stylesheet" href="../dist/css/animate.min.css">
+    <script type="text/javascript">
+function getCookie(c) {
+    var b;
+    return (b = document.cookie.match(RegExp("(^| )" + c + "\x3d([^;]*)(;|$)"))) ? unescape(b[2]) : ""
+}
+ 
+var browse_edition = getCookie("browse_edition");
+if ("web" != browse_edition) {
+    var ua = navigator.userAgent.toLowerCase();
+    if (/iphone|ipod|android|windows phone|blackberry/.test(ua)) {
+                    this.location = 'http://blog.yisoula.com';
+            }
+}
+    </script>
+    <!-- Demo styles -->
+    <style>
+    html, body {
+        position: relative;
+        height: 100%;
+    }
+    body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color:#000;
+        margin: 0;
+        padding: 0;
+    }
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+    }
+    #app-slide{display: none;}
+    @media screen and (max-width:640px){
+    #slide-1{display: none;}
+    #app-slide{display: block;}
+    }
+    </style>
+</head>
+<body>
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide swiper-lazy" data-background="img/yisoula_index_2015_pic1.jpg"></div>
+            <div class="swiper-slide swiper-lazy" data-background="img/yisoula_index_2015_pic2.jpg"></div>
+            <div class="swiper-slide swiper-lazy" data-background="img/yisoula_index_2015_pic3.jpg"></div>
+            <div class="swiper-slide swiper-lazy" data-background="img/page-2.jpg">  
+                <div class="logo ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s"><img src="img/logo.png"></div>
+                <div class="one-slide-1 ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.8s"><img src="img/page-1-1.png"></div>
+                <div class="pub-passdown ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="2s"><img src="img/pub-1.png"></div>
+            </div>
+            <div class="swiper-slide"><div class="logo ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s"><img src="img/logo.png"></div>
+                    <div class="one-slide-1 ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.8s"><img src="img/page-1-1.png"></div>
+                    <div class="pub-passdown ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="2s"><img src="img/pub-1.png"></div></div>
+            <div class="swiper-slide">Slide 4</div>
+            <div class="swiper-slide">Slide 5</div>
+            <div class="swiper-slide">Slide 6</div>
+            <div class="swiper-slide">Slide 7</div>
+            <div class="swiper-slide">Slide 8</div>
+            <div class="swiper-slide">Slide 9</div>
+            <div class="swiper-slide">Slide 10</div>
+        </div>
+    </div>
+    <!-- Swiper JS -->
+    <script src="../dist/js/swiper.min.js"></script>
+    <script src="../dist/js/swiper.animate1.0.2.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+        direction: 'vertical',
+        onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
+            swiperAnimateCache(swiper); //隐藏动画元素 
+            swiperAnimate(swiper); //初始化完成开始动画
+        }, 
+        onSlideChangeEnd: function(swiper){ 
+            swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+        },
+        preloadImages: true, 
+        lazyLoading: true,
+        lazyLoadingInPrevNext: true,
+     });
+    </script>
+</body>
+</html>

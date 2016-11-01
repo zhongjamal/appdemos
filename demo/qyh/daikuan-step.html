@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>管家助手</title>
+	<meta name="keywords" content="小窝,小窝金服,金融,贷款,装修,工行" />
+	<meta name="Description" content="深圳市小窝金融信息服务有限公司,是与中国工商银行合作的工行家装贷款服务平台，以“为客户提供最有价值的家装低成本金融服务”为经营理念给广大家装用户提供成本低、额度高、期限长、纯信用的家装消费金融产品。为用户提供多家装修公司免费量房、设计、报价、供用户选择,装修工程节点验收、装修工程款担保交易等增值服务，一站式满足用户的装修融资、装修服务等需求，确保用户安心放心的入住自己的小窝。" />
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="css/common.css" />
+<body>
+	<div class="m-head">
+		<a href="daikuan-rw.html" class="m-back"><i class="iconfont">&#xe624;</i></a>
+		<h2 class="head-tit">贷款流程</h2>
+        <div class="m-tips">
+            <i class="iconfont" id="j-m-tips">&#xe61d;</i>
+        </div>
+	</div>
+    <div class="m-t-xxl">
+        <div class="wrapper">
+            <div class="row-sm fn-clear daikuan-step">
+                <div class="col-xs-6 m-b">
+                         <a href="daiqian-zl.html" class="text-danger text-center bg-white block padder-v">
+                            <span class="h3"><i class="iconfont">&#xe612;</i></span>
+                            <p>贷前验真</p>
+                         </a>
+                </div>
+                <div class="col-xs-6 m-b">
+                   <a href="collect-zl.html" class="text-success text-center bg-white block padder-v">
+                        <span class="h3"><i class="iconfont">&#xe639;</i></span>
+                        <p>资料收集</p>
+                    </a>
+                </div>
+                <div class="col-xs-6 m-b">
+                         <a href="bank-check.html" class="text-muted text-center bg-white block padder-v">
+                            <span class="h3"><i class="iconfont">&#xe609;</i></span>
+                            <p>银行面签</p>
+                         </a>
+                </div>
+                <div class="col-xs-6 m-b">
+                         <a href="bank-approval.html" class="text-gray text-center bg-white block padder-v">
+                            <span class="h3"><i class="iconfont">&#xe616;</i></span>
+                            <p>银行审批</p>
+                         </a>
+                </div>
+                <div class="col-xs-6 m-b">
+                   <a href="zj-trusteeship.html" class="text-gray text-center bg-white block padder-v">
+                        <span class="h3"><i class="iconfont">&#xe629;</i></span>
+                        <p>资金托管</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ul class="m-t-lg bg-white wrapper list-unstyled b-b pos-fix" id="j-state" style="top:16px;left:0;width:100%;display:none;">
+        <li class="text-danger m-b-xs"><i class="iconfont">&#xe63e;</i>已完成</li>
+        <li class="text-success m-b-xs"><i class="iconfont">&#xe63e;</i>进行中</li>
+        <li class="text-black m-b-xs"><i class="iconfont">&#xe63e;</i>未开始</li>
+        <li class="text-gray m-b-xs"><i class="iconfont">&#xe63e;</i>不允许操作</li>
+    </ul>
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(function () {
+  $("#j-m-tips").click(function(){
+    $("#j-state").toggle('500');
+  });
+});
+</script>
+</body>
+</html>

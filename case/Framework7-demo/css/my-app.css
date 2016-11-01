@@ -1,0 +1,20 @@
+*{font-family:"Microsoft YaHei";color:#333;padding:0;margin:0;}
+.panel-left-menu{
+	list-style:none;
+	text-align:center;
+}
+.panel-left-menu li{
+	line-height:38px;
+
+}
+.panel-left-menu li a{
+	display:block;
+	padding:0 15px;
+	color:#333;
+	font-size:16px;
+}
+.panel-left-menu li a:hover{
+	background-color:#fafafa;
+}
+.idnex-swiper img{width:100%;}
+.idnex-swiper .swiper-pagination-bullet-active{background-color:#25b727;}

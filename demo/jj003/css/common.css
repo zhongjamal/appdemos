@@ -1,0 +1,541 @@
+@charset "utf-8";
+/*	
+ * @名称: base.css
+ * @功能: 初始化各html标签，使其在所有浏览器下保持一致
+ * @作者：钟含武
+ * @时间：20150311
+ */
+
+/* 防止用户自定义背景颜色对网页的影响 */
+html{color:#333;background:#fff;font-size: 100%;-webkit-text-size-adjust: 100%;-ms-text-size-adjust:100%;}
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+	margin:0;padding:0;
+}
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG)*/
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display:block;}
+/* HTML5 媒体文件跟 img 保持一致*/
+audio,canvas,video {display: inline-block;*display: inline;*zoom:1;}
+/* 要注意表单元素并不继承父级 font 的问题*/
+body,button,input,select,textarea{color:#333;font:14px/1.5 arial,"Microsoft Yahei","Hiragino Sans GB",sans-serif;_font-family:"SimSun";}
+input,select,textarea{font-size:100%;background:#fff; vertical-align:middle;}
+
+/* 去掉各Table  cell 的边距并让其边重合，防止表格内文字不能换行*/
+table{border-collapse:collapse;border-spacing:0;table-layout:fixed;word-wrap:break-word;word-break:break-all;width:100%;vertical-align:top;}
+th,td{vertical-align: top;}
+
+/* IE bug fixed: th 不继承 text-align*/
+th{text-align:inherit;}
+/* 去除默认边框*/
+fieldset,img{border:none;}
+/* ie6 7 8(q) 显示为行内表现*/
+/* 去掉 firefox 下此元素的边框*/
+abbr,acronym{border:none;font-variant:normal;}
+/* 一致的 del 样式*/
+del {text-decoration:line-through;}
+address,caption,cite,code,dfn,em,var {font-style:normal;font-weight:500;}
+/* 去掉列表前的标识, li 会继承*/
+ol,ul {list-style:none;}
+/* 对齐表头*/
+caption,th {text-align:left;font-weight:700;}
+/* 让标题都自定义, 适应多个系统应用*/     
+h1,h2,h3,h4,h5,h6 {font-size:100%;font-weight:700;}
+q:before,q:after {content:'';}
+/* 统一上标和下标*/
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline;}
+sup {top: -0.5em;}
+sub {bottom: -0.25em;}
+
+/* 默认不显示下划线，保持页面简洁*/
+ins,a {	text-decoration:none;}
+a{color:#666;}
+a:focus {outline: thin dotted #666;outline: 5px auto -webkit-focus-ring-color;outline-offset: -2px;}
+a:hover,a:active {outline: 0;text-decoration:underline;}
+a:hover{color:#e4393c;text-decoration:underline;}
+select{border:1px solid #ccc;}
+code{white-space:pre;}
+/*单字母勾子元素 */
+q,i,b{text-decoration:none;font-style:normal;font-weight:normal;}
+
+/* 清除浮动造成的影响 */
+.fn-clear:after {
+	visibility:hidden;
+	display:block;
+	font-size:0;
+	content:" ";
+	clear:both;
+	height:0;
+}
+.fn-clear {
+	zoom:1; /* for IE6 IE7 */
+}
+
+/* 隐藏, 通常用来与 JS 配合 */
+body .fn-hide {
+	display:none;
+}
+
+/* 设置内联, 减少浮动带来的bug（其实只在有margin时ie6才会有bug） */
+.fn-left {
+	float:left;
+}
+.fn-right {
+	float:right;
+}
+.fn-left,.fn-right {
+	_display:inline;
+}
+
+/* block 格式化上下文 */
+.fn-block{
+  overflow:hidden;
+  zoom:1;
+}
+
+/*顶部静止*/
+.fn-fixedtop{
+    position: fixed;
+   _position: absolute;
+    top:0;
+   _top:expression(eval(documentElement.scrollTop));
+}
+
+/*底部静止  性能比顶部静止更差*/
+.fn-fixedbottom{
+    position: fixed;
+   _position:absolute;
+    bottom:0;
+   _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)) - 0)};
+
+/* debug */
+.fn-debug{
+	border:1px solid #f00;
+}
+
+.l-1080{
+	width: 1080px;
+	margin:0 auto;
+}
+.i-header .jj-logo,.i-header .service-tel,.i-show .show-cont .show-iphone,.i-show .show-cont .show-info,.i-show .show-cont .show-code,.i-function .function-list .f-icon,.qq-service{
+	background:url("../img/common_icon.png") 0 0 no-repeat;overflow:hidden;*zoom:1;
+}
+/* 头部header */
+.i-header{
+	height: 72px;
+	width:100%;
+	overflow: hidden;
+	background-color:#fff;
+	background-color:rgba(255,255,255,0.6);
+	position: relative;
+	z-index:2;
+}
+.i-header .jj-logo{
+	text-indent:-999em;
+	width:350px;
+	height:38px;
+	margin-top:16px;
+}
+.i-header .service-tel{
+	display: inline-block;
+	text-indent:-999em;
+	width: 168px;
+	height: 24px;
+	background-position:0 -50px;
+	margin-top:24px;
+}
+/* 广告图展示 */
+.i-show{
+	margin-top:-72px;
+	background:url("../img/jj003-banner.jpg") center bottom no-repeat;
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height:632px;
+}
+.i-show .show-cont{
+	position: relative;
+	height:632px;
+}
+.i-show .show-cont .show-iphone{
+	text-indent:-999em;
+	width:428px;
+	height:510px;
+	background-position: 0 -450px;
+	position: absolute;
+	bottom: 0;
+	left:50px;
+}
+.i-show .show-cont .show-info{
+	padding:12px 20px;
+	width:440px;
+	height: 100px;
+	background-position:0 -80px;
+	position: absolute;
+	right:88px;
+	top:136px;
+	font-size:24px;
+	text-align: center;
+}
+.i-show .show-cont .show-code{
+	width: 214px;
+	height: 216px;
+	background-position: 0 -220px;
+	position: absolute;
+	right: 224px;
+	top:270px;
+
+}
+/* 产品优势 */
+.i-function .function-list{
+	padding:120px 0;
+	margin-right:-20px;
+}
+.i-function .function-list li{
+	float: left;
+	width:360px;
+	text-align: center;
+}
+.i-function .function-list .f-icon{
+	display: inline-block;
+	width:182px;
+	height:182px;
+}
+.i-function .function-list .f-icon-1{
+	background-position: -428px -220px;
+}
+.i-function .function-list .f-icon-2{
+	background-position: -428px -406px;
+}
+.i-function .function-list .f-icon-3{
+	background-position: -428px -592px;
+}
+.i-function .function-list li h3{
+	font-size: 28px;
+	margin-top:20px;
+	font-weight:400;
+}
+.i-function .function-list li p{
+	color:#999;
+	font-size:16px;
+}
+/* 关于我们 */
+.i-about{
+	background:#77d85c url("../img/about_pat.png") 0 0 repeat-x;
+	background-size: 120%;
+	color:#fff;
+}
+.i-about .about-cont h2,.i-talk .talk-cont h2{
+	font-size: 42px;
+	font-weight:400;
+	text-align: center;
+	padding:100px 0 40px 0;
+}
+.i-about .about-cont .about-info{
+	font-size: 22px;
+	line-height:38px;
+	font-weight:normal;
+	padding:0 60px;
+}
+.i-about .about-cont .brand-list{
+	padding:40px 0 100px 60px;
+	margin-right:-20px;
+}
+.i-about .about-cont .brand-list li{
+	float: left;
+	margin-right:20px;
+	text-align: center;
+}
+.i-about .about-cont .brand-list li a:hover{
+	opacity: 0.8;
+}
+
+/* 经销商有话说 */
+.i-talk .talk-cont h2{
+	color:#333;
+}
+.i-talk .talk-cont .talk-list{
+	padding:10px 0 100px 80px;
+	margin-right:-30px;
+}
+.i-talk .talk-cont .talk-list li{
+	float: left;
+	padding-left:92px;
+	position: relative;
+	width:170px;
+	margin-right:58px;
+}
+.i-talk .talk-cont .talk-list li .talk-icon{
+	display: inline-block;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.i-talk .talk-cont .talk-list li h3{
+	color:#1ab639;
+	font-size:16px;
+}
+.i-talk .talk-cont .talk-list li p{
+	color:#8d8d8d;
+	font-size:13px;
+}
+
+
+/* 网页底部 */
+.i-footer{
+	border-top:1px solid #ddd;
+	color:#999;
+	text-align: center;
+	padding:25px 0;
+}
+
+/* QQ客服 */
+#launchBtn{
+	display: inline-block;
+	width: 66px;
+	height: 66px;
+	overflow: hidden;
+	*zoom:1;
+	background-position:-534px -80px;
+	position: fixed;
+	right:10px;
+	bottom:120px;
+}
+#launchBtn:hover{
+	opacity:0.8;
+}
+
+/* 动画 */
+*{
+	transition: all 1s ease 0s;
+}
+.i-show .show-cont .show-info{
+		    animation: 2s ease-in-out 0s alternate none 1 fadein1;
+       -moz-animation: 2s ease-in-out 0s alternate none 1 fadein1;
+    -webkit-animation: 2s ease-in-out 0s alternate none 1 fadein1;
+         -o-animation: 2s ease-in-out 0s alternate none 1 fadein1;
+}
+@keyframes fadein1{
+0%{
+    opacity: 0;
+}
+100%{
+    opacity: 1;
+}
+}
+@-moz-keyframes fadein1{
+0%{
+    opacity: 0;
+}
+100%{
+    opacity: 1;
+}
+}
+@-webkit-keyframes fadein1{
+0%{
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
+@-o-keyframes fadein1{
+0%{
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
+.i-show .show-cont .show-code{
+	        animation: 2s ease-in-out 0s alternate none 1 fadein2;
+       -moz-animation: 2s ease-in-out 0s alternate none 1 fadein2;
+    -webkit-animation: 2s ease-in-out 0s alternate none 1 fadein2;
+         -o-animation: 2s ease-in-out 0s alternate none 1 fadein2;
+}
+@keyframes fadein2{
+0%{
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
+@-moz-keyframes fadein2{
+0%{
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
+@-webkit-keyframes fadein2{
+0%{
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
+@-o-keyframes fadein2{
+0%{
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
+.i-show .show-cont .show-iphone{
+            animation: 2s ease-in-out 0s alternate none 1 fadein3;
+       -moz-animation: 2s ease-in-out 0s alternate none 1 fadein3;
+    -webkit-animation: 2s ease-in-out 0s alternate none 1 fadein3;
+         -o-animation: 2s ease-in-out 0s alternate none 1 fadein3;
+}
+@keyframes fadein3{
+0%{
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
+@-moz-keyframes fadein3{
+0%{
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
+@-webkit-keyframes fadein3{
+0%{
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
+@-o-keyframes fadein3{
+0%{
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
+
+.i-function .function-list .list-1{
+	     animation: 1.2s linear 0s alternate none 1 drop1;
+    -moz-animation: 1.2s linear 0s alternate none 1 drop1;
+ -webkit-animation: 1.2s linear 0s alternate none 1 drop1;
+      -o-animation: 1.2s linear 0s alternate none 1 drop1;
+}
+.i-function .function-list .list-2{
+	     animation: 1.5s linear 0s alternate none 1 drop2;
+    -moz-animation: 1.5s linear 0s alternate none 1 drop2;
+ -webkit-animation: 1.5s linear 0s alternate none 1 drop2;
+      -o-animation: 1.5s linear 0s alternate none 1 drop2;
+}
+.i-function .function-list .list-3{
+	     animation: 2s linear 0s alternate none 1 drop3;
+    -moz-animation: 2s linear 0s alternate none 1 drop3;
+ -webkit-animation: 2s linear 0s alternate none 1 drop3;
+      -o-animation: 2s linear 0s alternate none 1 drop3;
+}
+@keyframes drop1{
+	0% {
+	    opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@-moz-keyframes drop1{
+	0% {
+	    opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@-webkit-keyframes drop1{
+	0% {
+	    opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@-o-keyframes drop1{
+	0% {
+	    opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes drop2 {
+0% {
+	    opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@-moz-keyframes drop2 {
+0% {
+	    opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@-webkit-keyframes drop2 {
+0% {
+	    opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@-o-keyframes drop2{
+0% {
+	    opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes drop3{
+	0% {
+	    opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@-moz-keyframes drop3{
+	0% {
+	    opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@-webkit-keyframes drop3{
+	0% {
+	    opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@-o-keyframes drop3{
+	0% {
+	    opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}

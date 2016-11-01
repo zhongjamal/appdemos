@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html class="panel-fit"><head>
+    <title>管理首页</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="bootstrap.css">
+    <link href="easyui.css" rel="stylesheet">
+    <link href="icon.css" rel="stylesheet">
+    <link href="Site.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="app.css">
+</head>
+<body class="easyui-layout layout panel-noscroll" huaban_collector_injected="true">
+        <div class="panel layout-panel layout-panel-north" style="width:100%; left: 0px; top: 0px;"><div id="nav" data-options="region:'north',border:false,collapsible:false" style="width: 100%; height: 80px;" title="" class="panel-body panel-body-noheader panel-body-noborder layout-body">
+            <div class="i-header fn-clear">
+                <h1 class="logo-pic">
+                    <img src="xos_logo.png" alt="后台管理系统"></h1>
+                <div class="handle">
+                    <ul class="fn-clear">
+                        <li>用户<span class="name">风控人员</span>你好！</li>
+                        <li><a href="javascript:changeStyle()" class="easyui-tooltip tooltip-f" title="" data-options="iconCls:'icon-change-stye'">
+                            <img src="xw_hander_layout.png" alt="改变菜单位置"></a></li>
+                        <li><a href="javascript:changePass()" class="easyui-tooltip tooltip-f" title="" data-options="iconCls:'icon-change-password'">
+                            <img src="xw_hander_modify.png" alt="修改密码"></a></li>
+                        <li><a href="javascript:loginOut()" class="easyui-tooltip tooltip-f" title="" data-options="iconCls:'icon-signout',position:'left'">
+                            <img src="xw_hander_quit.png" alt="安全退出"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel layout-panel layout-panel-west layout-split-west" style="width: 200px; left: 0px; top: 80px; display: block;">
+        <style type="text/css">
+            .menu-list{background-color:#f9f9f9;height:1000px;width:200px;}
+            .menu-list ul li a{display:block;text-align: center;text-decoration:none;background-color:#f9f9f9;color:#333;line-height:42px;border-bottom:1px solid #eaeaea;}
+            .menu-list ul li a.active{background-color:#eaeaea;color:#3375d6;font-weight: 700;}
+            .cont-wrap{padding:20px;}
+        </style>
+        <div class="menu-list">
+            <ul id="nav">
+                <li><a href="index.html" class="active">工作台</a></li>
+                <li><a href="task-list.html">任务列表</a></li>
+                <li><a href="paike-user.html">拍客用户</a></li>
+                <li><a href="expire-task.html">快到期任务</a></li>
+                <li><a href="wait-task.html">待审核任务</a></li>
+                <li><a href="approve-user.html">待认证审核</a></li>
+                <li><a href="unfreeze-user.html">待解冻审核</a></li>
+                <li><a href="finished-task.html">已完成的任务</a></li>
+                <li><a href="order-receiving.html">进行中的任务</a></li>
+                <li><a href="rewards.html">奖惩管理</a></li>
+                <li><a href="exam.html">题库管理</a></li>
+                <li><a href="dictionary.html">字典设置</a></li>
+                <li><a href="parameter.html">参数设置</a></li>
+                <li><a href="rank.html">等级设置</a></li>
+                <li><a href="integral.html">积分设置</a></li>
+                <li><a href="privileges.html">权限设置</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="panel layout-panel layout-panel-south" style="width: 100%; left: 0px; top: 961px;"><div id="statusbar" data-options="region:'south',border:false" title="" class="panel-body panel-body-noheader panel-body-noborder layout-body" style="width:100%; height: 18px;">状态栏</div></div>
+    <div id="menu_con" class="panel layout-panel layout-panel-center" style="padding-left:200px;padding-top:80px;width:100%;">
+    <style type="text/css">
+    .task-desk-item{width:31%;float: left;text-align: center;margin-right:2%;height:450px;}
+    .task-desk-item .task-desk-num{display:block;background-color:#f8f8f8;padding:20px 0;font-size:24px;}
+    .task-desk-item .task-desk-num span{color:#f05050;font-weight:700;}
+    .task-desk-item .desktop-remind{margin-left:0;text-align:left;}
+    </style>
+    <div class="x-cont-item">
+         <div class="cont-wrap">
+             <div class="fn-clear">
+                  <div class="task-desk-item">
+                       <a class="task-desk-num" href="approve-user.html">
+                           <span>8</span>
+                           <p>认证待审核</p>
+                       </a>
+                       <div class="desktop-remind">
+                <div class="desktop-remind-list">
+                    <ul class="clearfix">
+                        <li>
+                            <span class="remind-list-time">2016-05-25 16:48:46</span>
+                            <span class="remind-list-text">申请人：王小斌</span>
+                            <div class="remind-list-handle">
+                                <a href="javascript:" class="btn btn-dark btn-sm remind-list-btn" data-toggle="modal" data-target="#m1"  data-toggle="tooltip" data-placement="left" title="最新认证审核信息">认证审核</a>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+                  </div>
+                  <div class="task-desk-item">
+                       <a class="task-desk-num" href="wait-task.html">
+                           <span>0</span>
+                           <p>任务待审核</p>
+                       </a>
+                  </div>
+                  <div class="task-desk-item">
+                       <a class="task-desk-num" href="unfreeze-user.html">
+                           <span>0</span>
+                           <p>解冻审核</p>
+                       </a>
+                  </div>
+                  <div class="task-desk-item">
+                       <a class="task-desk-num" href="unfreeze-user.html">
+                           <span>1</span>
+                           <p>快到期任务</p>
+                       </a>
+                       <div class="desktop-remind">
+                <div class="desktop-remind-list">
+                    <ul class="clearfix">
+                        <li>
+                            <span class="remind-list-time">2016-05-25 16:48:46</span>
+                            <span class="remind-list-text">任务人：李小斌</span>
+                            <div class="remind-list-handle">
+                                <a href="javascript:" class="btn btn-dark btn-sm remind-list-btn" data-toggle="modal" data-target="#m3">任务指派</a>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+                  </div>
+             </div>
+         </div>
+    </div>
+        
+    </div>
+    <div id="msg" class="x-container" style="display: none;">
+        <div style="text-align: right"><a href="javascript:$.TiaChe.Portal.addTab({title:'我的消息',url:'/MyMessage/List'})">查看更多</a></div>
+        <div class="x-wrap" style="margin: 5px 0;">
+            <ul class="msg-tips" id="msgList"></ul>
+        </div>
+    </div>
+    <script src="jquery-2.1.4.min.js"></script>
+    <script src="bootstrap.js"></script>
+    <script type="text/javascript">
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+    </script>
+    
+    <!-- 审核 -->
+    <div class="modal fade" id="m1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+              <div class="modal-dialog" role="document">
+              <div class="modal-content">
+              <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+              <h4 class="modal-title" id="myModalLabel">认证审核</h4>
+              </div>
+              <div class="modal-body" style="overflow-y:auto;height:400px;">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                          <label class="col-lg-2 control-label">姓名</label>
+                          <div class="col-lg-10">
+                          <p class="form-control-static">王小斌</p>
+                          </div>
+                        </div>
+                        <div class="line line-dashed b-b line-lg pull-in"></div>
+                        <div class="form-group">
+                          <label class="col-lg-2 control-label">手机号</label>
+                          <div class="col-lg-10">
+                          <p class="form-control-static">18668688477</p>
+                          </div>
+                        </div>
+                        <div class="line line-dashed b-b line-lg pull-in"></div>
+                        <div class="form-group">
+                          <label class="col-lg-2 control-label">身份证号</label>
+                          <div class="col-lg-10">
+                          <p class="form-control-static">431127198805281015</p>
+                          </div>
+                        </div>
+                        <div class="line line-dashed b-b line-lg pull-in"></div>
+                        <div class="form-group">
+                          <label class="col-lg-2 control-label">身份证正面照片</label>
+                          <div class="col-lg-10">
+                          <p class="form-control-static"><img width="100%" src="ex_id_card.jpg"></p>
+                          </div>
+                        </div>
+                        <div class="line line-dashed b-b line-lg pull-in"></div>
+                        <div class="form-group">
+                          <label class="col-lg-2 control-label">身份证反面照片</label>
+                          <div class="col-lg-10">
+                          <p class="form-control-static"><img width="100%" src="ex_id_bg_card.jpg"></p>
+                          </div>
+                        </div>
+                        <div class="line line-dashed b-b line-lg pull-in"></div>
+                        <div class="form-group">
+                          <label class="col-lg-2 control-label">手持身份证照片</label>
+                          <div class="col-lg-10">
+                          <p class="form-control-static"><img width="100%" src="ex_id_card_handle.jpg"></p>
+                          </div>
+                        </div>
+                    </form>
+              </div>
+              <div class="modal-footer text-center">
+              <button type="button" class="btn btn-default w-xs" data-dismiss="modal">关闭</button>
+              <button type="button" class="btn btn-dark w-xs" data-dismiss="modal">通过审核</button>
+              </div>
+              </div>
+              </div>
+              </div>
+
+
+              <div class="modal fade" id="m3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+              <div class="modal-dialog" role="document">
+              <div class="modal-content">
+              <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+              <h4 class="modal-title" id="myModalLabel">任务指派</h4>
+              </div>
+              <div class="modal-body">
+                    <div class="wrapper-md">
+                         <div class="row">
+                             <div class="col-lg-4">
+                                  <label><input type="radio" name="userId" value="71">韩雨霞</label>
+                             </div>
+                             <div class="col-lg-4">
+                                  <label><input type="radio" name="userId" value="71">韩雨霞</label>
+                             </div>
+                             <div class="col-lg-4">
+                                  <label><input type="radio" name="userId" value="71">韩雨霞</label>
+                             </div>
+                             <div class="col-lg-4">
+                                  <label><input type="radio" name="userId" value="71">韩雨霞</label>
+                             </div>
+                             <div class="col-lg-4">
+                                  <label><input type="radio" name="userId" value="71">韩雨霞</label>
+                             </div>
+                             <div class="col-lg-4">
+                                  <label><input type="radio" name="userId" value="71">韩雨霞</label>
+                             </div>
+                             <div class="col-lg-4">
+                                  <label><input type="radio" name="userId" value="71">韩雨霞</label>
+                             </div>
+                         </div>
+                    </div>
+              </div>
+              <div class="modal-footer text-center">
+              <button type="button" class="btn btn-default w-xs" data-dismiss="modal">关闭</button>
+              <button type="button" class="btn btn-dark w-xs" data-dismiss="modal">保存</button>
+              </div>
+              </div>
+              </div>
+              </div>
+
+</body>
+</html>

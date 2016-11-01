@@ -1,0 +1,548 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Language" content="zh-cn" />
+    <meta name="author" content="Tencent-ISUX-Music" />
+    <meta name="Copyright" content="Tencent" />
+    <meta name="description" content="QQ音乐打造独家Super Sound音效，全景环绕、超重低音、清澈人声、现场律动，等你来体验！" />
+    <meta name="keywords" content="音效 DTS 蝰蛇 super sound 全景 环绕 重低音 人声 现场 音乐 音乐播放器 音乐网站 mp3下载 音乐下载 免费听歌 在线听歌 正版音乐 歌词 歌词翻译 MV 最新歌曲 经典老歌 音乐排行榜 空间背景音乐 播放器 高品质音乐 无损音乐 电台 专辑 歌单 歌手" />
+    <meta itemprop="name" content="QQ音乐Super Sound音效" />
+    <meta itemprop="description" content="QQ音乐打造独家Super Sound音效，全景环绕、超重低音、清澈人声、现场律动，等你来体验！" />
+    <meta itemprop="image" content="http://imgcache.gtimg.cn/mediastyle/music_v12/img/sound/share.png" />
+    <!--如果该页面只适合在电脑上进行浏览，请添加以下代码-->
+    <meta name="applicable-device" content="pc">
+    <title>QQ音乐PC音效介绍页</title>
+    <script type="text/javascript">
+        if(/android|iphone|ipad|ipod/i.test(navigator.userAgent)){
+            window.location.replace('http://y.qq.com/m/act/voice_intro/index.html');
+        }
+    </script>
+    <!--[if IE 6]><script type="text/javascript">try{document.execCommand('BackgroundImageCache',false,true);}catch(e){}</script><![endif]-->
+    <link rel="stylesheet" href="css/super_sound.css" />
+    <style type="text/css">
+        html,body{overflow:auto;overflow-x: hidden;}
+        .wrap {overflow: auto;}
+    </style>
+</head>
+
+<body>
+<div class="wrap">
+
+    <div class="menu">
+        <div class="menu__content">
+            <h2 class="menu__title"><a href="javascript:;" class="menu__link js_btn_download" title="QQ音乐"><img class="menu__logo" src="http://imgcache.gtimg.cn/mediastyle/music_v12/img/sound/logo.png" alt="QQ音乐"/></a></h2>
+            <a class="btn_share js_btn_share" href="javascript:;">分享</a>
+            <a class="btn_home" href="http://y.qq.com/">产品首页</a>
+        </div>
+    </div>
+
+    <div class="nav mod_anim js_mod_anim play">
+
+        <div class="nav_main">
+            <h1 class="mod_anim_1">独家SUPER SOUND音效</h1>
+
+            <h2 class="mod_anim_2">全景环绕、超重低音、清澈人声、现场律动，QQ音乐PC新版年度巨献</h2>
+            <a class="btn_download mod_anim_3 js_btn_download" href="javascript:;">立即下载</a>
+        </div>
+
+        <div class="nav_list mod_anim_4 js_nav_list">
+            <ul>
+                <li class="nav_item_1" data-id="0"><i></i><a href="javascript:;">全景环绕</a></li>
+                <li class="nav_item_2" data-id="1"><i></i><a href="javascript:;">超重低音</a></li>
+                <li class="nav_item_3" data-id="2"><i></i><a href="javascript:;">清澈人声</a></li>
+                <li class="nav_item_4" data-id="3"><i></i><a href="javascript:;">现场律动</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="mode_part part_circle" id="part_0">
+
+        <div class="mode_part_main">
+            <div class="part_intro mod_anim js_mod_anim js_part_0">
+                <h2 class="part_title mod_anim_1">全景环绕</h2>
+
+                <div class="part_content mod_anim_2">
+                    <p class="hide">独有加权改进ATF技术 ,立体声扩展技术 <br/>消除头中效应，享受环绕于耳畔的歌声包裹空间感</p>
+
+                    <p class="hide">立即体验：</p>
+                    <a class="btn_pause btn_play_1 song_play_link" href="javascript:;" data-paused="1" data-source="http://ws.stream.qqmusic.qq.com/lm005946c4b8f21e00ca293c87b248ce81b8.m4a?fromtag=0">全景环绕音效</a>
+                    <a class="btn_pause btn_play_2 song_play_link" href="javascript:;" data-paused="1" data-source="http://ws.stream.qqmusic.qq.com/lm003bb4574467d53b5558f2c79ef1c9ebee.m4a?fromtag=0">无音效</a>
+                </div>
+                <div class="pic_wrap mod_anim_3">
+                    <div class="img_wrap">
+                        <img src="http://imgcache.gtimg.cn/mediastyle/music_v12/img/sound/pic_1.png"/>
+                    </div>
+                    <p class="title_voice"></p>
+
+                    <div class="pic_voice" id="pic_voice"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mode_part part_voice" id="part_1">
+
+        <div class="mode_part_main">
+            <div class="part_intro mod_anim js_mod_anim">
+                <h2 class="part_title mod_anim_1">超重低音</h2>
+
+                <div class="part_content mod_anim_2">
+                    <p class="hide">优秀音频频谱增强技术，配合科学滤波<br/>带来凝实有力、弹性十足的震撼感和共鸣</p>
+
+                    <p class="hide">立即体验：</p>
+                    <a class="btn_pause btn_play_1 song_play_link" href="javascript:;" data-paused="1" data-source="http://ws.stream.qqmusic.qq.com/lm00ed957e15bd091e3e8b57fed4b9031991.m4a?fromtag=0">超重低音音效</a>
+                    <a class="btn_pause btn_play_2 song_play_link" href="javascript:;" data-paused="1" data-source="http://ws.stream.qqmusic.qq.com/lm000558ee233af74a48087a30634be12d3c.m4a?fromtag=0">无音效</a>
+                </div>
+                <div class="pic_wrap mod_anim_3">
+                    <img src="http://imgcache.gtimg.cn/mediastyle/music_v12/img/sound/pic_2.png"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mode_part part_man" id="part_2">
+
+        <div class="mode_part_main">
+            <div class="part_intro mod_anim js_mod_anim js_part_2">
+                <h2 class="part_title mod_anim_1">清澈人声</h2>
+
+                <div class="part_content mod_anim_2">
+                    <p class="hide">先进频谱分析增强技术，智能防破音<br/>消除沉闷，突出清澈明亮的人声</p>
+
+                    <p class="hide">立即体验：</p>
+                    <a class="btn_pause btn_play_1 song_play_link" href="javascript:;" data-paused="1" data-source="http://ws.stream.qqmusic.qq.com/lm00269e0b7dd4ad8536bac527c3808c0877.m4a?fromtag=0">清澈人声音效</a>
+                    <a class="btn_pause btn_play_2 song_play_link" href="javascript:;" data-paused="1" data-source="http://ws.stream.qqmusic.qq.com/lm00ff1a91a6f1b565ed7d491b3638b10622.m4a?fromtag=0">无音效</a>
+                </div>
+                <div class="pic_wrap mod_anim_3">
+                    <img src="http://imgcache.gtimg.cn/mediastyle/music_v12/img/sound/pic_3.png"/>
+
+                    <div class="svg_line svg_line_1" id="svg_line_1"><i class="svg_icon__over"></i></div>
+                    <div class="svg_line svg_line_2" id="svg_line_2"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mode_part part_active" id="part_3">
+
+        <div class="mode_part_main">
+            <div class="part_intro mod_anim js_mod_anim">
+                <h2 class="part_title mod_anim_1">现场律动</h2>
+
+                <div class="part_content mod_anim_2">
+                    <p class="hide">领先人头录音，搭配虚拟音响技术<br/>前置鲜活声场带来极致临场感</p>
+
+                    <p class="hide">立即体验：</p>
+                    <a class="btn_pause btn_play_1 song_play_link" href="javascript:;" data-paused="1" data-source="http://ws.stream.qqmusic.qq.com/lm00401e18533d9fbe58d589873d20fc146a.m4a?fromtag=0">现场律动音效</a>
+                    <a class="btn_pause btn_play_2 song_play_link" href="javascript:;" data-paused="1" data-source="http://ws.stream.qqmusic.qq.com/lm006285dcb99db97c3352e419e74eb18797.m4a?fromtag=0">无音效</a>
+                </div>
+                <div class="pic_wrap mod_anim_3">
+                    <img src="http://imgcache.gtimg.cn/mediastyle/music_v12/img/sound/pic_4.png"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- 尾部_S -->
+<div class="mod_footer" id="frame_bottom"><p class="footermenu"><a target="new" href="http://www.tencent.com/">关于腾讯</a>|<a target="new" href="http://www.tencent.com/index_e.shtml">About Tencent</a>|<a target="new" href="http://www.qq.com/contract.shtml">服务条款</a>|<a target="new" href="http://adver.qq.com/">广告服务</a>|<a target="new" href="http://hr.tencent.com/">腾讯招聘</a>|<a target="new" href="http://service.qq.com/">客服中心</a>|<a target="new" href="http://www.qq.com/map/">网站导航</a></p>                <p class="copyrighten">Copyright © 1998 - <span id="copyendyear"></span> Tencent.<a target="new" href="http://www.tencent.com/zh-cn/le/copyrightstatement.shtml">All Rights Reserved</a>.</p>               <p class="copyrightzh">腾讯公司<a target="new" href="http://www.tencent.com/zh-cn/le/copyrightstatement.shtml">版权所有</a><a target="new" href="http://www.tencent.com/law/mo_law.shtml?/law/copyright.htm">腾讯网络文化经营许可证</a></p></div>
+<!-- 尾部_E -->
+
+<!-- 提示浮层 S -->
+<div id="id_sharetips" class="popup_up" style="top:180px; display:none;">
+    <div class="popup_dialog popup_system">
+        <div class="popup_dialog_hd">
+            <h3>分享活动</h3>
+            <a href="javascript:;" class="popup_dialog_close" id="id_close" title="关闭">关闭</a>
+        </div>
+        <div class="popup_dialog_cont">
+            <!--外部为公用结构-->
+            <div class="popup_con">
+                <h4>分享这个功能到：</h4>
+                <ul class="popup_share" id="id_ul_share">
+                    <li data-sid="0"><a href="javascript:;" class="pop_share_item"><span class="icon_qzone"></span>QQ空间</a></li>
+                    <li data-sid="1"><a href="javascript:;" class="pop_share_item"><span class="icon_qq"></span>QQ好友</a></li>
+                    <li data-sid="3"><a href="javascript:;" class="pop_share_item"><span class="icon_weibo"></span>腾讯微博</a></li>
+                    <li data-sid="2"><a href="javascript:;" class="pop_share_item"><span class="icon_sina"></span>新浪微博</a></li>
+                </ul>
+                <div class="popup_weixin">
+                    <img src="http://imgcache.gtimg.cn/mediastyle/mobile/event/20151208_good_time/img/qrcode_h5.png" width="130" height="130" alt="">
+                    <p>手机扫描二维码还可以分享到微信朋友圈噢~</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 提浮层层 E -->
+<script type="text/javascript" src="js/jquery-min.js" charset="utf-8"></script>
+<script type="text/javascript" src="js/raphael.js" charset="utf-8"></script>
+<script type="text/javascript" src="js/qmfl_act_portal_v1.1.js" charset="utf-8"></script>
+<script type="text/javascript">
+
+    (function(){
+        // SVG动画
+        function SvgAnim() {
+            // 声波
+            this.r = Raphael("pic_voice", 300, 300);
+
+            this.circle1 = this.r.circle(-30,320, 60);
+            this.circle1.attr({stroke: 'rgba(255,255,255,0.2)', 'stroke-width': 1.5});
+            this.circle1.transform("m1,0.5,0.5,1,0,0s0.3t100,-650");
+
+            this.circle2 = this.r.circle(-30,320, 60);
+            this.circle2.attr({stroke: 'rgb(255,255,255)', 'stroke-width': 1.5});
+            this.circle2.transform("m1,0.5,0.5,1,0,0s0.3t100,-650");
+            this.anim1 = Raphael.animation({cx: 50, cy: 250, r: 100, opacity: .5}, 800, 'ease-out');
+            this.circle2.animate(this.anim1);
+
+            this.circle3 = this.r.circle(-30,320, 60);
+            this.circle3.attr({stroke: 'rgb(255,255,255)', 'stroke-width': 1.5});
+            this.circle3.transform("m1,0.5,0.5,1,0,0s0.3t100,-650");
+            this.anim2 = Raphael.animation({cx: 150, cy: 150, r: 120, opacity: 1}, 800, 'ease-out');
+            this.circle3.animate(this.anim2);
+
+            // 线条
+            this.line1 = Raphael("svg_line_1", 230, 150);
+            this.line2 = Raphael("svg_line_2", 230, 150);
+            this.arr1 = Raphael.parsePathString('M19.182,83.891c1.785-8.776,3.195-19.124,7.028-19.124c6.656,0,5.902,28.182,13.606,28.182s8.859-35.227,13.606-35.227c4.748,0,6.49,41.266,13.606,41.266s8.448-45.292,13.606-45.292s7.41,51.332,13.606,51.332c6.196,0,8.702-58.376,13.606-58.376c4.903,0,8.33,65.421,13.606,65.421c5.275,0,6.146-71.46,12.699-71.46s8.494,77.5,14.513,77.5c6.02,0,5.068-89.578,12.699-89.578c7.63,0,8.932,98.636,13.605,98.636s6.746-108.783,12.699-108.783s6.766,116.644,14.512,116.644c3.545,0,6.129-26.926,9.158-56.143');
+            this.arr2 = Raphael.parsePathString('M21.279,77.207c1.386-7.062,2.901-13.555,5.938-13.555c6.656,0,5.902,28.182,13.606,28.182c7.703,0,8.857-35.227,13.605-35.227c4.747,0,6.489,41.266,13.606,41.266c7.116,0,8.446-45.292,13.604-45.292c5.159,0,7.411,51.332,13.606,51.332c6.196,0,8.703-58.377,13.605-58.377c4.904,0,8.331,65.422,13.606,65.422c5.276,0,6.145-70.726,12.699-70.726c6.554,0,8.494,73.554,14.513,73.554s5.069-75.567,12.699-75.567c7.631,0,5.354,77.309,13.605,77.309s5.769-77.309,12.699-77.309s6.262,77.036,14.513,77.036c3.262,0,4.711-17.184,6.09-37.969');
+            this.p1 = this.line1.path().attr({stroke: '#b2b2b2', 'stroke-width': 2});
+            this.p2 = this.line2.path().attr({stroke: '#b2b2b2', 'stroke-width': 2});
+        }
+
+        SvgAnim.prototype.line = function(p, arr, callback){
+            var index = 0;
+
+            function draw(){
+                var str = arr[index].join(',').replace(',', '');
+                var anim = Raphael.animation({path: p.attr('path') + str}, 200, 'ease-out', function(){
+                    if(++index == arr.length){
+                        if(!!callback) callback(p);
+                        return;
+                    }
+                    draw();
+                });
+                p.animate(anim);
+            }
+            draw();
+        };
+
+        SvgAnim.prototype.drawVoice = function(){
+            this.circle2.attr({cx: -30, cy: 320, r: 60});
+            this.circle3.attr({cx: -30, cy: 320, r: 60});
+            this.circle2.animate(this.anim1.repeat(4));
+            this.circle3.animate(this.anim2.repeat(4));
+        };
+
+        SvgAnim.prototype.drawLine = function(){
+            $('.svg_icon__over').hide();
+            var that = this;
+            that.line(that.p1, that.arr1, function(p){
+                $('#svg_line_1').find('svg').fadeOut(500).end().find('.svg_icon__over').fadeIn(500, function(){
+                    that.line1.remove();
+                });
+            });
+            that.line(that.p2, that.arr2);
+        };
+
+        function IEAnimation(){
+            var isIE = function(ver){
+                var b = document.createElement('b');
+                b.innerHTML = '<!--[if IE ' + ver + ']><i></i><![endif]-->';
+                return b.getElementsByTagName('i').length === 1
+            };
+            if(isIE(6) || isIE(7) || isIE(8) || isIE(9)){
+                $('.mod_anim.play .mod_anim_1, .mod_anim.play .mod_anim_2, .mod_anim.play .mod_anim_3, .mod_anim.play .mod_anim_4').css({top: '80px', opacity: 0});
+                $('.mod_anim.play .mod_anim_1').delay(300).animate({top: 0, opacity: 1}, 600);
+                $('.mod_anim.play .mod_anim_2').delay(600).animate({top: 0, opacity: 1}, 600);
+                $('.mod_anim.play .mod_anim_3').delay(700).animate({top: 0, opacity: 1}, 600);
+                $('.mod_anim.play .mod_anim_4').delay(1200).animate({top: 0, opacity: 1}, 600);
+            }
+        }
+
+
+        var $part = $('.js_mod_anim'),
+                scrollTimer = null,
+                isFinish = false,
+                SA = new SvgAnim(),
+                throttle=(function(){
+                    var previous=0,result,timer;
+                    return function(fn, wait){
+                        var now = new Date;
+                        var remaining=wait-(now - previous);
+                        if(remaining <= 0){
+                            previous=now;
+                            result=fn.apply(this, arguments);
+                        }else if(!timer){
+                            timer=setTimeout(function(){
+                                clearTimeout(timer);
+                                timer=null;
+                                previous=new Date;
+                                result=fn.apply(this, arguments);
+                            }, remaining);
+                        }
+                        return result;
+                    }
+                })();
+
+        $($part[0]).addClass('play');
+
+        $(window).scroll(function () {
+
+            if (scrollTimer) {
+                clearTimeout(scrollTimer);
+                scrollTimer = undefined;
+            }
+
+            scrollTimer = setTimeout(function () {
+                var scrollTop = $(this).scrollTop(),
+                        currentEle, offsetTop;
+
+                for (var i = 0, len = $part.length; i < len; i++) {
+                    currentEle = $($part[i]);
+                    offsetTop = currentEle.offset().top;
+                    if (Math.abs(offsetTop - scrollTop) < 200) {
+                        currentEle.addClass('play');
+                        if (currentEle.hasClass('js_part_0')) {
+                            throttle(function(){
+                                IEAnimation();
+                            }, 500);
+                            throttle(function(){
+                                SA.drawVoice();
+                            }, 2400);
+                        } else if (currentEle.hasClass('js_part_2')) {
+                            throttle(function(){
+                                IEAnimation();
+                            }, 500);
+                            if(!isFinish) {
+                                isFinish = true;
+                                SA.drawLine();
+                            }
+                        }
+                    } else {
+                        //currentEle.removeClass('play');
+                    }
+                }
+            }, 10);
+        });
+    })();
+
+    var ACT = (function () {
+        var shareTips = $('#id_sharetips'),
+            downloadUrl = "";
+
+        function playerInit() {
+            //试听统计初始化传参
+//                    g_webPlayer.init({
+//                        fromtag : 30,     //控件上报fromtag，30：活动
+//                        statFromtag : 8 //web前端上报来源，8：音乐活动及专题类
+//                    });
+            //如果有歌曲正在播放则先将其停止
+            g_webPlayer.stopPlayer();
+        }
+
+        function initListener(){
+            $('.js_nav_list').on("click","li",function(){
+                var id = $(this).data("id"), $target = $('#part_' + id), pos = $target.offset().top || 0;
+
+                $("html,body").animate({scrollTop: pos}, 1000);
+            });
+
+            $('.js_btn_share').on("click",function(){
+                shareTips.css("display","block");
+            });
+
+            $('#id_close').on("click",function(){
+                shareTips.css("display","none");
+            });
+
+            $('.js_btn_download').on("click",function(){
+                downloadUrl = !downloadUrl ? "http://y.qq.com/#type=down&p=index" : downloadUrl;
+                window.open(downloadUrl, '_blank');
+            })
+        }
+
+        function getDownloadUrl(){
+            var download = new MUSIC.JSONGetter(
+                    'http://y.qq.com/download/download.js',
+                    'MusicJsonCallback',
+                    'null',
+                    'utf-8',
+                    false
+            );
+
+            download.onSuccess = function (data) {
+                downloadUrl = data && data.data[0] && data.data[0].Flink1;
+            };
+
+            download.send('MusicJsonCallback');
+        }
+
+        return{
+            init:function(){
+                getDownloadUrl();
+                initListener();
+
+                var jsLoader = new MUSIC.JsLoader();
+
+                jsLoader.onload=function(){
+                    playerInit();
+                    $('.song_play_link').on("click", function () {
+                        var $target = $(this),
+                                paused = $target.data("paused"),
+                                audioURL = $target.data("source");
+
+                        var $songPlayLink = $('.song_play_link') || [];
+                        for (var i = 0, len = $songPlayLink.length; i < len; i++) {
+                            $songPlayLink.data('paused', 1);
+                            $songPlayLink.removeClass('btn_play').addClass('btn_pause');
+                        }
+
+                        if (!!paused) {
+                            g_webPlayer.stopPlayer();
+                            g_webPlayer.setPlayerList(true, [{msongurl: audioURL}], 1);
+                            $target.removeClass('btn_pause').addClass('btn_play');
+                            $target.data('paused', 0);
+                        } else {
+                            g_webPlayer.stopPlayer();
+                            $target.removeClass('btn_play').addClass('btn_pause');
+                            $target.data('paused', 1);
+                        }
+                    });
+                };
+
+                jsLoader.load('http://imgcache.gtimg.cn/music/mmrp/js/mmrp_webplayer.js',null,'utf-8');
+
+                var arrShare = [ACT.actShare.shareToQzone, ACT.actShare.shareToQQ, ACT.actShare.shareToXl, ACT.actShare.shareToWeibo];
+                $('#id_ul_share').on("click", "li", function () {
+
+                    var $target = $(this), sid = $target.data("sid") || 0;
+
+                    arrShare[sid]($target[0]);
+                });
+            }
+        };
+
+    })();
+
+    ACT.actShare = (function(){
+        var qzoneShareUrl = 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=%(url)&desc=%(content)&summary=%(summary)&title=%(title)&pics=%(pic)';
+        var weiboShareUrl = 'http://v.t.qq.com/share/share.php?appkey=15c5b62d298b4b7cb80b95fe2a8b9512&url=%(url)&title=%(content)&pic=%(pic)';
+        var xlShareUrl = 'http://v.t.sina.com.cn/share/share.php?url=%(url)&title=%(content)&pic=%(pic)';
+        var qqShareUrl = 'http://connect.qq.com/widget/shareqq/index.html?title=%(title)&url=%(url)&desc=%(desc)&pics=%(pic)&site=QQ%E9%9F%B3%E4%B9%90';
+        var share_data = {
+            url: "http://y.qq.com/vip/voice_intro/index.html",
+            title: "QQ音乐Super Sound音效",
+            content: "QQ音乐PC新版推出的Super Sound音效，效果棒棒哒！",
+            summary: "QQ音乐打造独家Super Sound音效，全景环绕、超重低音、清澈人声、现场律动，等你来体验！",
+            pic: "http://imgcache.gtimg.cn/mediastyle/music_v12/img/sound/share.png"
+        };
+        return {
+            shareToQzone : function(_this){
+                var _obj = {
+                    url : _this.getAttribute('qzone_url') || share_data.url || location.href, //分享url
+                    content : _this.getAttribute('qzone_content') || share_data.content,    //详情
+                    summary : _this.getAttribute('qzone_summary') || share_data.summary,    //摘要
+                    title : _this.getAttribute('qzone_title') || share_data.title,  //标题
+                    pic : _this.getAttribute('qzone_pic') || share_data.pic //分享的小图
+                };
+                for (var i in _obj){
+                    _obj[i] = encodeURIComponent(_obj[i]);
+                }
+                var url = qzoneShareUrl.jstpl_format(_obj);
+                window.open(url,'', 'width=700, height=680, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no');
+            },
+            shareToWeibo : function(_this){
+                var _obj = {
+                    url : _this.getAttribute('weibo_url') || share_data.url || location.href, //分享url
+                    content : _this.getAttribute('weibo_content') || share_data.content,  //详情
+                    pic : _this.getAttribute('weibo_pic') || share_data.pic //分享的小图
+                };
+                for (var i in _obj){
+                    _obj[i] = encodeURIComponent(_obj[i]);
+                }
+                var url = weiboShareUrl.jstpl_format(_obj);
+                window.open(url,'', 'width=700, height=680, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no');
+            },
+            shareToXl : function(_this){
+                var _obj = {
+                    url : _this.getAttribute('xl_url') || share_data.url || location.href,  //分享url
+                    content : _this.getAttribute('weibo_content') || share_data.content,  //详情
+                    pic : _this.getAttribute('weibo_pic') || share_data.pic   //分享的小图
+                };
+                for (var i in _obj){
+                    _obj[i] = encodeURIComponent(_obj[i]);
+                }
+                var url = xlShareUrl.jstpl_format(_obj);
+                window.open(url);
+            },
+            shareToQQ : function(_this){
+                var _obj = {
+                    url : _this.getAttribute('qq_url') || share_data.url || location.href,
+                    pic : _this.getAttribute('qq_pic') || share_data.pic,
+                    desc : _this.getAttribute('qq_desc') || share_data.content,
+                    title : _this.getAttribute('qq_title') || share_data.title
+                };
+                for (var i in _obj){
+                    _obj[i] = encodeURIComponent(_obj[i]);
+                }
+                var url = qqShareUrl.jstpl_format(_obj);
+                window.open(url);
+            }
+        };
+    })();
+
+    /**
+     * 点击统计
+     *
+     * @namespace MUSIC.channel.act.statistics
+     * @description 点击统计
+     */
+    var statistics  = (function(){
+
+        var js_url = 'http://pingjs.qq.com/ping.js';
+
+        function _init() {
+
+            if(typeof(pgvMain)=='function'){
+                pgvMain();
+            }
+        }
+        return {
+            /**
+             * 统计初始化
+             *
+             * @param {}
+             *
+             * @return {}
+             */
+            init : function(){
+                var js = new MUSIC.JsLoader();
+                js.onload = function(){
+                    _init();
+                };
+
+                js.load(js_url, null, 'utf-8');
+            }
+        };
+
+    })();
+
+    ;(function() {
+        ACT.init();
+        // 上报
+        statistics.init();
+    })();
+
+</script>
+
+</body>
+</html>

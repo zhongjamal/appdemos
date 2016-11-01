@@ -1,0 +1,757 @@
+﻿@charset "utf-8";
+/*	
+ * @名称: common.css
+ * @功能: 初始化各html标签，使其在所有浏览器下保持一致
+ * @作者：钟含武
+ * @时间：20160219
+ */
+
+/* 防止用户自定义背景颜色对网页的影响 */
+html{color:#333;font-size: 100%;-webkit-text-size-adjust: 100%;-ms-text-size-adjust:100%;background-color:#f0f3f4;}
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+	margin:0;padding:0;
+}
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG)*/
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display:block;}
+/* HTML5 媒体文件跟 img 保持一致*/
+audio,canvas,video {display: inline-block;*display: inline;*zoom:1;}
+/* 要注意表单元素并不继承父级 font 的问题*/
+body,button,input,select,textarea{color:#333;font:14px/1.5 arial,"Microsoft Yahei","Hiragino Sans GB",sans-serif;_font-family:"SimSun";}
+input,select,textarea{font-size:100%;background:#fff; vertical-align:middle;text-rendering: auto;outline:none}
+
+/* 去掉各Table  cell 的边距并让其边重合，防止表格内文字不能换行*/
+table{border-collapse:collapse;border-spacing:0;table-layout:fixed;word-wrap:break-word;word-break:break-all;width:100%;vertical-align:top;}
+th,td{vertical-align: top;}
+
+/* IE bug fixed: th 不继承 text-align*/
+th{text-align:inherit;}
+/* 去除默认边框*/
+fieldset,img{border:none;}
+/* ie6 7 8(q) 显示为行内表现*/
+/* 去掉 firefox 下此元素的边框*/
+abbr,acronym{border:none;font-variant:normal;}
+/* 一致的 del 样式*/
+del {text-decoration:line-through;}
+address,caption,cite,code,dfn,em,var {font-style:normal;font-weight:500;}
+/* 去掉列表前的标识, li 会继承*/
+ol,ul {list-style:none;}
+/* 对齐表头*/
+caption,th {text-align:left;font-weight:700;}
+/* 让标题都自定义, 适应多个系统应用*/     
+h1,h2,h3,h4,h5,h6 {font-size:100%;font-weight:700;}
+q:before,q:after {content:'';}
+/* 统一上标和下标*/
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline;}
+sup {top: -0.5em;}
+sub {bottom: -0.25em;}
+
+/* 默认不显示下划线，保持页面简洁*/
+ins,a {	text-decoration:none;}
+a{color:#333;}
+a:focus {outline: thin dotted #666;outline: 5px auto -webkit-focus-ring-color;outline-offset: -2px;}
+a:hover,a:active {outline: 0;text-decoration:underline;}
+a:hover{color:#1d7ad9;text-decoration:underline;}
+select{border:1px solid #ccc;}
+code{white-space:pre;}
+/*单字母勾子元素 */
+q,i,b{text-decoration:none;font-style:normal;font-weight:normal;}
+body,html{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    color: #222;
+    font-size: 14px;
+    line-height: 1.3em;
+    font-family: "冬青黑体简体中文","Tahoma","Hiragino Sans GB","Microsoft YaHei","微软雅黑","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif !important;
+    -webkit-font-smoothing: antialiased; /*让页面里的字体变清晰*/
+}
+html{
+    background:url("main-bg.png") no-repeat #5a83b7;
+    background-size: cover;
+}
+body{
+    box-sizing:border-box;
+-moz-box-sizing:border-box; 
+-webkit-box-sizing:border-box;
+}
+
+/*矢量字体*/
+@font-face {
+  font-family: 'iconfont';
+  src: url('//at.alicdn.com/t/font_1455780830_3566124.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/font_1455780830_3566124.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/font_1455780830_3566124.woff') format('woff'), /* chrome、firefox */
+  url('//at.alicdn.com/t/font_1455780830_3566124.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/font_1455780830_3566124.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+                             
+.iconfont{font-family:"iconfont";
+font-size:16px;font-style:normal;-webkit-font-smoothing: antialiased;
+-webkit-text-stroke-width: 0.2px;}
+
+
+
+/* 清除浮动造成的影响 */
+.fn-clear:after {
+	visibility:hidden;
+	display:block;
+	font-size:0;
+	content:" ";
+	clear:both;
+	height:0;
+}
+.fn-clear {
+	zoom:1; /* for IE6 IE7 */
+}
+
+/* 隐藏, 通常用来与 JS 配合 */
+body .fn-hide {
+	display:none !important;
+}
+
+/* 设置内联, 减少浮动带来的bug（其实只在有margin时ie6才会有bug） */
+.fn-left {
+	float:left;
+}
+.fn-right {
+	float:right;
+}
+.fn-left,.fn-right {
+	_display:inline;
+}
+
+/* block 格式化上下文 */
+.fn-block{
+  overflow:hidden;
+  zoom:1;
+}
+
+/*顶部静止*/
+.fn-fixedtop{
+    position: fixed;
+   _position: absolute;
+    top:0;
+   _top:expression(eval(documentElement.scrollTop));
+}
+
+/*底部静止  性能比顶部静止更差*/
+.fn-fixedbottom{
+    position: fixed;
+   _position:absolute;
+    bottom:0;
+    width:100%;
+    z-index:1420;
+   _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)) - 0)
+ }
+
+/*无定位*/
+.no-fixed{position:static !important;}
+
+
+#layout-container{
+    width: 100%;
+    height: 100%;
+    padding-top: 1px;
+    box-sizing:border-box;
+-moz-box-sizing:border-box; 
+-webkit-box-sizing:border-box;
+}
+#layout-main{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 900px;
+    height: 602px;
+    margin-left: -450px;
+    margin-top: -301px;
+    overflow: hidden;
+    box-shadow: rgba(0,0,0,0.15) 1px 4px 12px;
+    border-radius: 3px;
+}
+#header {
+    width: 100%;
+    height: 59px;
+    background:#008cee url("header_logo.png") no-repeat 35px 18px;
+    background-size: 70px 28px;
+    border-bottom: 1px solid #e6e5e6;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    position: relative;
+    app-region: drag;
+    -moz-app-region: drag;
+    -webkit-app-region: drag;
+}
+#body {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -moz-flex-flow: row wrap;
+    flex-flow: row wrap;
+    height: 542px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+#menu-pannel{
+    width: 100px;
+    height: 100%;
+    background-color: #e4eaf4;
+    overflow-x: hidden;
+    overflow: hidden;
+    position: relative;
+    border-right: 1px solid #dddcdd;
+    border-bottom-left-radius: 3px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;/*不希望用户在你的网站上选择文本*/
+}
+#menu-pannel-body{
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row nowrap;
+    -moz-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    height: 100%;
+}
+#menu-pannel .profile {
+    text-align: center;
+    padding-top: 14px;
+}
+.avatar {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    display: inline-block;
+    box-sizing: border-box;
+}
+.avatar.border-thick {
+    border: 2px solid #fff;
+}
+.avatar.tiny-big, .avatar.profile-big {
+    width: 41px;
+    height: 41px;
+    border-radius: 50%;
+}
+#menu-pannel .profile .avatar {
+    cursor: pointer;
+}
+.avatar>div {
+    width: 100%;
+    height: 100%;
+}
+.avatar img:not(.emoji) {
+    width: 100%;
+    height: 100%;
+}
+#menu-pannel .profile .name {
+    margin: 8px auto 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+#menu-pannel .main-menus .menu-item {
+    position: relative;
+    padding: 15px 0 15px 16px;
+    cursor: pointer;
+    color: #707275;
+}
+#menu-pannel .main-menus .menu-item.selected {
+    background-color: #cce4f7;
+    color: #008cee;
+}
+#menu-pannel .main-menus .menu-item .menu-icon {
+    margin-right: 8px;
+    font-size: 29px;
+}
+#menu-pannel .main-menus .menu-item .text {
+    position: absolute;
+    left: 54px;
+    top: 15px;
+    font-size: 13px;
+}
+#menu-pannel .extra-options {
+    position: absolute;
+    bottom: 12px;
+    width: 100%;
+}
+#menu-pannel .extra-options .extra-item {
+    position: relative;
+    text-align: center;
+    padding-top: 10px;
+    margin-bottom: 4px;
+    color: #707275;
+}
+#menu-pannel .extra-options .settings {
+    margin-bottom: 18px;
+}
+#menu-pannel .extra-options .extra-item .extra-item-box {
+    display: inline-block;
+    cursor: pointer;
+}
+.tip-menu {
+    position: absolute;
+    z-index: 300;
+    width: 96px;
+    background-color: #fff;
+    box-shadow: rgba(0,0,0,0.15) 0 0 8px;
+    border-radius: 3px;
+}
+#menu-pannel .extra-options .extra-item .tip-menu {
+    bottom: 28px;
+    left: 3px;
+}
+.ng-cloak, .x-ng-cloak, .ng-hide:not(.ng-hide-animate) {
+    display: none !important;
+}
+#menu-pannel .extra-options .extra-item .font {
+    font-size: 12px;
+    margin-left: 6px;
+}
+.tip-menu .menus {
+    padding: 0;
+}
+.tip-menu .menu-item {
+    border-bottom: 1px solid rgba(220,220,220,0.5);
+    line-height: 31px;
+    cursor: pointer;
+    text-align: left;
+    text-indent: 10px;
+    font-size: 12px;
+    color: #222;
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+.tip-menu .tri {
+    position: absolute;
+    bottom: 1px;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    margin-left: -5px;
+}
+.tip-menu .tri .tri-border{
+    position: absolute;
+    border-width: 5px;
+    border-style: solid dashed dashed dashed;
+}
+.tip-menu .tri .tb-border {
+    bottom: -10px;
+    border-color: #f9fcfa transparent transparent transparent;
+}
+.tip-menu .tri .tb-back {
+    bottom: -11px;
+    border-color: #f9fcfa transparent transparent transparent;
+}
+
+#sub-menu-pannel{
+    width: 213px;
+    height: 100%;
+    background-color: #f5f9ff;
+    overflow-x: hidden;
+    overflow: hidden;
+    border-right: 1px solid #e6e5e6;
+    overflow-y: auto;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: column nowrap;
+    -moz-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+}
+#sub-menu-pannel.conv-list-pannel {
+    overflow: visible;
+}
+#content-pannel {
+    height: 100%;
+    background-color: #f8fbff;
+    overflow-x: hidden;
+    overflow: hidden;
+    border-bottom-right-radius: 3px;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    position: relative;
+}
+#content-pannel>div {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: column wrap;
+    -moz-flex-flow: column wrap;
+    flex-flow: column wrap;
+    height: 100%;
+}
+.conv-detail-pannel {
+    position: relative;
+}
+.nocontent-logo {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow-y: auto;
+    text-align: center;
+    position: relative;
+}
+.nocontent-logo>div {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 100%;
+    box-sizing: border-box;
+}
+.nocontent-logo>div img {
+    width: 220px;
+}
+.nocontent-tips p {
+    margin: 1em 0;
+    padding-bottom: 50px;
+    text-align: center;
+}
+.nocontent-tips p img {
+    width: 18px;
+    margin-right: 5px;
+    vertical-align: bottom;
+}
+
+#sub-menu-pannel.conv-list-pannel .conv-lists-box {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+#sub-menu-pannel.conv-list-pannel .list-with-avatar-and-info .list-item {
+    position: relative;
+    height: 55px;
+    box-sizing: border-box;
+    padding: 8px 0 8px 19px;
+    cursor: pointer;
+}
+#sub-menu-pannel.conv-list-pannel .conv-lists .conv-item {
+    padding-left: 13px;
+}
+#sub-menu-pannel.conv-list-pannel .list-with-avatar-and-info .list-item .info {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    margin: 1px 0 4px;
+    color: #7d7d7e;
+    font-size: 12px;
+    line-height: 16px;
+}
+#sub-menu-pannel.conv-list-pannel .list-with-avatar-and-info .list-item .name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    font-size: 13px;
+    color: #222;
+    display: inline-block;
+}
+#sub-menu-pannel.conv-list-pannel .conv-lists .conv-item .name {
+    max-width: 105px;
+    float: left;
+}
+#sub-menu-pannel.conv-list-pannel .conv-lists .conv-item .latest-msg {
+    max-width: 110px;
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    color: #777;
+}
+#sub-menu-pannel.conv-list-pannel .conv-lists .conv-item .time {
+    position: absolute;
+    top: 7px;
+    right: 3px;
+    color: #bdbebf;
+    font-size: 12px;
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    transform: scale(0.9);
+}
+.avatar.single, .avatar, .avatar.single-chat {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+}
+#sub-menu-pannel.conv-list-pannel .list-with-avatar-and-info .list-item .avatar:not(.group-member) {
+    float: left;
+    margin-right: 7px;
+}
+#sub-menu-pannel.conv-list-pannel .conv-lists .conv-item.active {
+    background-color: #d5edfe;
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #010101;
+    -webkit-app-region: no-drag;
+}
+.modal-backdrop.fade {
+    opacity: 0;
+}
+.modal-backdrop.fade.in {
+    opacity: 0.55;
+}
+.ding-modal {
+    position: fixed;
+    display: none;
+    overflow: auto;
+    overflow-y: scroll;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1050;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+}
+.ding-modal.fade.in {
+    opacity: 1;
+}
+.ding-modal .modal-content {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -moz-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    box-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+    justify-content: center;
+    -ms-flex-pack: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    box-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -ms-flex-align: center;
+}
+.dialog {
+    width: 676px;
+    min-height: 545px;
+    height: auto;
+    overflow: hidden;
+    z-index: 201;
+    box-shadow: rgba(0,0,0,0.15) 0 0 6px;
+    background-color: #fafafc;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: column nowrap;
+    -moz-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+    border-radius: 3px;
+}
+.dialog.mini {
+    width: 366px;
+    min-height: 120px;
+    height: auto;
+    overflow: hidden;
+    z-index: 201;
+    box-shadow: rgba(0,0,0,0.15) 0 0 6px;
+    background-color: #fafafc;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: column nowrap;
+    -moz-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+    border-radius: 3px;
+}
+.dialog .head {
+    height: 50px;
+    line-height: 52px;
+    text-align: center;
+    background-color: #fff;
+    padding: 0 30px;
+    position: relative;
+    border-bottom: 1px solid #ececed;
+    border-radius: 3px;
+}
+.dialog.mini .head {
+    height: 50px;
+    line-height: 52px;
+    text-align: center;
+    background-color: #fff;
+    padding: 0 30px;
+    position: relative;
+    border-bottom: 1px solid #ececed;
+    border-radius: 3px;
+}
+.dialog .body {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+}
+.dialog.mini .body {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+}
+.dialog .foot {
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #fff;
+}
+.dialog.mini .foot {
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #fff;
+}
+button, .button, .datetime-input-box .dtpicker-overlay .dtpicker-buttonCont .dtpicker-button {
+    outline: 0;
+    border-radius: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    display: inline-block;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #008cee;
+    color: #fff;
+    width: 136px;
+    height: 34px;
+    font-size: 14px;
+    border: 0;
+}
+.dialog.mini .foot button, .dialog.mini .foot .button, .dialog.mini .foot .datetime-input-box .dtpicker-overlay .dtpicker-buttonCont .dtpicker-button, .datetime-input-box .dtpicker-overlay .dtpicker-buttonCont .dialog.mini .foot .dtpicker-button {
+    margin: 0 10px;
+}
+.settings .setting-item {
+    padding: 20px 0 12px 10px;
+}
+.settings .setting-item .toggle {
+    float: right;
+    margin-right: 10px;
+    margin-top: -3px;
+}
+.settings .setting-item .toggle label {
+    position: relative;
+    display: block;
+    width: 38px;
+    height: 16px;
+    cursor: pointer;
+    background-color: #e8e8e9;
+    border-radius: 8px;
+    box-shadow: inset rgba(0,0,0,0.1) 1px 1px 1px;
+}
+.settings .setting-item .toggle label:before {
+    position: absolute;
+    left: -2px;
+    top: -1px;
+    content: '.';
+    font-family: 'iconfont';
+    font-size: 22px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    color: #ff4234;
+    cursor: pointer;
+    -webkit-transition: left 0.2s 0s ease;
+    -moz-transition: left 0.2s 0s ease;
+    transition: left 0.2s 0s ease;
+}
+.dd-version-item {
+    font-size: 12px;
+    color: #999;
+    padding: 5px 0 0px 10px;
+    text-shadow: 1px 1px 0px #fff;
+    text-align: center;
+}

@@ -1,0 +1,568 @@
+﻿@charset "utf-8";
+/*	
+ * @名称: common.css
+ * @功能: 初始化各html标签，使其在所有浏览器下保持一致
+ * @作者：钟含武
+ * @时间：20151113
+ */
+
+/* 防止用户自定义背景颜色对网页的影响 */
+html{color:#333;font-size: 100%;-webkit-text-size-adjust: 100%;-ms-text-size-adjust:100%;background-color:#f0f3f4;}
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+	margin:0;padding:0;
+}
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG)*/
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display:block;}
+/* HTML5 媒体文件跟 img 保持一致*/
+audio,canvas,video {display: inline-block;*display: inline;*zoom:1;}
+/* 要注意表单元素并不继承父级 font 的问题*/
+body,button,input,select,textarea{color:#333;font:14px/1.5 arial,"Microsoft Yahei","Hiragino Sans GB",sans-serif;_font-family:"SimSun";}
+input,select,textarea{font-size:100%;background:#fff; vertical-align:middle;text-rendering: auto;outline:none}
+
+/* 去掉各Table  cell 的边距并让其边重合，防止表格内文字不能换行*/
+table{border-collapse:collapse;border-spacing:0;table-layout:fixed;word-wrap:break-word;word-break:break-all;width:100%;vertical-align:top;}
+th,td{vertical-align: top;}
+
+/* IE bug fixed: th 不继承 text-align*/
+th{text-align:inherit;}
+/* 去除默认边框*/
+fieldset,img{border:none;}
+/* ie6 7 8(q) 显示为行内表现*/
+/* 去掉 firefox 下此元素的边框*/
+abbr,acronym{border:none;font-variant:normal;}
+/* 一致的 del 样式*/
+del {text-decoration:line-through;}
+address,caption,cite,code,dfn,em,var {font-style:normal;font-weight:500;}
+/* 去掉列表前的标识, li 会继承*/
+ol,ul {list-style:none;}
+/* 对齐表头*/
+caption,th {text-align:left;font-weight:700;}
+/* 让标题都自定义, 适应多个系统应用*/     
+h1,h2,h3,h4,h5,h6 {font-size:100%;font-weight:700;}
+q:before,q:after {content:'';}
+/* 统一上标和下标*/
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline;}
+sup {top: -0.5em;}
+sub {bottom: -0.25em;}
+
+/* 默认不显示下划线，保持页面简洁*/
+ins,a {	text-decoration:none;}
+a{color:#333;}
+a:focus {outline: thin dotted #666;outline: 5px auto -webkit-focus-ring-color;outline-offset: -2px;}
+a:hover,a:active {outline: 0;text-decoration:underline;}
+a:hover{color:#1d7ad9;text-decoration:underline;}
+select{border:1px solid #ccc;}
+code{white-space:pre;}
+/*单字母勾子元素 */
+q,i,b{text-decoration:none;font-style:normal;font-weight:normal;}
+body,html{background-color:#f0f3f4;width:100%;height:100%;}
+
+/*去除移动端点击事件出现的背景框 (tap-highlight-color)*/
+*{
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  tap-highlight-color:rgba(0,0,0,0);
+}
+
+/*矢量字体*/
+@font-face {
+  font-family: 'iconfont';
+  src: url('//at.alicdn.com/t/font_1447407297_8621893.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/font_1447407297_8621893.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/font_1447407297_8621893.woff') format('woff'), /* chrome、firefox */
+  url('//at.alicdn.com/t/font_1447407297_8621893.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/font_1447407297_8621893.svg#iconfont') format('svg'); /* iOS 4.1- */
+}        
+.iconfont{font-family:"iconfont";
+font-size:16px;font-style:normal;-webkit-font-smoothing: antialiased;
+-webkit-text-stroke-width: 0.2px;}
+
+/*继承父级元素*/
+*,:after,:before{
+  box-sizing:border-box;
+-moz-box-sizing:border-box;
+-webkit-box-sizing:border-box;
+}
+
+/* 清除浮动造成的影响 */
+.fn-clear:after {
+	visibility:hidden;
+	display:block;
+	font-size:0;
+	content:" ";
+	clear:both;
+	height:0;
+}
+.fn-clear {
+	zoom:1; /* for IE6 IE7 */
+}
+
+/* 隐藏, 通常用来与 JS 配合 */
+body .fn-hide {
+	display:none;
+}
+
+/* 设置内联, 减少浮动带来的bug（其实只在有margin时ie6才会有bug） */
+.fn-left {
+	float:left;
+}
+.fn-right {
+	float:right;
+}
+.fn-left,.fn-right {
+	_display:inline;
+}
+
+/* block 格式化上下文 */
+.fn-block{
+  overflow:hidden;
+  zoom:1;
+}
+
+/*顶部静止*/
+.fn-fixedtop{
+    position: fixed;
+   _position: absolute;
+    top:0;
+   _top:expression(eval(documentElement.scrollTop));
+}
+
+/*底部静止  性能比顶部静止更差*/
+.fn-fixedbottom{
+    position: fixed;
+   _position:absolute;
+    bottom:0;
+    width:100%;
+    z-index:1420;
+   _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)) - 0)
+ }
+
+
+
+
+
+/*贷款计算器*/
+.tab-group {
+line-height: 0;
+margin-bottom: 12px;
+min-height:120px;
+background-color:#34c083;
+}
+
+.tab-group img {
+width: 100%;
+}
+
+.base-form input[type="text"], .base-form input[type="number"] {
+width: 100%;
+outline: none;
+border: none;
+height: 20px;
+line-height: 20px;
+}
+
+#content1 {
+overflow: hidden;
+zoom: 1;
+padding-bottom: 100px;
+background-color:#fff;
+}
+
+#content1 .base-form dd select {
+-webkit-appearance: none;
+outline: 0;
+border: none;
+border-radius: 0;
+background-color: #fff;
+font-size: 16px;
+line-height: 42px;
+height: 42px;
+width: 100%;
+}
+
+#content1 .base-form dd .form-stages:after {
+content: '';
+width: 0;
+height: 0;
+border-style: solid;
+border-color: #666 transparent transparent;
+border-width: 6px;
+font-size: 0;
+position: absolute;
+right: 15px;
+top: 20px;
+z-index: 20;
+}
+
+.personnel_button {
+width: 100%;
+height: 50px;
+line-height: 50px;
+float: left;
+color: #fff;
+font-size: 1.6rem;
+border: 1px solid #00a4d5;
+border-radius: 5px;
+background: #00a4d5;
+text-align: center;
+margin-top: 15px;
+margin-bottom: 30px;
+}
+
+.base-form {
+border-top: 1px solid #eaeaea;
+}
+.base-form .c-tag{
+  display: inline-block;
+  position: absolute;
+  right:10px;
+  top:18px;
+  line-height:14px;
+  font-size:14px;
+  color:#999;
+}
+
+.base-form dt, .base-form dd {
+float: left;
+font-size: 16px;
+color: #333;
+height: 48px;
+border-bottom: solid 1px #eaeaea;
+line-height: 48px;
+}
+
+.base-form dt {
+width: 25.9375%;
+text-align: center;
+border-right: solid 1px #eaeaea;
+}
+
+.base-form dd {
+position: relative;
+padding-left: 12px;
+font-size: 16px;
+width: 74.0625%;
+}
+
+.base-form label {
+margin-right: 15px;
+}
+
+.computer-info{margin-top:10px;color:#999;padding-left:10px;}
+
+.base-form input[type=checkbox],
+.base-form input[type=radio] {
+-webkit-appearance: none;
+appearance: none;
+width: 13px;
+height: 13px;
+margin: 0;
+cursor: pointer;
+background: #fff;
+border: 1px solid #dcdcdc;
+-webkit-border-radius: 1px;
+-moz-border-radius: 1px;
+border-radius: 1px;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+position: relative;
+}
+
+.base-form input[type=checkbox]:active,
+.base-form input[type=radio]:active {
+border-color: #c6c6c6;
+background: #ebebeb;
+}
+
+.base-form input[type=radio] {
+-webkit-border-radius: 1em;
+-moz-border-radius: 1em;
+border-radius: 1em;
+width: 15px;
+height: 15px;
+margin-right: 4px;
+vertical-align: -2px;
+}
+
+.base-form input[type=checkbox]:checked,
+.base-form input[type=radio]:checked {
+background: #fff;
+}
+
+.base-form input[type=radio]:checked::after {
+content: '';
+display: block;
+position: relative;
+top: 3px;
+left: 3px;
+width: 7px;
+height: 7px;
+background: #666;
+-webkit-border-radius: 1em;
+-moz-border-radius: 1em;
+border-radius: 1em;
+}
+.computer-result{margin-bottom:12px;}
+.computer-result ul li{width:50%;text-align: center;float: left;background-color:#fff;padding:10px 0;position: relative;}
+.computer-result ul li strong{font-size:18px;line-height:16px;color:#f05050;}
+.computer-result ul li p{font-size:12px;color:#999;}
+.computer-result ul li .sep{display:inline-block;width:1px;height:16px;background-color:#eaeaea;position: absolute;right:0;top:50%;margin-top: -8px;}
+.computer-handel{padding:0 10px;margin-top:20px;}
+.computer-handel .handel-btn{display:block;text-align: center;background-color:#0093ff;line-height:42px;color:#fff;text-decoration: none;font-size:15px;border-radius:4px;}
+
+.post-apply-fixed {
+    background:rgba(255,255,255,0.8);
+    border-top: 1px solid #0093ff;
+    bottom: 0;
+    left: 0;
+    height: 46px;
+    line-height: 46px;
+    position: fixed;
+    width: 100%;
+    z-index: 699;
+    text-align: center;
+}
+.post-apply-fixed .recommend-btn {
+    display: inline-block;
+    background: #f05050;
+    height: 34px;
+    line-height: 34px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    padding: 0 40px;
+}
+/*申请贷款*/
+.global-img{
+  line-height:0;
+}
+.global-img img{
+  width: 100%;
+}
+.wrap-apply{
+  padding-bottom:40px;
+  background-color:#fff;
+}
+.wrap-apply .apply-info{
+  text-align: center;
+  font-size:18px;
+  padding:25px 0 15px 0;
+}
+.wrap-apply .apply-info .rmb{color:#f05050;}
+.wrap-apply .apply-form{margin:0 15px;}
+.wrap-apply input{
+  display: block;
+  width: 100%;
+  height: 45px;
+  margin: 15px 0;
+  padding:0 15px;
+}
+.apply-form-address label:first-child {
+  margin-right: 3.48%;
+}
+.apply-phone{
+  overflow: hidden;
+  zoom:1;
+}
+.apply-phone input{
+  margin: 0;
+  width: 66.5%;
+  margin-right:3.5%;
+  float: left;
+}
+.apply-phone .code-disabled{
+  display:block;
+  width:30%;
+  height:44px;
+  line-height:44px;
+  background:#ddd;
+  text-align: center;
+  border-radius: 6px;
+  color:#999;
+  z-index:50;
+  cursor: not-allowed;
+  float: right;
+}
+.apply-phone .code-available{
+  background:#ff8d04;
+  color:#fff;
+  cursor: pointer;
+}
+.apply-form label,.invite-budget label{
+  position: relative;
+}
+.apply-form input,.apply-form select{
+ -webkit-appearance: none;
+ -moz-appearance: none;
+ -o-appearance: none;
+  outline: 0;
+  border: 1px solid #eaeaea;
+  border-radius: 3px;
+  padding-left: 10px;
+  background-color: #fff;
+  font-size: 16px;
+  line-height: 18px;
+}
+.apply-form .apply-tips{
+  color:#999;
+}
+.apply-form .form-control{
+  margin-top:0;
+  border-top-right-radius:0;
+  border-bottom-right-radius:0;
+  border-right:none;
+}
+.wx-btn{
+    margin: 50px 0 10px 0;
+    border-radius: 2px;
+    line-height: 42px;
+    text-align: center;
+    display: block;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+}
+.wx-btn-blue {
+    background-color: #0195ff;
+    border: 1px solid #0590f3;
+    color:#fff;
+}
+.wx-btn-default{
+  background-color:#fff;
+  border:1px solid #ddd;
+  color:#333;
+}
+.wx-btn-blue:hover{color:#fff;text-decoration: none;opacity:0.9;}
+
+.apply-step li{width:25%;float: left;text-align: center;padding:6px 0;color:#fff;}
+.apply-step li .iconfont{display: inline-block;line-height:14px;font-size:20px;}
+.apply-step li:first-child{border-bottom:1px solid #f05050;background-color:#f05050;}
+.apply-step li:nth-child(2){border-bottom:1px solid #f3cd1c;background-color:#f3cd1c;}
+.apply-step li:nth-child(3){border-bottom:1px solid #7266ba;background-color:#7266ba;}
+.apply-step li:last-child{border-bottom:1px solid #27c24c;background-color:#27c24c;}
+.apply-step li p{font-size:10px;}
+
+/*验证码发送*/
+.form-position{
+    border-radius: .25rem;background-color:#fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: box;
+    position: relative;
+}
+.form-position .input-icon
+{
+  position: absolute;
+  left:10px;
+  top:5px;
+  color:#f8432c;
+}
+.form-position input[type=text],.form-position input[type=tel],.form-position input[type=password],.form-position select,.cash-form .bank-card-info{
+  -webkit-box-flex: 1;
+    -ms-box-flex: 1;
+    -ms-flex: 1;
+    box-flex: 1;
+    display: block;
+}
+.v-code{display: inline-block;padding:0 12px;border-radius:2px;font-size:12px;background-color:#f60;color:#fff;height:46px;line-height:46px;
+border-top-left-radius:0;
+  border-bottom-left-radius:0;}
+.v-code-disable{cursor: not-allowed;
+    color: #ccc;
+    background-color:#f5f5f5;
+}
+
+/*产品介绍*/
+.product-details{
+  padding-bottom:60px;
+}
+.product-details .ub-product-img{font-size:0;line-height:0;}
+.product-details .ub-product-img img{width:100%;}
+
+/*首页*/
+.index-img{background-color:#f44031;}
+.index-img img{width:100%;}
+
+.index-menu-list{background-color:#fff;margin-top:12px;border-top:1px solid #eaeaea;}
+.index-menu-list li a,.index-menu-list li a:active{display: block;padding:8px 40px 8px 48px;line-height:36px;position: relative;font-size:16px;text-decoration: none;border-bottom:1px solid #eaeaea;}
+.index-menu-list li a:hover{text-decoration: none;color:#333;background-color:#fafafa;}
+.index-menu-list li a .menu-icon{display: inline-block;padding:8px 5px;border-radius:4px;line-height:14px;position:absolute;left:8px;top:14px;color:#fff;}
+.index-menu-list li a .menu-icon .iconfont{font-size:20px;}
+.index-menu-list li a .right-arrow{position: absolute;right:12px;line-height:14px;top:50%;margin-top:-7px;color:#ddd;}
+.index-menu-list li a .menu-tag{display:inline-block;position: absolute;right:40px;font-size:14px;color:#e62420;}
+.index-menu-list li a h2{font-size:16px;line-height:26px;font-weight:400;}
+.index-menu-list li a p{font-size:12px;color:#999;line-height:14px;}
+
+.bg-warning{
+  background-color:#ff6600;
+}
+.bg-danger{
+  background-color:#f05050;
+}
+.bg-primary{
+  background-color:#0093ff;
+}
+.bg-success{
+    background-color: #27c24c;
+}
+.bg-cyan {
+    background-color: #00b2b2;
+    color:#fff;
+}
+
+/*页脚*/
+.footer-site{background-color:#fff;padding:15px 10px;text-align: center;font-size:12px;border-top:1px solid #eaeaea;margin-top:40px;color:#999;}
+
+/*全局组件*/
+.g-tips{position:fixed;top:50%;left:0;width:100%;z-index:1050;margin-top:-28px;text-align:center;}
+.g-tips span{display:inline-block;background-color:rgba(0,0,0,0.6);border-radius:6px;color:#fff;
+text-align: center;padding:20px 10px;margin:0 15px;line-height:24px;}
+.g-loading{position:fixed;top:50%;left:50%;width:150px;padding:20px 10px;z-index:1050;color:#fff;
+text-align: center;margin-left:-85px;margin-top:-28px;}
+.g-loading .iconfont{
+  font-size:28px;
+  display:inline-block;
+  animation: 1.5s linear 0s normal none infinite rotate;
+-webkit-animation:1.5s linear 0s normal none infinite rotate;
+-moz-animation:1.5s linear 0s normal none infinite rotate;
+-ms-animation:1.5s linear 0s normal none infinite rotate;
+-o-animation:1.5s linear 0s normal none infinite rotate;
+}
+@keyframes rotate{
+from{-webkit-transform:rotate(0deg)}
+to{-webkit-transform:rotate(360deg)}
+}
+@-webkit-keyframes rotate{
+from{-webkit-transform:rotate(0deg)}
+to{-webkit-transform:rotate(360deg)}
+}
+@-moz-keyframes rotate{
+from{-moz-transform:rotate(0deg)}
+to{-moz-transform:rotate(360deg)}
+}
+@-ms-keyframes rotate{
+from{-ms-transform:rotate(0deg)}
+to{-ms-transform:rotate(360deg)}
+}
+@-o-keyframes rotate{
+from{-o-transform:rotate(0deg)}
+to{-o-transform:rotate(360deg)}
+}
+.g-mask{position:fixed;left:0;top:0;width:100%;height:100%;z-index:1000;background-color:rgba(0,0,0,0.4);}
+
+/*成功提示*/
+.success-warp .success-cont{text-align: center;padding:30px 0;background-color:#27c24c;color:#fff;}
+.success-warp .success-cont .iconfont{font-size:42px;color:#fff;line-height:42px;}
+.success-warp .success-cont h2{margin-top:6px;font-size:16px;margin-bottom:2px;}
+.tips-btn{padding:0 12px;}
+
+/*错误提示*/
+.error-warp .error-cont{text-align: center;padding:30px 0;background-color:#f05050;color:#fff;}
+.error-warp .error-cont .iconfont{font-size:42px;color:#fff;line-height:42px;}
+.error-warp .error-cont h2{margin-top:6px;font-size:16px;margin-bottom:2px;}
+
+
+
+

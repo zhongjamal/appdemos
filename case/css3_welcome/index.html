@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)http://browser.qq.com/new/9.2.1/welcome.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+<title>QQ浏览器9</title>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="Bookmark" href="favicon.ico">
+<style>
+html,canvas,body{
+	width: 100%; height: 100%;
+	overflow: hidden;
+	font: 1em/1.5em 'Helvetica';
+    color: #333;
+    -webkit-user-select:disabled;
+}
+body{
+    background: #fff;
+    -webkit-perspective:1000px;
+}
+*{
+	margin: 0;padding: 0;
+}
+div{
+
+}
+#stage{
+    width: 382px;
+    height: 486px;
+    margin-top: -263px;
+    margin-left: -191px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+	/*-webkit-transform: translateZ(-200px);*/
+    -webkit-transform-style:preserve-3d;
+    -moz-transform-style:preserve-3d;
+    -o-transform-style:preserve-3d;
+    transform-style:preserve-3d;
+}
+#stage2{
+    width: 316px;
+    height: 430px;
+    position: absolute;
+    margin-top: -215px;
+    margin-left: -158px;
+    left: 50%;
+    top: 50%;
+    -webkit-transform-style:preserve-3d;
+    -moz-transform-style:preserve-3d;
+    -o-transform-style:preserve-3d;
+    transform-style:preserve-3d;
+}
+#stage3{
+    opacity: 0;
+    width: 957px;
+    height: 689px;
+    position: absolute;
+    margin-top: -350px;
+    margin-left: -478px;
+    left: 50%;
+    top: 50%;
+    -webkit-transform-style:preserve-3d;
+    -moz-transform-style:preserve-3d;
+    -o-transform-style:preserve-3d;
+    transform-style:preserve-3d;
+    text-align: center;
+}
+#stage3 div{
+    display: inline-block;
+    margin-bottom:30px;
+}
+#page2{
+    opacity: 0;
+    width: 316px;
+    height: 430px;
+    position: absolute;
+    margin-top: -215px;
+    margin-left: -158px;
+    left: 50%;
+    top: 50%;
+    -webkit-transform-style:preserve-3d;
+    -moz-transform-style:preserve-3d;
+    -o-transform-style:preserve-3d;
+    transform-style:preserve-3d;
+}
+#title1_2{
+    margin-top: 40px;
+}
+#page1{
+    opacity: 0;
+    width: 381px;
+    height: 381px;
+    position: absolute;
+    margin-top: -190px;
+    margin-left: -190px;
+    left: 50%;
+    top: 50%;
+    -webkit-transform-style:preserve-3d;
+    -moz-transform-style:preserve-3d;
+    -o-transform-style:preserve-3d;
+    transform-style:preserve-3d;
+}
+#page1 div{
+    width: 381px;
+    height: 381px;
+    position: absolute;
+}
+#btn2{
+    margin-top: 30px;
+}
+#line1,#line2{
+    background:url('lines.png');
+    width: 893px;
+    height: 403px;
+    top: 50%;
+    margin-top: -201px;
+    position: absolute;
+}
+#line2{
+    -webkit-transform:rotate(180deg);
+    -moz-transform:rotate(180deg);
+    -o-transform:rotate(180deg);
+    transform:rotate(180deg);
+    right: 0;
+}
+#layer0,
+#layer1,
+#layer2,
+#layer3,
+#layer4,
+#layer5{
+/*    margin-top: -191px;
+    margin-left: -243px;*/
+}
+#layer0{
+    -webkit-transform:translateZ(0px);
+    -moz-transform:translateZ(0px);
+    -o-transform:translateZ(0px);
+    transform:translateZ(0px);
+}
+#layer1{
+    -webkit-transform:translateZ(1px);
+    -moz-transform:translateZ(1px);
+    -o-transform:translateZ(1px);
+    transform:translateZ(1px)
+}
+#layer2{
+    -webkit-transform:translateZ(-80px);
+    -moz-transform:translateZ(-80px);
+    -o-transform:translateZ(-80px);
+    transform:translateZ(-80px);
+}
+#layer3{
+    -webkit-transform:translateZ(-60px);
+    -moz-transform:translateZ(-60px);
+    -o-transform:translateZ(-60px);
+    transform:translateZ(-60px);
+}
+#layer4{
+    -webkit-transform:translateZ(-30px);
+    -moz-transform:translateZ(-30px);
+    -o-transform:translateZ(-30px);
+    transform:translateZ(-30px);
+}
+#layer5{
+    -webkit-transform:translateZ(0px);
+    -moz-transform:translateZ(0px);
+    -o-transform:translateZ(0px);
+    transform:translateZ(0px);
+}
+</style>
+</head>
+<body>
+<div id="stage">
+    <div id="page1">
+        <div id="layer2"><img src="layer_main_gradient.png"></div>
+        <div id="layer3"><img src="layer_main_line.png"></div>
+        <div id="layer4"><img src="layer_main_pointer.png"></div>
+        <div id="layer5"><img src="layer_main_num43.png"></div>
+    </div>
+</div>
+<div id="stage2">
+    <div id="page2">
+    <div id="title1_1"><img src="title1_1.png"></div>
+    <!-- <div id="title1_2"><img src="images/title1_2.png"></div> -->
+    </div>
+</div>
+<div id="stage3">
+    <div id="title2_1"><img src="hero.png"></div>
+    <!-- <div id="title2_2"><img src="images/title2_2.png"></div> -->
+    <!-- <div id="title2_3"><img src="images/44/title2_3.png"></div> -->
+    <!-- <div id="btn2"><a href="http://daohang.qq.com/"><img src="images/btn2.png"></a></div> -->
+</div>
+<script src="jquery.js"></script>
+<script src="jquery.velocity.min.js"></script>
+<!-- <script src="retina.min.js"></script> -->
+<script>
+$(document).ready(function(){
+    play();
+});
+function play () {
+$('#stage3').velocity({translateZ:'-10px',opacity:0},{duration:0}).velocity({translateZ:'0',opacity:1},{duration:1200,delay:2000})
+$('#stage2').velocity({translateY:'-200px'},{duration:0}).velocity({translateY:'100px',rotateY:'0deg',rotateX:'0deg',translateZ:'2000px'},{duration:2000,easing:'ease',delay:700})
+$('#page2').velocity({rotateX:'0deg',rotateY:'0deg',translateX:'0px',translateZ:'-4000px',scale:0.1,opacity:0},{duration:0}).velocity({rotateX:'0deg',rotateY:'0deg',translateZ:'0px',scale:1,opacity:1},{duration:1800,easing:'ease-out',delay:900})
+$('#stage').velocity({rotateZ:'0deg',translateZ:'2000px'},{duration:3200,easing:'ease',delay:900})
+$('#layer4 img').velocity({rotateZ:'-120deg'},{duration:0}).velocity({rotateZ:'0deg'},{duration:1000,delay:300})
+$('#page1').velocity({rotateX:'10deg',rotateY:'60deg',translateZ:'-4000px',scale:0.5,opacity:0},{duration:0}).velocity({rotateX:'-20deg',rotateY:'-30deg',translateZ:'3000px',scale:2,opacity:1},{duration:2000,easing:'ease-out',delay:200});
+}
+</script>
+
+
+</body></html>

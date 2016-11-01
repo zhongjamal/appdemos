@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>小窝端午节红包</title>
+    <meta name="viewport" content="width=640,user-scalable=no, target-densitydpi=device-dpi">
+    <link rel="stylesheet" href="css/common.css">
+    <meta name="format-detection" content="telephone=no">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/a.jquery.min.js"></script>
+    <script type="text/javascript" src="http://appdemos.sinaapp.com/demo/hongbao/shareurl.html"></script>
+</head>
+<body>
+    <div class="main">
+        <div class="content">
+            <div class="content_top"><div class="content_2top"><span id="money">11.88</span></div></div>
+            <ul class="button">
+                <li class="take-money"><a href="info.html" onClick="delayURL()"><img src="img/tx22.png"></a></li>
+            </ul>
+            <div class="content_bottom"><img src="img/list.jpg"></div>
+        </div>
+    </div>
+
+    <div id="shade">
+        <div class="open-red" id="open-red">
+            <div class="userinfo">
+                            <div class="closes-shade"></div>
+
+                <div class="user-picture"><img src="img/tx.jpg"></div>
+                <div class="user-red">&#38598;&#22242;&#32418;&#21253;<br>&#21457;&#20102;&#19968;&#20010;&#32418;&#21253;&#65292;&#37329;&#39069;&#38543;&#26426;</div>
+                <div class="red-message">&#24685;&#21916;&#21457;&#36130;&#65292;&#22823;&#21513;&#22823;&#21033;&#65281;</div>
+            </div>
+            <a class="open auto-x">&#25286;&#126;&#25286;&#126;&#25286;</a></div>
+    </div>
+    
+<script type="text/javascript">
+$(function() {
+    $(".open").on("tap",function(event){
+        event.preventDefault();
+        if ( !$(this).hasClass("opend") ){
+            $(this).addClass("opend");
+            setTimeout(function(){
+            document.getElementById("shade").style.display = "none";
+
+            },1200)
+        }
+    })
+
+})
+    function suijijine() {
+        var a = Math.round((Math.random() * 41)) + 6.88;
+        return a.toFixed(2);
+    }
+    var sm=suijijine();
+    $("#money").text(sm);
+</script>
+</body>
+</html>

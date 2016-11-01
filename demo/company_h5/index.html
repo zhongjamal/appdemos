@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="utf-8" />
+		<title>装修公司-深圳装修贷款_工行家装贷_装修_装修贷款怎么申请-小窝金服</title>
+		<meta name="description" content="小窝金服是中国工商银行指定的工行家装贷服务平台，以“为客户提供低成本的装修贷款服务”为经营理念，为广大家装用户提供低利率、高额度、长期限、纯信用的装修贷款产品。小窝金服还与装修公司、家具卖场、电商平台等合作，提供一站式装修贷款服务，让你的装修没有资金烦恼，省心入住自己的小窝。">
+		<meta name="keywords" content="深圳装修贷款,工行家装贷,装修,装修贷款怎么申请">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no, width=device-width" name="viewport">
+		<link rel="stylesheet" href="css/swiper.min.css">
+        <link rel="stylesheet" href="css/animate.min.css">
+		<link rel="stylesheet" href="css/company_h5.css">
+</head>
+<body class="skin-aquamarine-blue">
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide swiper-lazy firLoad" data-background="image/b-1-bg.jpg">
+              <img class="slide-pic ani" src="image/b-1.png" swiper-animate-effect="bounceInLeft" swiper-animate-duration="0.8s" swiper-animate-delay="0.3s">
+        </div>
+        <div class="swiper-slide swiper-lazy secLoad" data-background="image/b-1-bg.jpg">
+             <img class="slide-pic ani" src="image/b-2.png" swiper-animate-effect="bounceInLeft" swiper-animate-duration="0.8s" swiper-animate-delay="0.3s">
+        </div>
+        <div class="swiper-slide swiper-lazy secLoad" data-background="image/b-1-bg.jpg">
+             <img class="slide-pic ani" src="image/b-3.png" swiper-animate-effect="bounceInLeft" swiper-animate-duration="0.8s" swiper-animate-delay="0.3s">
+        </div>
+        <div class="swiper-slide swiper-lazy secLoad" data-background="image/b-1-bg.jpg">
+             <img class="slide-pic ani" src="image/b-4.png" swiper-animate-effect="bounceInLeft" swiper-animate-duration="0.8s" swiper-animate-delay="0.3s">
+        </div>
+        <div class="swiper-slide swiper-lazy secLoad" data-background="image/b-1-bg.jpg">
+			<div class="wap-hd ani" swiper-animate-effect="bounceInLeft" swiper-animate-duration="0.8s" swiper-animate-delay="0.3s">
+				<img class="wap-hd-intro" src="image/xwh5_apply_a.png">
+			</div>
+			<div class="wap-apply-cont ani" swiper-animate-effect="bounceInLeft" swiper-animate-duration="0.8s" swiper-animate-delay="0.6s">
+				<div class="wap-apply-item"><input type="text" placeholder="您的称呼" /></div>
+                <div class="wap-apply-item fn-clear">
+                    <label class="form-select-label">
+                        <select class="form-control">
+                            <option>男</option>
+                            <option>女</option>
+                        </select>
+                    </label>
+                    <label class="form-select-label">
+                        <select class="form-control">
+                            <option>男</option>
+                        </select>
+                    </label>
+                </div>
+				<div class="wap-apply-item"><input type="tel" placeholder="手机号码" maxlength="11" /></div>
+				<div class="wap-apply-item wap-apply-code">
+					<input type="tel" placeholder="短信验证码" maxlength="4" />
+					<span class="send-code send-code-disabled">发送验证码</span>
+				</div>
+				<div class="wap-apply-submit">
+					<!-- <a href="javascript:void(0)" class="wap-apply-btn-disable">立即申请</a> -->
+					<a href="#" class="wap-apply-btn">立即申请</a>
+				</div>
+				<p class="wap-apply-tips" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1.7s">资料提交成功后客服将在24小时内联系您，请保持手机畅通。</p>
+			</div>
+        </div>
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+<div class="g-tips" style="display:none;">
+	<span>验证码错误</span>
+</div>
+<div class="company-h5-code">
+    <img title="二维码" src="image/company_h5_code.png">
+</div>
+<div class="block-code" style="display:none;">
+    <img class="block-code-img" src="image/ub_xiaowodai_code.jpg">
+    <span class="block-code-close"><img src="image/block-code-close.png"></span>
+</div>
+    <!-- Swiper JS -->
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/swiper.animate1.0.2.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        direction: 'vertical',
+        onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
+            swiperAnimateCache(swiper); //隐藏动画元素 
+            swiperAnimate(swiper); //初始化完成开始动画
+        }, 
+        onSlideChangeEnd: function(swiper){ 
+            swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+        },
+        preloadImages: true, 
+        lazyLoading: true,
+        lazyLoadingInPrevNext: true,
+        mousewheelControl : true,
+        mousewheelForceToAxis : true,
+        keyboardControl : true,
+        preventClicks : false,
+     });
+    </script>
+    <script type="text/javascript">
+        $(".company-h5-code").click(function(){
+            $(".block-code").slideDown(250);
+        });
+        $(".block-code-close").click(function(){
+            $(".block-code").slideUp(250);
+        });
+    </script>
+</body>
+</html>

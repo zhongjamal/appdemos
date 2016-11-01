@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html class="panel-fit"><head>
+    <title>管理首页</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="bootstrap.css">
+    <link href="easyui.css" rel="stylesheet">
+    <link href="icon.css" rel="stylesheet">
+    <link href="Site.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="app.css">
+</head>
+<body class="easyui-layout layout panel-noscroll" huaban_collector_injected="true">
+        <div class="panel layout-panel layout-panel-north" style="width:100%; left: 0px; top: 0px;"><div id="nav" data-options="region:'north',border:false,collapsible:false" style="width: 100%; height: 80px;" title="" class="panel-body panel-body-noheader panel-body-noborder layout-body">
+            <div class="i-header fn-clear">
+                <h1 class="logo-pic">
+                    <img src="xos_logo.png" alt="后台管理系统"></h1>
+                <div class="handle">
+                    <ul class="fn-clear">
+                        <li>用户<span class="name">风控人员</span>你好！</li>
+                        <li><a href="javascript:changeStyle()" class="easyui-tooltip tooltip-f" title="" data-options="iconCls:'icon-change-stye'">
+                            <img src="xw_hander_layout.png" alt="改变菜单位置"></a></li>
+                        <li><a href="javascript:changePass()" class="easyui-tooltip tooltip-f" title="" data-options="iconCls:'icon-change-password'">
+                            <img src="xw_hander_modify.png" alt="修改密码"></a></li>
+                        <li><a href="javascript:loginOut()" class="easyui-tooltip tooltip-f" title="" data-options="iconCls:'icon-signout',position:'left'">
+                            <img src="xw_hander_quit.png" alt="安全退出"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel layout-panel layout-panel-west layout-split-west" style="width: 200px; left: 0px; top: 80px; display: block;">
+        <style type="text/css">
+            .menu-list{background-color:#f9f9f9;height:1000px;width:200px;}
+            .menu-list ul li a{display:block;text-align: center;text-decoration:none;background-color:#f9f9f9;color:#333;line-height:42px;border-bottom:1px solid #eaeaea;}
+            .menu-list ul li a.active{background-color:#eaeaea;color:#3375d6;font-weight: 700;}
+            .cont-wrap{padding:20px;}
+        </style>
+        <div class="menu-list">
+            <ul id="nav">
+                <li><a href="index.html">工作台</a></li>
+                <li><a href="task-list.html">任务列表</a></li>
+                <li><a href="paike-user.html">拍客用户</a></li>
+                <li><a href="expire-task.html">快到期任务</a></li>
+                <li><a href="wait-task.html">待审核任务</a></li>
+                <li><a href="approve-user.html">待认证审核</a></li>
+                <li><a href="unfreeze-user.html">待解冻审核</a></li>
+                <li><a href="finished-task.html">已完成的任务</a></li>
+                <li><a href="order-receiving.html">进行中的任务</a></li>
+                <li><a href="rewards.html">奖惩管理</a></li>
+                <li><a href="exam.html">题库管理</a></li>
+                <li><a href="dictionary.html">字典设置</a></li>
+                <li><a href="parameter.html">参数设置</a></li>
+                <li><a href="rank.html">等级设置</a></li>
+                <li><a href="integral.html" class="active">积分设置</a></li>
+                <li><a href="privileges.html">权限设置</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="panel layout-panel layout-panel-south" style="width: 100%; left: 0px; top: 961px;"><div id="statusbar" data-options="region:'south',border:false" title="" class="panel-body panel-body-noheader panel-body-noborder layout-body" style="width:100%; height: 18px;">状态栏</div></div>
+    <div id="menu_con" class="panel layout-panel layout-panel-center" style="padding-left:200px;padding-top:80px;width:100%;">
+
+     <div style="padding:120px 0 0 280px;font-size:22px;">
+          <p>小窝拍客积分规则设置</p>
+     </div>
+        
+    </div>
+    <div id="msg" class="x-container" style="display: none;">
+        <div style="text-align: right"><a href="javascript:$.TiaChe.Portal.addTab({title:'我的消息',url:'/MyMessage/List'})">查看更多</a></div>
+        <div class="x-wrap" style="margin: 5px 0;">
+            <ul class="msg-tips" id="msgList"></ul>
+        </div>
+    </div>
+    <script src="jquery-2.1.4.min.js"></script>
+    <script src="bootstrap.js"></script>
+    
+
+
+    <!-- 任务指派 -->
+    <div class="modal fade" id="m1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+              <div class="modal-dialog" role="document">
+              <div class="modal-content">
+              <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+              <h4 class="modal-title" id="myModalLabel">任务指派</h4>
+              </div>
+              <div class="modal-body">
+                    <div class="wrapper-md">
+                         <div class="row">
+                             <div class="col-lg-4">
+                                  <label><input type="radio" name="userId" value="71">韩雨霞</label>
+                             </div>
+                             <div class="col-lg-4">
+                                  <label><input type="radio" name="userId" value="71">韩雨霞</label>
+                             </div>
+                             <div class="col-lg-4">
+                                  <label><input type="radio" name="userId" value="71">韩雨霞</label>
+                             </div>
+                             <div class="col-lg-4">
+                                  <label><input type="radio" name="userId" value="71">韩雨霞</label>
+                             </div>
+                             <div class="col-lg-4">
+                                  <label><input type="radio" name="userId" value="71">韩雨霞</label>
+                             </div>
+                             <div class="col-lg-4">
+                                  <label><input type="radio" name="userId" value="71">韩雨霞</label>
+                             </div>
+                             <div class="col-lg-4">
+                                  <label><input type="radio" name="userId" value="71">韩雨霞</label>
+                             </div>
+                         </div>
+                    </div>
+              </div>
+              <div class="modal-footer text-center">
+              <button type="button" class="btn btn-default w-xs" data-dismiss="modal">关闭</button>
+              <button type="button" class="btn btn-dark w-xs" data-dismiss="modal">保存</button>
+              </div>
+              </div>
+              </div>
+              </div>
+
+
+
+        <!-- 任务详情 -->
+    <div class="modal fade" id="m2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+              <div class="modal-dialog" role="document" style="width:900px;">
+              <div class="modal-content">
+              <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+              <h4 class="modal-title" id="myModalLabel">任务详情</h4>
+              </div>
+              <div class="modal-body" style="overflow-y:auto;height:600px;">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                          <label class="col-lg-2 control-label">订单编号</label>
+                          <div class="col-lg-4">
+                              <p class="form-control-static">XW-201604090029</p>
+                          </div>
+                          <label class="col-lg-2 control-label">客户名称</label>
+                          <div class="col-lg-4">
+                          <p class="form-control-static">李先生</p>
+                          </div>
+                        </div>
+                        <div class="line line-dashed b-b line-lg pull-in"></div>
+                        <div class="form-group">
+                          <label class="col-lg-2 control-label">客户联系电话</label>
+                          <div class="col-lg-4">
+                              <p class="form-control-static">0755-28688888</p>
+                          </div>
+                          <label class="col-lg-2 control-label">客户地址</label>
+                          <div class="col-lg-4">
+                          <p class="form-control-static">粤海街道办</p>
+                          </div>
+                        </div>
+                        <div class="line line-dashed b-b line-lg pull-in"></div>
+                        <div class="form-group">
+                          <label class="col-lg-2 control-label">任务类型</label>
+                          <div class="col-lg-4">
+                              <p class="form-control-static">泥木</p>
+                          </div>
+                          <label class="col-lg-2 control-label">任务人</label>
+                          <div class="col-lg-4">
+                          <p class="form-control-static">王小林</p>
+                          </div>
+                        </div>
+                        <div class="line line-dashed b-b line-lg pull-in"></div>
+                        <div class="form-group">
+                          <label class="col-lg-2 control-label">系统预约时间</label>
+                          <div class="col-lg-4">
+                              <p class="form-control-static">2016-05-20 09:21:00</p>
+                          </div>
+                          <label class="col-lg-2 control-label">客户预约时间</label>
+                          <div class="col-lg-4">
+                          <p class="form-control-static">2016-05-21 09:21:00</p>
+                          </div>
+                        </div>
+                        <div class="line line-dashed b-b line-lg pull-in"></div>
+                        <div class="form-group">
+                          <label class="col-lg-2 control-label">任务完成时间</label>
+                          <div class="col-lg-4">
+                              <p class="form-control-static">2016-05-20 09:21:00</p>
+                          </div>
+                          <label class="col-lg-2 control-label">任务状态</label>
+                          <div class="col-lg-4">
+                          <p class="form-control-static"><span class="text-danger">进行中</span></p>
+                          </div>
+                        </div>
+                        <div class="line line-dashed b-b line-lg pull-in"></div>
+                        <div class="form-group">
+                          <label class="col-lg-2 control-label">取消任务</label>
+                          <div class="col-lg-10">
+                              <p class="form-control-static">2016-05-20 09:21:00   <span class="m-l-sm">王小林</span>   <span class="m-l-sm">取消任务</span> </p>
+                          </div>
+                        </div>
+                        <div class="line line-dashed b-b line-lg pull-in"></div>
+                        <div class="form-group">
+                          <label class="col-lg-2 control-label">指派任务</label>
+                          <div class="col-lg-10">
+                              <p class="form-control-static">2016-05-20 09:21:00   <span class="m-l-sm">指派给</span>   <span class="m-l-sm">李四</span> </p>
+                          </div>
+                        </div>
+                        <div class="line line-dashed b-b line-lg pull-in"></div>
+                        <div class="form-group">
+                          <label class="col-lg-2 control-label">图片</label>
+                          <div class="col-lg-10">
+                              <div class="col-lg-4">
+                                 <img width="100%" src="xq.jpg">
+                                 <p class="text-center">小区大门</p>
+                              </div>
+                              <div class="col-lg-4">
+                                 <img width="100%" src="xq.jpg">
+                                 <p class="text-center">门牌号</p>
+                              </div>
+                              <div class="col-lg-4">
+                                 <img width="100%" src="xq.jpg">
+                                 <p class="text-center">厨房</p>
+                              </div>
+                          </div>
+                        </div>
+                        
+                        
+
+                    </form>
+              </div>
+              <div class="modal-footer text-center">
+              <button type="button" class="btn btn-default w-xs" data-dismiss="modal">关闭</button>
+              </div>
+              </div>
+              </div>
+              </div>
+
+
+    <!-- 终止任务 -->
+    <div class="modal fade" id="m3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+              <div class="modal-dialog" role="document">
+              <div class="modal-content">
+              <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+              <h4 class="modal-title" id="myModalLabel">终止任务</h4>
+              </div>
+              <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                          <div class="col-lg-12">
+                            <label class="control-label">终止任务原因</label>
+                            <textarea class="form-control" rows="5"></textarea>
+                          </div>
+                        </div>
+                        
+                    </form>
+              </div>
+              <div class="modal-footer text-center">
+              <button type="button" class="btn btn-default w-xs" data-dismiss="modal">关闭</button>
+              <button type="button" class="btn btn-dark w-xs" data-dismiss="modal">确认</button>
+              </div>
+              </div>
+              </div>
+              </div>
+
+  
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<style>
+    .bd-callout {
+        padding: 1.25rem;
+        margin-top: 1.25rem;
+        margin-bottom: 1.25rem;
+        border: 1px solid #eee;
+        border-left-width: .25rem;
+        border-radius: .25rem;
+    }
+        .bd-callout h4 {
+            margin-top: 0;
+            margin-bottom: 1.25rem;
+        }
+
+    .bd-callout-info {
+        border-left-color: #0275d8;
+    }
+
+    .bd-callout-warning {
+        border-left-color: #f0ad4e;
+    }
+
+    .bd-callout-info h4 {
+        color: #0275d8;
+    }
+
+    .bd-callout-warning h4 {
+        color: #f0ad4e;
+    }
+</style>
+<div class="container">
+    <div class="bd-callout bd-callout-info">
+        <h4>labels标签</h4>
+        <div>
+            <span class="label label-pill label-default">Default</span>
+            <span class="label label-pill label-primary">Primary</span>
+            <span class="label label-pill label-success">Success</span>
+            <span class="label label-pill label-info">Info</span>
+            <span class="label label-pill label-warning">Warning</span>
+            <span class="label label-pill label-danger">Danger</span>
+        </div>
+    </div>
+    <div class="bd-callout bd-callout-info">
+        <h4>Progress进度条</h4>
+        <div>
+            <progress class="progress progress-striped" value="10" max="100">10%</progress>
+            <progress class="progress progress-striped progress-success" value="25" max="100">25%</progress>
+            <progress class="progress progress-striped progress-info" value="50" max="100">50%</progress>
+            <progress class="progress progress-striped progress-warning" value="75" max="100">75%</progress>
+            <progress class="progress progress-striped progress-danger" value="100" max="100">100%</progress>
+        </div>
+    </div>
+    <div class="bd-callout bd-callout-info">
+        <h4>图片上传</h4>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-xs-6">
+                    <div class="thumbnail upload-pic">
+                        <a href="#" target="_blank"><img class="img-full" src="/Content/Images/b1.jpg"></a>
+                        <span class="upload-icon-close"><i class="iconfont">&#xe601;</i></span>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xs-6">
+                    <div href="#" class="thumbnail upload-pic">
+                        <a href="#" target="_blank"><img class="img-full" src="http://www.xiaowodai.com/u/cms/www/201509/29103622ngp5.jpg"></a>
+                        <span class="upload-icon-close"><i class="iconfont">&#xe601;</i></span>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xs-6">
+                    <a href="#" class="thumbnail upload-pic upload-pic-add">
+                        <img class="img-full" src="/Content/Images/upload_default_pic.jpg">
+                        <i class="iconfont upload-icon-add-icon">&#xe602;</i>
+                    </a>
+                </div>
+                <div class="col-xs-12">
+                    <div class="p-t-lg p-b-lg text-center"><button type="button" class="btn btn-primary btn-sm p-l-md p-r-md">保存</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

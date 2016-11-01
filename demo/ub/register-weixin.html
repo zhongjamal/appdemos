@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>全民经纪人-小窝金服</title>
+    <meta name="keywords" content="深圳装修贷款,工行家装贷,装修,装修贷款怎么申请"/>
+    <meta name="description" content="小窝金服是中国工商银行指定的工行家装贷服务平台，以“为客户提供低成本的装修贷款服务”为经营理念，为广大家装用户提供低利率、高额度、长期限、纯信用的装修贷款产品。小窝金服还与装修公司、家具卖场、电商平台等合作，提供一站式装修贷款服务，让你的装修没有资金烦恼，省心入住自己的小窝。"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <!-- 首页轮播图 css -->
+    <link rel="stylesheet" href="css/swiper.min.css" />
+</head>
+<body>
+    <div class="login-wrap">
+      <div class="bg-red">
+        <div class="container">
+
+            <form class="login-form m-t-md">
+              <fieldset class="form-group">
+                  <div class="form-position p-l-md">
+                      <input type="text" class="form-control" placeholder="用户名">
+                      <i class="iconfont input-icon">&#xe608;</i>
+                  </div>
+              </fieldset>
+              <fieldset class="form-group">
+                  <div class="form-position p-l-md">
+                      <input type="password" class="form-control"  placeholder="设置登录密码">
+                      <i class="iconfont input-icon">&#xe606;</i>
+                  </div>
+              </fieldset>
+              <fieldset class="form-group">
+                  <div class="form-position p-l-md">
+                      <input type="tel" class="form-control" maxlength="11" placeholder="请输入手机号码">
+                      <i class="iconfont input-icon">&#xe603;</i>
+                  </div>
+              </fieldset>
+            <fieldset class="form-group">
+                <div class="form-position p-l-md">
+                    <input type="tel" class="form-control" maxlength="4" placeholder="短信验证码">
+                    <span class="v-code v-code-disable">发送验证码</span>
+                    <i class="iconfont input-icon">&#xe604;</i>
+                    <!-- 不可点击状态 加类名  v-code-disable -->
+                </div>
+            </fieldset>
+              <fieldset class="form-group">
+                <p class="text-white m-t-5"><input type="checkbox" checked="">我已阅读并同意《<a class="text-white" href="/Home/RegistrationProtocol">小窝金服注册协议</a>》</p>
+              </fieldset>
+              <fieldset class="form-group">
+                  <a href="user.html" class="btn btn-warning btn-block m-t">注册</a>
+              </fieldset>
+                <fieldset class="form-group">
+                    <p class="login-text-link"><a class="text-white" href="login-weixin.html">已有经纪人账号 <i class="iconfont">&#xe601;</i></a></p>
+                </fieldset>
+            </form>
+        </div>
+      </div>
+    </div>
+    
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!-- 首页轮播图 js -->
+<script src="js/swiper.min.js"></script>
+<script type="text/javascript">
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        heigth: 300,
+        autoplay : 5000,
+    });
+    
+</script>
+<script>
+        $("div").each(function () {
+            if ($(this).attr("class").indexOf("bg-red") >= 0) {
+                $('body').css("background-color", "#f5524b");
+            }
+        });
+    </script>
+</body>
+</html>

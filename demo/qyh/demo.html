@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>管家助手</title>
+	<meta name="keywords" content="小窝,小窝金服,金融,贷款,装修,工行" />
+	<meta name="Description" content="深圳市小窝金融信息服务有限公司,是与中国工商银行合作的工行家装贷款服务平台，以“为客户提供最有价值的家装低成本金融服务”为经营理念给广大家装用户提供成本低、额度高、期限长、纯信用的家装消费金融产品。为用户提供多家装修公司免费量房、设计、报价、供用户选择,装修工程节点验收、装修工程款担保交易等增值服务，一站式满足用户的装修融资、装修服务等需求，确保用户安心放心的入住自己的小窝。" />
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="css/common.css" />
+<body>
+	<!-- 登录 -->
+	<div class="container w-auto-xs">
+		<div class="m-b m-t-n-sm">
+			<form name="form" class="form-validation m-t-xl">
+				<div class="list-group list-group-sm">
+				    <div class="list-group-item">
+				    	<input type="text" placeholder="请输入员工号" class="form-control no-border">
+				    </div>
+				    <div class="list-group-item">
+				    	<input type="password" placeholder="请输入密码" class="form-control no-border">
+				    </div>
+				    <div class="text-danger text-left m-t-sm"><i class="iconfont">&#xe632;</i>我是错误提示信息</div>
+				</div>
+				<button type="submit" class="btn btn-lg btn-danger btn-block">登 录</button>
+			</form>
+		</div>
+    </div>
+    <!-- 表单 -->
+    <div class="wrapper bg-white">
+	    <h4 class="b-b m-b padder-v">基本表单</h4>
+	    <form role="form">
+            <div class="form-group">
+              <label>邮箱</label>
+              <input type="email" class="form-control" placeholder="邮箱">
+            </div>
+            <div class="form-group">
+              <label>密码</label>
+              <input type="password" class="form-control" placeholder="密码">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="请输入贷款金额">
+					<span class="input-group-addon">元</span>
+				</div>
+            </div>
+            <div class="checkbox">
+              <label class="i-checks">
+                <input type="checkbox" checked="" disabled=""><i></i> 记住密码
+              </label>
+            </div>
+            <button type="submit" class="btn btn-lg btn-danger btn-block">提 交</button>
+          	</form>
+          <h4 class="b-b m-b padder-v">水平表单</h4>
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label class="col-xs-3 control-label">邮件</label>
+              <div class="col-xs-9">
+                <input type="email" class="form-control" placeholder="邮件">
+                <span class="help-block m-b-none">请输入正确的邮件</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-xs-3 control-label">密码</label>
+              <div class="col-xs-9">
+                <input type="password" class="form-control" placeholder="密码">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-offset-2 col-xs-10">
+                <div class="checkbox">
+                  <label class="i-checks">
+                    <input type="checkbox" checked=""><i></i> 记住我
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-offset-2 col-lg-10">
+                <button type="submit" class="btn btn-success btn-lg btn-block">登 录</button>
+              </div>
+            </div>
+          </form>
+           <h4 class="b-b m-b padder-v">表单元素</h4>
+           <form class="form-horizontal" method="get">
+        <div class="form-group">
+          <label class="col-xs-2 control-label">圆角</label>
+          <div class="col-xs-10">
+            <input type="text" class="form-control rounded">                        
+          </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">带帮助说明</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control">
+            <span class="help-block m-b-none">我是备注提示信息</span>
+          </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="input-id-1">Label 焦点</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="input-id-1">
+          </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+        <div class="form-group has-success">
+          <label class="col-sm-2 control-label">密码</label>
+          <div class="col-sm-10">
+            <input type="password" name="password" class="form-control"  placeholder="请输入密码">
+          </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+        <div class="form-group padder">
+        	<div class="row">
+        		<div class="col-xs-6">
+        				<label>占位符</label>
+						<input type="date" class="form-control m-r" value="2011-01-04" />
+				</div>
+				<div class="col-xs-6">
+        				<label>占位符</label>
+									<input type="time" class="form-control" value="18:00">
+				</div>
+        	</div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+          	<button type="submit" class="btn btn-lg btn-primary btn-block">保 存</button>
+            <button type="submit" class="btn btn-lg btn-default btn-block m-t">取 消</button>
+          </div>
+        </div>
+        </form>
+    </div>
+
+    <!-- 个人中心 -->
+	<div class="hbox">
+	    <div class="user-index-hd">
+	        <div class="wrapper-lg bg-white-opacity">
+	            <a href="" class="thumb-lg pull-left m-r">
+	                <img src="img/a0.jpg" class="img-circle">
+	            </a>
+	            <div class="clear m-b">
+	                <div class="m-b m-t-sm">
+	                    <span class="h3 text-black">钟含武</span>
+	                    <small class="m-l">装修管家</small>
+	                </div>
+	                <button type="button" class="btn btn-xs btn-danger"><i class="iconfont">&#xe631;</i> 修改个人信息</button>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<div class="container">
+		<div class="row bg-white text-center padder-v b-b">
+			<div class="col-xs-6 no-padder b-r"><a class="block" href="#">任务 <strong class="text-danger">10</strong></a></div>
+			<div class="col-xs-6 no-padder"><a class="block" href="#">消息 <strong class="text-danger">6</strong></a></div>
+		</div>
+	</div>
+	<!-- 菜单列表 -->
+	<div class="wrapper bg-white">
+		<div class="row text-center">
+			 <div class="col-xs-4">
+			 	<a href="#" class="menu-icon-item">
+			 		<span class="user-menu-icon bg-danger">
+			 			<i class="iconfont">&#xe62f;</i>
+				 	</span>
+				 	<p>推荐客户</p>
+			 	</a>
+			 </div>
+			 <div class="col-xs-4">
+			 	<a href="#" class="menu-icon-item">
+			 		<span class="user-menu-icon bg-warning">
+			 			<i class="iconfont">&#xe609;</i>
+			 			<span class="badge">3</span>
+				 	</span>
+				 	<p>客户中心</p>
+			 	</a>
+			 </div>
+			 <div class="col-xs-4">
+			 	<a href="#" class="menu-icon-item">
+			 		<span class="user-menu-icon bg-success">
+			 			<i class="iconfont">&#xe608;</i>
+				 	</span>
+				 	<p>贷款任务</p>
+			 	</a>
+			 </div>
+			 <div class="col-xs-4">
+			 	<a href="#" class="menu-icon-item">
+			 		<span class="user-menu-icon bg-primary">
+			 			<i class="iconfont">&#xe616;</i>
+				 	</span>
+				 	<p>验真任务</p>
+			 	</a>
+			 </div>
+			 <div class="col-xs-4">
+			 	<a href="#" class="menu-icon-item">
+			 		<span class="user-menu-icon bg-info">
+			 			<i class="iconfont">&#xe617;</i>
+				 	</span>
+				 	<p>付款信息</p>
+			 	</a>
+			 </div>
+			 <div class="col-xs-4">
+			 	<a href="#" class="menu-icon-item">
+			 		<span class="user-menu-icon bg-cyan">
+			 			<i class="iconfont">&#xe61f;</i>
+				 	</span>
+				 	<p>个人中心</p>
+			 	</a>
+			 </div>
+			 <div class="col-xs-4">
+			 	<a href="#" class="menu-icon-item">
+			 		<span class="user-menu-icon bg-success">
+			 			<i class="iconfont">&#xe633;</i>
+				 	</span>
+				 	<p>贷款计算器</p>
+			 	</a>
+			 </div>
+		</div>
+	</div>
+
+	<!-- 上传图片 -->
+	<div class="container bg-white">
+		<div class="row-sm">
+			<div class="col-xs-4">
+				<div class="upload-list">
+					<img class="img-full" src="img/a0.jpg">
+					<i class="iconfont upload-close">&#xe632;</i>
+				</div>
+			</div>
+			<div class="col-xs-4">
+				<div class="upload-list">
+					<img class="img-full" src="img/a0.jpg">
+					<i class="iconfont upload-close">&#xe632;</i>
+				</div>
+			</div>
+			<div class="col-xs-4">
+				<div class="upload-list">
+					<img class="img-full" src="img/a0.jpg">
+					<i class="iconfont upload-close">&#xe632;</i>
+				</div>
+			</div>
+			<div class="col-xs-4">
+				<div class="upload-list">
+					<img class="img-full" src="img/a0.jpg">
+					<i class="iconfont upload-close">&#xe632;</i>
+				</div>
+			</div>
+			<div class="col-xs-4">
+				<div class="upload-list upload-add">
+					<img class="img-full" src="img/upload_default_pic.jpg">
+					<i class="iconfont upload-add-icon">&#xe634;</i>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+	<!-- 布局 -->
+	<div class="container bg-white">
+		 <div class="row fn-clear padder-v">
+		 	<div class="col-xs-6"><input type="password" placeholder="请输入密码" class="form-control no-border"></div>
+			<div class="col-xs-6"><input type="password" placeholder="请输入密码" class="form-control no-border"></div>
+		 </div>
+	</div>
+	<div class="wrapper">
+		<div class="row-xs fn-clear">
+			<div class="col-xs-6">
+				<div class="bg-white">fdfd</div>
+			</div>
+			<div class="col-xs-6">
+				<div class="bg-white">fdfd</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

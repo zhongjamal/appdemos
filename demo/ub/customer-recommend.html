@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>全民经纪人-小窝金服</title>
+    <meta name="keywords" content="深圳装修贷款,工行家装贷,装修,装修贷款怎么申请"/>
+    <meta name="description" content="小窝金服是中国工商银行指定的工行家装贷服务平台，以“为客户提供低成本的装修贷款服务”为经营理念，为广大家装用户提供低利率、高额度、长期限、纯信用的装修贷款产品。小窝金服还与装修公司、家具卖场、电商平台等合作，提供一站式装修贷款服务，让你的装修没有资金烦恼，省心入住自己的小窝。"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/pullToRefresh.css" />
+</head>
+<body>
+    <div class="m-head">
+      <a href="user.html" class="m-back"><i class="iconfont">&#xe600;</i></a>
+      <h2 class="head-tit">我推荐的客户</h2>
+    </div>
+    <div class="user-head customer-head">
+        <p class="user-head-subtit">累计佣金(元)</p>
+        <a href="commission-mine.html" class="user-head-rmb"><strong>1000.52<i class="iconfont">&#xe601;</i></strong></a>
+        <ul class="clearfix user-head-handle user-handle-one">
+            <li>待审核人数：<strong>2</strong><p>(新推荐客户经过审核后即可在下方展示进度)</p></li>
+        </ul>
+        <!-- <ul class="clearfix user-head-handle">
+            <li><strong>28</strong><p>推荐总客户(人)：</p></li>
+            <li><strong>6</strong><p>已获贷款(人)：</p></li>
+        </ul> -->
+    </div>
+    <div class="detail-tab detail-tab-4 clearfix">
+        <a href="javascript:void(0)" class="current">全部(28)</a>
+        <a href="javascript:void(0)">已获(28)</a>
+        <a href="javascript:void(0)">进行中(28)</a>
+        <a href="javascript:void(0)">拒批(4)</a>
+    </div>
+    <!-- <div class="no-content container">
+           <p class="text-center m-t-lg m-b-lg">暂无内容！</p>
+           <a href="" class="btn btn-warning btn-block">立即推荐</a>
+    </div> -->
+    <div class="customer-recommend-list" id="wrapper">
+        <ul>
+            <li class="bg-white m-t-10 b-t b-b">
+                <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal">
+                    <h3>钟含武 <span class="tel">(186****8477)</span></h3>
+                    <progress class="progress progress-striped" value="25" max="100"></progress>
+                    <div class="container customer-pro">
+                        <div class="row">
+                            <div class="col-xs-3">在线申请</div>
+                            <div class="col-xs-3">三方协议</div>
+                            <div class="col-xs-3">银行面签</div>
+                            <div class="col-xs-3">发放贷款</div>   
+                        </div>   
+                    </div>
+                    <span class="label label-primary">在线申请</span>
+                </a>
+            </li>
+            <li class="bg-white m-t-10 b-t b-b">
+                <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal">
+                    <h3>钟含武 <span class="tel">(186****8477)</span></h3>
+                    <progress class="progress progress-striped progress-success" value="100" max="100"></progress>
+                    <div class="container customer-pro">
+                        <div class="row">
+                            <div class="col-xs-3">在线申请</div>
+                            <div class="col-xs-3">三方协议</div>
+                            <div class="col-xs-3">银行面签</div>
+                            <div class="col-xs-3">发放贷款</div>   
+                        </div>   
+                    </div>
+                    <span class="label label-success">完成</span>
+                </a>
+            </li>
+            <li class="bg-white m-t-10 b-t b-b loadli">
+                <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal">
+                    <h3>钟含武 <span class="tel">(186****8477)</span></h3>
+                    <progress class="progress progress-striped progress-danger" value="75" max="100"></progress>
+                    <div class="container customer-pro">
+                        <div class="row">
+                            <div class="col-xs-3">在线申请</div>
+                            <div class="col-xs-3">三方协议</div>
+                            <div class="col-xs-3">银行面签<p class="text-danger">拒批</p></div>
+                            <div class="col-xs-3">发放贷款</div>   
+                        </div>   
+                    </div>
+                    <span class="label label-danger">拒批</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+    <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+            <form class="customer-info">
+                <div class="container">
+                    <div class="form-group row">
+                        <label  class="col-xs-4 form-control-label p-r-0 text-grey text-right">客户姓名</label>
+                        <div class="col-xs-8">
+                            <p class="form-control-static">钟含武</p>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label  class="col-xs-4 form-control-label p-r-0 text-grey text-right">当前状态</label>
+                        <div class="col-xs-8">
+                            <p class="form-control-static">已成功获得贷款</p>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label  class="col-xs-4 form-control-label p-r-0 text-grey text-right">时间</label>
+                        <div class="col-xs-8">
+                            <p class="form-control-static">2015年10月8日</p>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label  class="col-xs-4 form-control-label p-r-0 text-grey text-right">获批金额</label>
+                        <div class="col-xs-8">
+                            <p class="form-control-static">127023.00元</p>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label  class="col-xs-4 form-control-label p-r-0 text-grey text-right">获得佣金</label>
+                        <div class="col-xs-8">
+                            <p class="form-control-static">1000元</p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-block" data-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/iscroll.js"></script>
+<script src="js/pullToRefresh.mini.js"></script>
+<script type="text/javascript">
+    refresher.init({
+    id:"wrapper",//<------------------------------------------------------------------------------------┐
+    pullDownAction:Refresh,                                                            
+    pullUpAction:Load,                                                                   
+    });                                                                                                                                                        
+function Refresh() {                                                                
+    setTimeout(function () {    // <-- Simulate network congestion, remove setTimeout from production!
+        var el, li, i;                                                                      
+        el =document.querySelector("#wrapper ul");                  
+        //这里写你的刷新代码             
+        document.getElementById("wrapper").querySelector(".pullDownIcon").style.display="none";     
+        document.getElementById("wrapper").querySelector(".pullDownLabel").innerHTML="<i class='iconfont'>&#xe618;</i>刷新成功";                                                                                  
+        setTimeout(function () {
+            wrapper.refresh();
+            document.getElementById("wrapper").querySelector(".pullDownLabel").innerHTML="<i class='iconfont'>&#xe618;</i>刷新成功";                                
+            },1000);//下拉刷新显示成功效果
+        /****remember to refresh after  action completed！ ---yourId.refresh(); ----| ****/
+    }, 1000);
+}
+function Load() {
+    setTimeout(function () {// <-- Simulate network congestion, remove setTimeout from production!
+        var el, li, i;
+        el =document.querySelector("#wrapper ul");
+        for (i=0; i<2; i++) {
+            li = document.createElement('li');
+            $(li).addClass("bg-white m-t-10 b-t b-b");
+            var loadli = $("#wrapper li");
+            li.innerHTML = loadli.html();
+            el.appendChild(li, el.childNodes[0]);
+        }
+        wrapper.refresh();/****remember to refresh after action completed！！！   ---id.refresh(); --- ****/
+    },2000);    
+}
+</script>
+</body>
+</html>

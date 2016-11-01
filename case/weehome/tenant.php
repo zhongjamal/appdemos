@@ -1,0 +1,1 @@
+document.write("<a href=\"/tenant/\">租客登录<\/a>")

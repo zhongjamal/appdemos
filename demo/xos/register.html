@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>登录</title>
+	<meta name="keywords" content="小窝,小窝金服,金融,贷款,装修,工行" />
+	<meta name="Description" content="深圳市小窝金融信息服务有限公司,是与中国工商银行合作的工行家装贷款服务平台，以“为客户提供最有价值的家装低成本金融服务”为经营理念给广大家装用户提供成本低、额度高、期限长、纯信用的家装消费金融产品。为用户提供多家装修公司免费量房、设计、报价、供用户选择,装修工程节点验收、装修工程款担保交易等增值服务，一站式满足用户的装修融资、装修服务等需求，确保用户安心放心的入住自己的小窝。" />
+	<link rel="stylesheet" href="css/common.css" />
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+<script type="text/javascript">
+$(function () {
+         var index_div_pro = [{
+                        sx: 0,
+                        sy: 0,
+                        mw: 3,
+                        mh: 1,
+                        bx: 8.4,
+                        by: 10.4,
+                        rx: -0.6
+                },
+                {
+                        sx: 35,
+                        sy: 0,
+                        mw: 3,
+                        mh: 0.5,
+                        bx: 6.4,
+                        by: 8.4,
+                        rx: -0.1
+                },
+                {
+                        sx: 785,
+                        sy: 90,
+                        mw: 0.3,
+                        mh: 0.1,
+                        bx: 6.5,
+                        by: 7.4,
+                        rx: -0.1
+                }];
+                
+                var ePageX = null;
+                var ePageY = null;
+                
+                function getMousePos(expression) {
+                        if (ePageX == null || ePageY == null) return null;
+                        var _x = $(expression).position().left;
+                        _x += ePageX - $(expression).parent().position().left;
+                        var _y = $(expression).position().top;
+                        _y += ePageY - $(expression).parent().position().top;
+                        return {
+                                x: _x,
+                                y: _y
+                        }
+                };
+                
+                var index_xh = setInterval(function () {
+                        for (var i = 0; i < 3; i++) {
+                                var mousepos = getMousePos("#indexg" + i);
+                                if (mousepos != null) {
+                                        var left = parseInt($("#indexg" + i).css("left"));
+                                        var l = left + (index_div_pro[i].sx + index_div_pro[i].mw - (mousepos.x - 10) / index_div_pro[i].bx * index_div_pro[i].rx - left) * 0.2;
+                                        var top = parseInt($("#indexg" + i).css("top"));
+                                        var t = top + (index_div_pro[i].sy + index_div_pro[i].mh - (mousepos.y - 10) / index_div_pro[i].by - top) * 0.2;
+                                        $("#indexg" + i).css({
+                                                left: l,
+                                                top: t
+                                        })
+                                }
+                        }
+                },
+                15);
+                
+                $("body").mousemove(function (event) {
+                        event = event || window.event;
+                        ePageX = event.pageX;
+                        ePageY = event.pageY;
+                });
+        
+        
+});
+</script>
+</head>
+<body>
+	<div class="main-section">
+		<div class="xos-logo"><img src="img/xos_logo.png" /></div>
+		<div class="section-bg">
+			<div class="section-animation" id="indexg0">
+				<div class="badge-cont">
+					<img  src="img/badge-lanyard.png" class="badge-lanyard" />
+					<img  src="img/badge-pocket.png" class="badge-pocket" />
+					<div class="badge-theme">
+						 <div class="badge-form">
+						 	 <div class="badge-form-item"><input type="text" placeholder="请输入用户名" /></div>
+						 	 <div class="badge-form-item"><input type="password" placeholder="请输入密码" /></div>
+								<div class="badge-form-item item-verificode">
+									<input type="text" placeholder="请输入验证码" id="verifyCode" name="verifyCode">
+									<a href="javascript:refeshCode();" class="input-verificode-img">
+										<img src="/Handler/VerifyCode.ashx">
+									</a>
+								</div>
+						 	 <div class="badge-form-remember">
+						 	 	<label><input type="checkbox" value="True">自动登录（有效期：30天）</label>
+						 	 </div>
+						 	 <p class="error-tips">验证码错误</p>
+						 	 <div class="badge-form-item">
+						 	 	 <input class="badge-form-btn" type="button" value="立即登录" />
+						 	 </div>
+						 </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

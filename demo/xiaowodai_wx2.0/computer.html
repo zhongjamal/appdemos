@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>小窝金服-为客户提供最有价值的家装低成本金融服务</title>
+    <meta name="keywords" content="小窝,小窝金服,金融,贷款,装修,工行" />
+    <meta name="Description" content="深圳市小窝金融信息服务有限公司,是与中国工商银行合作的工行家装贷款服务平台，以“为客户提供最有价值的家装低成本金融服务”为经营理念给广大家装用户提供成本低、额度高、期限长、纯信用的家装消费金融产品。为用户提供多家装修公司免费量房、设计、报价、供用户选择,装修工程节点验收、装修工程款担保交易等增值服务，一站式满足用户的装修融资、装修服务等需求，确保用户安心放心的入住自己的小窝。" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/commons.css" />
+</head>
+<body>
+    <div class="tab-group">
+        <img src="img/sh_computer_hd.jpg" />
+    </div>
+    <div class="computer-cont">
+        <dl class="base-form fn-clear">
+            <dt>贷款金额</dt>
+            <dd>
+                <input type="number" placeholder="输入金额最少为10000" class="jsfloat" name="txtmoney" id="txtmoney" onchange="page.jsq()" /></dd>
+            <dt>支付方式</dt>
+            <dd>
+                <label for="rdbpay_0">
+                    <input type="radio" name="rdbpay" id="rdbpay_0" onchange="page.jsq()" checked />等额本金</label>
+                <label for="rdbpay_1">
+                    <input type="radio" name="rdbpay" id="rdbpay_1" onchange="page.jsq()" />等额本息</label>
+            </dd>
+            <dt>贷款年限</dt>
+            <dd>
+                <label class="form-stages">
+                    <select name="ddlpaymoth" id="ddlpaymoth" onchange="page.jsq()">
+                        <option value=""></option>
+                        <option value="12">1年</option>
+                        <option value="24">2年</option>
+                        <option value="36">3年</option>
+                        <option value="48">4年</option>
+                        <option value="60">5年</option>
+                    </select>
+                </label>
+            </dd>
+            <dt>年利率</dt>
+            <dd>
+                <input type="text" class="jstxt" name="txtfl" id="txtfl" disabled /></dd>
+            <dt>总利息</dt>
+            <dd>
+                <input type="text" class="jstxt" name="txtsxf" id="txtsxf" disabled/></dd>
+            <dt>月供（元）</dt>
+            <dd>
+                <input type="text" class="jstxt" name="txtygje" id="txtygje" disabled/></dd>
+        </dl>
+        <div class="computer-tips">
+            <p>等额本金：利息应于消费前一次性支付。</p>
+            <p>等额本息：利息支付方式为分月支付。</p>
+        </div>
+    </div>
+    <div class="computer-btn-cont">
+        <a href="apply.html" class="wx-btn wx-btn-orange">我要申请贷款</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="utf-8" />
+		<title>网商银行来啦</title>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+		<meta name="format-detection" content="telephone=no"/>
+		<meta name="format-detection" content="email=no"/>
+		<meta name="viewport" content="width=device-width,initial-scale=0.5,maximum-scale=0.5,minimum-scale=0.5,user-scalable=no">
+		<script type="text/javascript" charset="utf-8">
+		      (function(win) {
+		        win = win || window;
+		        var doc = win.document;
+		        var ua = navigator.userAgent;
+		        var matches = ua.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i);
+		        var UCversion = ua.match(/U3\/((\d+|\.){5,})/i);
+		        var isUCHd = UCversion && parseInt(UCversion[1].split('.').join(''),10) >= 80;
+		        var isIos = navigator.appVersion.match(/(iphone|ipad|ipod)/gi);
+		        var dpr = win.devicePixelRatio || 1;
+		        var docEl = doc.documentElement;
+		        /*  */
+		        var content = '';
+		        /*  */
+		        var rate = 1;
+		        var scale = 1 / dpr;
+		        if (isIos) {
+		          // IOS不需要做任何事情,
+		        } else if (matches && matches[1] > 534 || isUCHd) {
+		          if (!isUCHd) {
+		            /*  */
+		            content += 'target-densitydpi=device-dpi,';
+		          }
+
+		          // 米4这样奇葩的高端机, 乱标dpr; 导致1rem并非等于100px, 需要对viewPort强行缩放;
+		          docEl.style.fontSize = '100px';
+		          var div = doc.createElement('div');
+		          div.setAttribute('style', 'width: 1rem;display:none');
+		          docEl.appendChild(div);
+		          var trueWidth = win.getComputedStyle(div).width;
+		          docEl.removeChild(div);
+		          // 这里我直接写100px, 因为页面上html的默认fontSize就是100px;
+		          if (trueWidth !== '100px') {
+		            var trueWidthVal = parseInt(trueWidth);
+		            rate = 100 / trueWidthVal;
+		            scale = scale * rate;
+		          }
+		        } else {
+		          /*  */
+		          scale = 1;
+		        }
+
+
+		        doc.querySelector('meta[name="viewport"]').setAttribute('content', content + 'width=device-width,user-scalable=no,initial-scale=' + scale + ',maximum-scale=' + scale + ',minimum-scale=' + scale);
+		        /*  */
+		        docEl.style.fontSize = 100 / 640 * docEl.clientWidth * rate + 'px';
+		        win.addEventListener('resize', function() {
+		          docEl.style.fontSize = 100 / 640 * docEl.clientWidth * rate + 'px';
+		        });
+		      })(window);
+		      window._to = {
+		        eventType: 'click',
+		        autoLoad: false
+		      };
+		    </script>
+		    <script charset="utf-8" src="https://a.alipayobjects.com/mtracker/2.0.17/??seed.js,mtracker.js"></script>
+		<style>*,:after,:before{-webkit-tap-highlight-color:rgba(0,0,0,0)}blockquote,body,dd,div,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,input,legend,li,ol,p,td,textarea,th,ul{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}li{list-style:none}caption,th{text-align:left}q:after,q:before{content:""}input:password{ime-mode:disabled}:focus{outline:none}body,html{min-height:100%}body{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}a,img{-webkit-touch-callout:none}body{background-color:#f5f5f9}body.am-bg-white{background-color:#fff}body,button,input,select,textarea{font-size:.32rem;line-height:1.5;color:#333;font-family:Helvetica Neue,Helvetica,STHeiTi,sans-serif}input{line-height:normal}a{color:#0ae;text-decoration:none}.fn-hide{display:none}.fn-left{float:left}.fn-right{float:right}.am-content{margin-left:.2rem;margin-right:.2rem}.am-content h5{margin:0;padding:0;font-weight:400;line-height:1.5}.am-fixed{position:fixed!important;top:0;left:0;right:0;z-index:99;width:100%}.am-fixed-bottom{top:inherit;bottom:0}.user-select{-webkit-user-select:auto;-moz-user-select:auto;-ms-user-select:auto;user-select:auto}
+		.fd-fix-button{position:relative;width:100%}.fd-fix-button img{display:block;width:100%}.fix-text{text-align:center}
+		</style>
+		</head> <body>
+
+		<style>
+		/* 预览样式 */
+		body {
+		  background: transparent;
+		}
+		.fengdie-components:empty {
+		  height: 600px;
+		  background: url(https://os.alipayobjects.com/rmsportal/HYxONtSrPyJmiAz.png) center 170px no-repeat;
+		  background-size: 128px 128px;
+		}
+		.fengdie-components:empty:before {
+		  display: block;
+		  position: absolute;
+		  top: 110px;
+		  content: '请从顶部模块列表中选取模块添加到空白页面中';
+		  color: #999;
+		  width: 100%;
+		  text-align: center;
+		  font-size: 12px;
+		  box-sizing: border-box;
+		  padding: 0 80px;
+		}
+		</style>
+		<div class="fengdie-components">
+		<div data-component="components/fix-button" id="_component_rvvfqm5iqt">
+		<div class="fd-fix-button">
+		<img src="img/RKEXCyULpWbHskn.jpeg">
+		<a class="fix-button-box" style="position: absolute; left: 15.003626666666666%; top: 93.31539511624872%; width: 72.74660633484163%; height: 3.823535175879397%" href="https://q.mybank.cn?from=LHFX_WSAPP_my_woshi_001" seed="埋点"></a>
+		</div>
+		</div>
+		</div>
+		<script>!function(t){function e(n){if(o[n])return o[n].exports;var c=o[n]={exports:{},id:n,loaded:!1};return t[n].call(c.exports,c,c.exports,e),c.loaded=!0,c.exports}var n=window.webpackJsonp;window.webpackJsonp=function(r,a){for(var i,p,s=0,l=[];s<r.length;s++)p=r[s],c[p]&&l.push.apply(l,c[p]),c[p]=0;for(i in a){var u=a[i];switch(typeof u){case"object":t[i]=function(e){var n=e.slice(1),o=e[0];return function(e,c,r){t[o].apply(this,[e,c,r].concat(n))}}(u);break;case"function":t[i]=u;break;default:t[i]=t[u]}}for(n&&n(r,a);l.length;)l.shift().call(null,e);return a[0]?(o[0]=0,e(0)):void 0};var o={},c={0:0};e.e=function(t,n){if(0===c[t])return n.call(null,e);if(void 0!==c[t])c[t].push(n);else{c[t]=[n];var o=document.getElementsByTagName("head")[0],r=document.createElement("script");r.type="text/javascript",r.charset="utf-8",r.async=!0,r.src=e.p+""+({1:"components/lottery/lottery",2:"components/pay-scratch/lottery",3:"components/popup/index",4:"components/text/index",5:"components/fix-button/index",6:"components/animate-button/index",7:"assets/index"}[t]||t)+".js",o.appendChild(r)}},e.m=t,e.c=o,e.p=""}(function(t){for(var e in t)if(Object.prototype.hasOwnProperty.call(t,e))switch(typeof t[e]){case"function":break;case"object":t[e]=function(e){var n=e.slice(1),o=t[e[0]];return function(t,e,c){o.apply(this,[t,e,c].concat(n))}}(t[e]);break;default:t[e]=t[t[e]]}return t}([]));
+
+		      (function() {
+		        var data = [{"id":"_component_rvvfqm5iqt","fn":"_component_fix-button"}];
+		        for(var i = 0; i < data.length; i++) {
+		          var item = data[i];
+		          if(typeof window[item.fn] === "function") {
+		            window[item.fn](item.id);
+		          }
+		        }
+		      })();
+		    </script>
+		  </body>
+		</html>
